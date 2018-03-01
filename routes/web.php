@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('HomeController@homepage');
 });
 
-Route::get('{slug}', 'PagesController@slugpage');
+Route::get('{slug}', 'PageController@slugpage');
