@@ -10,11 +10,11 @@
         @include('includes.header')
     </header>
 
-    <div id="main" class="row">
+    <main class="row">
 
         @yield('content')
 
-    </div>
+    </main>
 
     <footer class="row">
         @include('includes.footer')
