@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    function index($slug) {
+    public function slugpage($slug) {
         return view();
     }
 }
