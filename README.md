@@ -1,4 +1,4 @@
-# NiceGuysWebsite
+# The Nice Guys
 ## Voorstelling Bedrijf 
 The Nice Guys is een veelbelovende start-up die ontstaan is uit een project van de Karel de Grote Hogeschool in Antwerpen. We zijn vijf ambitieuze studenten die de toekomst mee vorm wil geven. Door onze stempel te drukken op het sociale aspect van de mensen willen we voor een betere wereld zorgen. 
 ## Het Project – kort 
