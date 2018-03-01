@@ -11,9 +11,7 @@
     </header>
 
     <main class="row">
-
         @yield('content')
-
     </main>
 
     <footer class="row">
