@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('HomeController@homepage');
 });
 
-Route::get('{slug}', 'PageController@slugpage');
+Route::get('{slug}', 'SlugController@slugpage');
