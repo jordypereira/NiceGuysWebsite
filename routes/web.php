@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@homepage');
+
+Route::get('/admin', 'AdminController@adminpage');
+
+Route::get('/{slug}', 'SlugController@slugpage');

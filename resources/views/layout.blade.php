@@ -6,14 +6,12 @@
 <body>
 <div class="container">
 
-    <header class="row">
+    <header>
         @include('includes.header')
     </header>
 
     <main class="row">
-
         @yield('content')
-
     </main>
 
     <footer class="row">
