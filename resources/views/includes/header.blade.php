@@ -1,2 +1,3 @@
-
-<a id="logo" href="/"><img src="{{ asset('images/A-Logo.jpg') }}" alt="A-Logo"></a>
+<a href="#" class="o-header__logo">
+    <img src="{{ asset('images/A-Logo.jpg') }}" alt="Official logo Antwerpen">
+</a>
