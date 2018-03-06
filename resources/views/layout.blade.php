@@ -4,8 +4,7 @@
     @include('includes.head')
 </head>
 <body>
-<div class="container">
-
+<div>
     <header>
         @include('includes.header')
     </header>
@@ -17,7 +16,6 @@
     <footer>
         @include('includes.footer')
     </footer>
-
 </div>
 @include('includes.js')
 </body>
