@@ -12,11 +12,10 @@
         <main class="u-container">
             @yield('content')
         </main>
-
-        <footer>
-            @include('includes.footer')
-        </footer>
     </div>
+    <footer>
+        @include('includes.footer')
+    </footer>
 </div>
 @include('includes.js')
 </body>
