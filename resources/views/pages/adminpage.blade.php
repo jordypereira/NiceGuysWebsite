@@ -1,5 +1,5 @@
 @extends('layout')
 
 @section('content')
-    <h1>adminpage</h1>
+    <h1>De enige echte adminpage</h1>
 @endsection

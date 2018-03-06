@@ -1,5 +1,5 @@
 @extends('layout')
 
 @section('content')
-    <h1>slugpage</h1>
+    <h1>{{ $slug }}page</h1>
 @endsection
