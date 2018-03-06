@@ -10,11 +10,11 @@
         @include('includes.header')
     </header>
 
-    <main class="row">
+    <main>
         @yield('content')
     </main>
 
-    <footer class="row">
+    <footer>
         @include('includes.footer')
     </footer>
 
