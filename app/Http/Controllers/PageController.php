@@ -2,28 +2,88 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Page;
+use Illuminate\Http\Request;
 
-class PageController extends Controller
-{
-    public function index() {
-        return view('pages/adminpage');
-    }
+class PageController extends Controller {
 
-    public function create() {
-        return view('pages/admin/addPage');
-    }
+  /**
+   * Display a listing of the resource.
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function index() {
+    //
+  }
 
-    public function store(Request $request) {
-        $page = new Page;
+  /**
+   * Show the form for creating a new resource.
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function create() {
+    return view('admin/pages/create');
+  }
 
-        $page->title = $request->title;
-        $page->body = $request->body;
+  /**
+   * Store a newly created resource in storage.
+   *
+   * @param  \Illuminate\Http\Request $request
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function store(Request $request) {
+    $page = new Page;
 
-        $page->save();
-        return view('pages/admin/addPage');
-    }
+    $page->title = $request->get('title');
+    $page->body = $request->get('body');
 
+    $page->save();
+    return redirect('admin/pages/create')->with('success', 'Page has been added');
+  }
 
+  /**
+   * Display the specified resource.
+   *
+   * @param  int $id
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function show($id) {
+    //
+  }
+
+  /**
+   * Show the form for editing the specified resource.
+   *
+   * @param  int $id
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function edit($id) {
+    //
+  }
+
+  /**
+   * Update the specified resource in storage.
+   *
+   * @param  \Illuminate\Http\Request $request
+   * @param  int $id
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function update(Request $request, $id) {
+    //
+  }
+
+  /**
+   * Remove the specified resource from storage.
+   *
+   * @param  int $id
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function destroy($id) {
+    //
+  }
 }
