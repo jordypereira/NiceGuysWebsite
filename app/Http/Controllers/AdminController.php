@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Page;
 
 class AdminController extends Controller
 {
-    public function adminpage() {
+    public function index() {
         return view('pages/adminpage');
     }
 
-    public function addPage() {
-        return view('pages/admin/addPage');
-    }
+
 }
