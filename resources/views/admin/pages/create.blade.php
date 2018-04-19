@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('head')
+    <script src="../ckeditor.js"/>
+@endsection
+
 @section('content')
     <h1>Voeg een custom pagina toe</h1>
     <form method="post" action="{{url('admin/pages')}}">
@@ -24,5 +28,8 @@
                 <button type="submit" class="btn btn-success">Submit</button>
             </div>
         </div>
+        <script>
+            CKEDITOR.replace('body');
+        </script>
     </form>
 @endsection
