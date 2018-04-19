@@ -14,14 +14,22 @@
         </div>
     @endif
     <h1>All custom pages</h1>
+    <p><a href="{{ route('pages.create') }}">Create a new page</a></p>
     @foreach ($pages as $page)
-        <li>{{ $page['title'] }}
-            <a href="{{ route('pages.edit', $page['id']) }}" type="button" class="btn btn-secondary">Edit</a>
-            <form action="{{ route('pages.destroy', $page['id']) }}" method="POST">
-                @method('DELETE')
-                @csrf
-                <button>Delete Page</button>
-            </form>
-        </li>
+        <table class="table">
+            <tbody>
+            <tr>
+                <td>{{ $page['title'] }}</td>
+                <td><a href="{{ route('pages.edit', $page['id']) }}" class="btn btn-secondary">Edit</a></td>
+                <td>
+                    <form action="{{ route('pages.destroy', $page['id']) }}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <button class="btn btn-danger">Delete Page</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     @endforeach
 @endsection
