@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Page;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class PageController extends Controller {
 
@@ -13,7 +14,8 @@ class PageController extends Controller {
    * @return \Illuminate\Http\Response
    */
   public function index() {
-    //
+    $pages = Page::all();
+    return view('admin/pages/index', ['pages' => $pages]);
   }
 
   /**
@@ -35,11 +37,18 @@ class PageController extends Controller {
   public function store(Request $request) {
     $page = new Page;
 
+    $validatedData = $request->validate([
+      'title' => 'required|unique:pages|max:255',
+      'body' => 'required',
+    ]);
+
     $page->title = $request->get('title');
     $page->body = $request->get('body');
 
     $page->save();
-    return redirect('admin/pages/create')->with('success', 'Page has been added');
+    Session::flash('message', 'Page has been added.');
+    Session::flash('alert-class', 'alert-success');
+    return redirect('admin/pages/create');
   }
 
   /**
@@ -61,7 +70,8 @@ class PageController extends Controller {
    * @return \Illuminate\Http\Response
    */
   public function edit($id) {
-    //
+    $page = Page::find($id);
+    return view('admin/pages/edit', ['page' => $page]);
   }
 
   /**
@@ -73,7 +83,19 @@ class PageController extends Controller {
    * @return \Illuminate\Http\Response
    */
   public function update(Request $request, $id) {
-    //
+    $validatedData = $request->validate([
+      'title' => 'required|unique:pages|max:255',
+      'body' => 'required',
+    ]);
+
+    $page = Page::find($id);
+    $page->title = $request->get('title');
+    $page->body = $request->get('body');
+    $page->save();
+
+    Session::flash('message', 'Page has been added.');
+    Session::flash('alert-class', 'alert-success');
+    return redirect('admin/pages');
   }
 
   /**
@@ -84,6 +106,9 @@ class PageController extends Controller {
    * @return \Illuminate\Http\Response
    */
   public function destroy($id) {
-    //
+    Page::destroy($id);
+    Session::flash('message', 'Page has been deleted.');
+    Session::flash('alert-class', 'alert-success');
+    return redirect('admin/pages');
   }
 }
