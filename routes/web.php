@@ -14,6 +14,7 @@
 Route::get('/', 'HomeController@index');
 
 Route::get('/admin', 'AdminController@adminpage');
+Route::resource('admin/pages', 'PageController');
 
 Route::get('/register', 'HomeController@index');
 
