@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('head')
-    <script src="../ckeditor.js"/>
+    <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
 @endsection
 
 @section('content')
