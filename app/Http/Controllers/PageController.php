@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Page;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 
 class PageController extends Controller {
 
@@ -14,8 +15,12 @@ class PageController extends Controller {
    * @return \Illuminate\Http\Response
    */
   public function index() {
-    $pages = Page::all();
-    return view('admin/pages/index', ['pages' => $pages]);
+    if (Auth::check()) {
+        $pages = Page::all();
+        return view('admin/pages/index', ['pages' => $pages]);
+    } else {
+        return redirect()->route('login');
+    }
   }
 
   /**
@@ -24,7 +29,11 @@ class PageController extends Controller {
    * @return \Illuminate\Http\Response
    */
   public function create() {
-    return view('admin/pages/create');
+    if (Auth::check()) {
+        return view('admin/pages/create');
+    } else {
+        return redirect()->route('login');
+    }
   }
 
   /**
@@ -35,20 +44,22 @@ class PageController extends Controller {
    * @return \Illuminate\Http\Response
    */
   public function store(Request $request) {
-    $page = new Page;
+    if (Auth::check()) {
+        $page = new Page;
 
-    $validatedData = $request->validate([
-      'title' => 'required|unique:pages|max:255',
-      'body' => 'required',
-    ]);
+        $validatedData = $request->validate([
+            'title' => 'required|unique:pages|max:255',
+            'body' => 'required',
+        ]);
 
-    $page->title = $request->get('title');
-    $page->body = $request->get('body');
+        $page->title = $request->get('title');
+        $page->body = $request->get('body');
 
-    $page->save();
-    Session::flash('message', 'Page has been added.');
-    Session::flash('alert-class', 'alert-success');
-    return redirect('admin/pages/create');
+        $page->save();
+        Session::flash('message', 'Page has been added.');
+        Session::flash('alert-class', 'alert-success');
+        return redirect('admin/pages/create');
+    }
   }
 
   /**
@@ -70,8 +81,12 @@ class PageController extends Controller {
    * @return \Illuminate\Http\Response
    */
   public function edit($id) {
-    $page = Page::find($id);
-    return view('admin/pages/edit', ['page' => $page]);
+    if (Auth::check()) {
+        $page = Page::find($id);
+        return view('admin/pages/edit', ['page' => $page]);
+    } else {
+        return redirect()->route('login');
+    }
   }
 
   /**
@@ -83,19 +98,21 @@ class PageController extends Controller {
    * @return \Illuminate\Http\Response
    */
   public function update(Request $request, $id) {
-    $validatedData = $request->validate([
-      'title' => 'required|unique:pages|max:255',
-      'body' => 'required',
-    ]);
+    if (Auth::check()) {
+        $validatedData = $request->validate([
+            'title' => 'required|unique:pages|max:255',
+            'body' => 'required',
+        ]);
 
-    $page = Page::find($id);
-    $page->title = $request->get('title');
-    $page->body = $request->get('body');
-    $page->save();
+        $page = Page::find($id);
+        $page->title = $request->get('title');
+        $page->body = $request->get('body');
+        $page->save();
 
-    Session::flash('message', 'Page has been added.');
-    Session::flash('alert-class', 'alert-success');
-    return redirect('admin/pages');
+        Session::flash('message', 'Page has been updated.');
+        Session::flash('alert-class', 'alert-success');
+        return redirect('admin/pages');
+    }
   }
 
   /**
@@ -106,9 +123,11 @@ class PageController extends Controller {
    * @return \Illuminate\Http\Response
    */
   public function destroy($id) {
-    Page::destroy($id);
-    Session::flash('message', 'Page has been deleted.');
-    Session::flash('alert-class', 'alert-success');
-    return redirect('admin/pages');
+    if (Auth::check()) {
+        Page::destroy($id);
+        Session::flash('message', 'Page has been deleted.');
+        Session::flash('alert-class', 'alert-success');
+        return redirect('admin/pages');
+    }
   }
 }
