@@ -31,6 +31,7 @@
         </div>
         <div class="form-group" style="margin-top:60px">
             <button type="submit" class="btn btn-success">Submit</button>
+            <a class="btn btn-danger" href="{{ URL::previous() }}">Decline</a>
         </div>
         <script>
             CKEDITOR.replace('body');
