@@ -10,3 +10,6 @@ body {
     widows: 96px;
     height: 96px;
 }
+.n-button {
+    display: inline-block !important;
+}
