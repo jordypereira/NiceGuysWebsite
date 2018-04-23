@@ -6,9 +6,10 @@
 </head>
 <body>
 <div>
-    <header class="o-header">
+    <div class="header">
         @include('includes.header')
-    </header>
+    </div>
+    @include('includes.nav')
     <div class="u-wrapper">
         <main class="u-container">
             @yield('content')
