@@ -20,9 +20,9 @@
             <tbody>
             <tr>
                 <td>{{ $page['title'] }}</td>
-                <td><a href="{{ route('pages.edit', $page['id']) }}" class="btn btn-secondary">Edit</a></td>
                 <td>
-                    <form action="{{ route('pages.destroy', $page['id']) }}" method="POST">
+                    <a href="{{ route('pages.edit', $page['id']) }}" class="btn btn-secondary n-button">Edit</a>
+                    <form action="{{ route('pages.destroy', $page['id']) }}" method="POST" class="n-button">
                         @method('DELETE')
                         @csrf
                         <button class="btn btn-danger">Delete Page</button>

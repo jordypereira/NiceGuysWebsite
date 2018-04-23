@@ -1,0 +1,15 @@
+body {
+    position: relative;
+}
+.header {
+    background-color: darkgray;
+    height: 250px;
+    width: 100%;
+}
+.a-logo {
+    widows: 96px;
+    height: 96px;
+}
+.n-button {
+    display: inline-block !important;
+}
