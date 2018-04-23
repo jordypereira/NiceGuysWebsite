@@ -21,25 +21,16 @@
     <form method="post" action="{{url('admin/pages', $page['id'] )}}">
         @method('PUT')
         @csrf
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
-                <label for="title">Title:</label>
-                <input type="text" class="form-control" name="title" id="title" value="{{ $page['title'] }}">
-            </div>
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" class="form-control" name="title" id="title" value="{{ $page['title'] }}">
         </div>
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="form-group col-md-4">
-                <label for="body">Body:</label>
-                <textarea class="form-control" name="body" id="body">{{ $page['body'] }}</textarea>
-            </div>
+        <div class="form-group">
+            <label for="body">Body:</label>
+            <textarea class="form-control" name="body" id="body">{{ $page['body'] }}</textarea>
         </div>
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="form-group col-md-4" style="margin-top:60px">
-                <button type="submit" class="btn btn-success">Submit</button>
-            </div>
+        <div class="form-group" style="margin-top:60px">
+            <button type="submit" class="btn btn-success">Submit</button>
         </div>
         <script>
             CKEDITOR.replace('body');
