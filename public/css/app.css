@@ -13,3 +13,9 @@ body {
 .n-button {
     display: inline-block !important;
 }
+.delete-btn {
+    border:none;
+    background-color: unset;
+    padding:0;
+    cursor: pointer;
+}
