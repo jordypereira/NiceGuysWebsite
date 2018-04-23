@@ -13,10 +13,9 @@
 
 Route::get('/', 'HomeController@index');
 
-Route::get('/admin', 'AdminController@adminpage');
 Route::resource('admin/pages', 'PageController');
 
-Route::get('/register', 'HomeController@index');
+// Route::get('/register', 'HomeController@index');
 
 // Authentication Routes...
 $this->get('admin/login', 'Auth\LoginController@showLoginForm')->name('login');
