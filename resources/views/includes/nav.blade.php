@@ -17,17 +17,21 @@
             {{--<li class="nav-item">--}}
                 {{--<a class="nav-link disabled" href="#">Disabled</a>--}}
             {{--</li>--}}
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Admin actions
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">View all pages</a>
-                    <a class="dropdown-item" href="#">Add a page</a>
-                </div>
-            </li>
+            @auth
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Admin actions
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/admin/pages">View all pages</a>
+                        <a class="dropdown-item" href="/admin/pages/create">Add a page</a>
+                        <div class="dropdown-item">
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
+                        </div>
+                    </div>
+                </li>
+            @endauth
         </ul>
-        {{--@auth--}}
-        {{--@endauth--}}
     </div>
 </nav>
