@@ -41,3 +41,9 @@ td {
     border: unset !important;
     padding: 10px 0 !important;
 }
+.info-icon {
+    opacity: 0.1;
+}
+.info-icon:hover {
+    opacity: 1;
+}

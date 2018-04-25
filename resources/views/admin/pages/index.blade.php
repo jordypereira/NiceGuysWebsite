@@ -29,7 +29,7 @@
                     <span class="table-span">
                         {{ ucfirst($page['title']) }}
                         <a title="Info" data-toggle="collapse" href="#multiCollapseExample{{ $page['id'] }}" role="button" aria-expanded="false" aria-controls="multiCollapseExample{{ $page['id'] }}">
-                            <img src="{{ asset('images/info.png') }}" alt="Info icon">
+                            <img class="info-icon" src="{{ asset('images/info.png') }}" alt="Info icon">
                         </a>
                     </span>
                     <div class="float-right">
