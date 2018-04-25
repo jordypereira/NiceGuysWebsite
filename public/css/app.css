@@ -19,3 +19,25 @@ body {
     padding:0;
     cursor: pointer;
 }
+h1 {
+    margin:20px 0;
+}
+.btn-link {
+    color:black;
+}
+.btn-link:hover {
+    text-decoration: none;
+}
+.table-span {
+    font-size: 1.5rem;
+}
+.collapse-wrapper {
+    padding-top: 15px;
+}
+.border-unset {
+    border: unset !important;
+}
+td {
+    border: unset !important;
+    padding: 10px 0 !important;
+}
