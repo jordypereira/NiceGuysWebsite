@@ -1,6 +1,10 @@
 @extends('layout')
 
 @section('content')
-    <h1>{{ $page['title'] }}</h1>
-    <p>{!! $page['body'] !!}</p>
+    <div class="u-wrapper">
+        <main class="u-container">
+            <h1>{{ $page['title'] }}</h1>
+            <p>{!! $page['body'] !!}</p>
+        </main>
+    </div>
 @endsection
