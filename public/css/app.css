@@ -110,3 +110,13 @@ blockquote {
     right: 2%;
 
 }
+.context-inner{
+    margin: 0 auto;
+    color: #fff;
+    padding: 10px;
+}
+@media (min-width: 480px) {
+    .context-inner{
+        width: 80%;
+    }
+}
