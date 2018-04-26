@@ -54,14 +54,16 @@ class PageController extends Controller {
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $imageName = time().'_'.request()->image->getClientOriginalName();
+        if(request()->image){
+          $imageName = time().'_'.request()->image->getClientOriginalName();
+          request()->image->move(public_path('images/header'), $imageName);
+          $page->image = $imageName;
+        }
 
-        request()->image->move(public_path('images/header'), $imageName);
 
         $page->title = $request->get('title');
         $page->link = $request->get('link');
         $page->body = $request->get('body');
-        $page->image = $imageName;
 
         $page->save();
         Session::flash('message', 'Page has been added.');
