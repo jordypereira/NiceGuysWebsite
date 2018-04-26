@@ -9,15 +9,9 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
                 @foreach($pages as $page)
                     <li class="nav-item">
-                        <a class="nav-link" href="/{{ str_replace(' ', '-', $page['title']) }}">{{ $page['link'] }}</a>
+                        <a class="nav-link" href="/{{ str_replace(' ', '-', $page['title']) }}">{{ ucfirst($page['link']) }}</a>
                     </li>
                 @endforeach
                 @auth
