@@ -54,7 +54,7 @@ class PageController extends Controller {
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $imageName = time().'.'.request()->image->getClientOriginalExtension();
+        $imageName = time().'_'.request()->image->getClientOriginalName();
 
         request()->image->move(public_path('images/header'), $imageName);
 
