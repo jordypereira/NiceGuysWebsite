@@ -10,11 +10,7 @@
         @include('includes.header')
     </div>
     @include('includes.nav')
-    <div class="u-wrapper">
-        <main class="u-container">
-            @yield('content')
-        </main>
-    </div>
+    @yield('content')
     <footer>
         @include('includes.footer')
     </footer>
