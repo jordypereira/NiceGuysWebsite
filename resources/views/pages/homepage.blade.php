@@ -27,11 +27,16 @@
             </div>
         </div>
     </div>
-    <div class="context-box-1 u-bg">
-        <img src="{{ asset('images/picture.png') }}" alt="image preview" class="image-preview">
-        <h2 class="h2 header-style-2">Lorem Ipsum</h2>
-        <p class="paragraph-style-2"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-
+    <div class="u-bg py-5">
+        <div class="context-inner row">
+            <div class="col-xs-12 col-md-4 d-flex justify-content-center pt-5">
+                <img src="{{ asset('images/picture.png') }}" alt="image preview" class="image-fluid">
+            </div>
+            <div class="col-xs-12 col-md-8">
+                <h2 class="h2 mb-5">Lorem Ipsum</h2>
+                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+            </div>
+        </div>
     </div>
     <div class="context-box-1 u-bg-light">
         <blockquote>
