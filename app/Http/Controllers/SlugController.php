@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 class SlugController extends Controller {
 
   public function slugpage($slug) {
-    $title = str_replace('-', ' ', $slug);
-    $page = Page::where('title', $title)->firstOrFail();
+    $link = str_replace('-', ' ', $slug);
+    $page = Page::where('link', $link)->firstOrFail();
     return view('pages/slugpage', ['page' => $page]);
   }
 }
