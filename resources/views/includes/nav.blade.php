@@ -15,6 +15,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
                 </li>
+                @foreach($pages as $page)
+                    <li class="nav-item">
+                        <a class="nav-link" href="/{{ str_replace(' ', '-', $page['title']) }}">{{ $page['link'] }}</a>
+                    </li>
+                @endforeach
                 {{--<li class="nav-item">--}}
                 {{--<a class="nav-link disabled" href="#">Disabled</a>--}}
                 {{--</li>--}}
