@@ -20,9 +20,6 @@
                         <a class="nav-link" href="/{{ str_replace(' ', '-', $page['title']) }}">{{ $page['link'] }}</a>
                     </li>
                 @endforeach
-                {{--<li class="nav-item">--}}
-                {{--<a class="nav-link disabled" href="#">Disabled</a>--}}
-                {{--</li>--}}
                 @auth
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
