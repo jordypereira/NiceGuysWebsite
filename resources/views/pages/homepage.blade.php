@@ -2,28 +2,30 @@
 
 @section('content')
     <div class="u-bg-black py-5">
-        <div class="context-inner row">
-            <div class="col-xs-12 col-md-8">
-                <h2 class="h2 mb-5">Wist u dat..</h2>
-                <ul>
-                    <li> Ruim een op drie (31,3%) werd al eens uitgescholden
-                        voor slet, hoer, janet… op (weg naar/van) school of in
-                        zijn/haar vrije tijd. </li>
-                    <li>Bijna een op drie (28,9%) kreeg al eens seksueel
-                        getinte opmerkingen over borsten, billen,
-                        geslachtsdelen op (weg naar/van) school of in
-                        zijn/haar vrije tijd.</li>
-                    <li>Ruim een op drie (31,3%) werd al eens uitgescholden
-                        voor slet, hoer, janet… op (weg naar/van) school of in
-                        zijn/haar vrije tijd.</li>
-                    <li>Bijna een op drie (28,9%) kreeg al eens seksueel
-                        getinte opmerkingen over borsten, billen,
-                        geslachtsdelen op (weg naar/van) school of in
-                        zijn/haar vrije tijd.</li>
-                </ul>
-            </div>
-            <div class="col-xs-12 col-md-4 d-flex justify-content-center pt-5">
-                <img src="{{ asset('images/diagram-example.png') }}" alt="diagram example" class="img-fluid p-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-8">
+                    <h2 class="h2 mb-5">Wist u dat..</h2>
+                    <ul>
+                        <li> Ruim een op drie (31,3%) werd al eens uitgescholden
+                            voor slet, hoer, janet… op (weg naar/van) school of in
+                            zijn/haar vrije tijd. </li>
+                        <li>Bijna een op drie (28,9%) kreeg al eens seksueel
+                            getinte opmerkingen over borsten, billen,
+                            geslachtsdelen op (weg naar/van) school of in
+                            zijn/haar vrije tijd.</li>
+                        <li>Ruim een op drie (31,3%) werd al eens uitgescholden
+                            voor slet, hoer, janet… op (weg naar/van) school of in
+                            zijn/haar vrije tijd.</li>
+                        <li>Bijna een op drie (28,9%) kreeg al eens seksueel
+                            getinte opmerkingen over borsten, billen,
+                            geslachtsdelen op (weg naar/van) school of in
+                            zijn/haar vrije tijd.</li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-md-4 d-flex justify-content-center pt-5">
+                    <img src="{{ asset('images/diagram-example.png') }}" alt="diagram example" class="img-fluid p-3">
+                </div>
             </div>
         </div>
     </div>
