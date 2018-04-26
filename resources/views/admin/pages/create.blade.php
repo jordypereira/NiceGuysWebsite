@@ -19,7 +19,7 @@
             </div>
         @endif
         <h1>Voeg een custom pagina toe</h1>
-        <form method="post" action="{{url('admin/pages')}}">
+        <form method="post" action="{{url('admin/pages')}}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="title">Title:</label>
@@ -28,6 +28,10 @@
             <div class="form-group">
                 <label for="link">Link name:</label>
                 <input type="text" class="form-control" name="link" id="link">
+            </div>
+            <div class="form-group">
+                <label for="image">Header Image</label>
+                <input type="file" class="form-control" name="image" id="image">
             </div>
             <div class="form-group">
                 <label for="body">Body:</label>

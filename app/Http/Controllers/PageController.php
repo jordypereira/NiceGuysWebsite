@@ -51,11 +51,17 @@ class PageController extends Controller {
             'title' => 'required|max:255',
             'link' => 'required|unique:pages|max:50',
             'body' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+
+        $imageName = time().'.'.request()->image->getClientOriginalExtension();
+
+        request()->image->move(public_path('images/header'), $imageName);
 
         $page->title = $request->get('title');
         $page->link = $request->get('link');
         $page->body = $request->get('body');
+        $page->image = $imageName;
 
         $page->save();
         Session::flash('message', 'Page has been added.');
