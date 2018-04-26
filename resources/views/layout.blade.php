@@ -5,7 +5,6 @@
     @yield('head')
 </head>
 <body>
-<div>
     @if (isset($headerImage))
     <div class="header" style="background-image: url('{{ asset('images/header/'.$headerImage) }}')">
     @else
@@ -18,7 +17,6 @@
     <footer>
         @include('includes.footer')
     </footer>
-</div>
 @include('includes.js')
 </body>
 </html>
