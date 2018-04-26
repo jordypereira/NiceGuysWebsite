@@ -25,6 +25,10 @@
             <input type="text" class="form-control" name="title" id="title">
         </div>
         <div class="form-group">
+            <label for="link">Link name:</label>
+            <input type="text" class="form-control" name="link" id="link">
+        </div>
+        <div class="form-group">
             <label for="body">Body:</label>
             <textarea class="form-control" name="body" id="body"></textarea>
         </div>

@@ -48,11 +48,13 @@ class PageController extends Controller {
         $page = new Page;
 
         $validatedData = $request->validate([
-            'title' => 'required|unique:pages|max:255',
+            'title' => 'required|max:255',
+            'link' => 'required|unique:pages|max:50',
             'body' => 'required',
         ]);
 
         $page->title = $request->get('title');
+        $page->link = $request->get('link');
         $page->body = $request->get('body');
 
         $page->save();
@@ -100,12 +102,14 @@ class PageController extends Controller {
   public function update(Request $request, $id) {
     if (Auth::check()) {
         $validatedData = $request->validate([
-            'title' => 'required|unique:pages|max:255',
+            'title' => 'required|max:255',
+            'link' => 'required|unique:pages|max:50',
             'body' => 'required',
         ]);
 
         $page = Page::find($id);
         $page->title = $request->get('title');
+        $page->link = $request->get('link');
         $page->body = $request->get('body');
         $page->save();
 

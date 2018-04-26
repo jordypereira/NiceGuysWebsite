@@ -26,6 +26,10 @@
             <input type="text" class="form-control" name="title" id="title" value="{{ $page['title'] }}">
         </div>
         <div class="form-group">
+            <label for="link">Link:</label>
+            <input type="text" class="form-control" name="link" id="link" value="{{ $page['link'] }}">
+        </div>
+        <div class="form-group">
             <label for="body">Body:</label>
             <textarea class="form-control" name="body" id="body">{{ $page['body'] }}</textarea>
         </div>
