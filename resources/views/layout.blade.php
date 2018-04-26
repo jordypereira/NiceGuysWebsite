@@ -6,8 +6,8 @@
 </head>
 <body>
 <div>
-    @if (isset($page['image']))
-    <div class="header" style="background-image: url('{{ asset('images/header/'.$page['image']) }}')">
+    @if (isset($headerImage))
+    <div class="header" style="background-image: url('{{ asset('images/header/'.$headerImage) }}')">
     @else
     <div class="header">
     @endif

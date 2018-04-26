@@ -10,6 +10,6 @@ class SlugController extends Controller {
   public function slugpage($slug) {
     $link = str_replace('-', ' ', $slug);
     $page = Page::where('link', $link)->firstOrFail();
-    return view('pages/slugpage', ['page' => $page]);
+    return view('pages/slugpage', ['page' => $page, 'headerImage' => $page['image']]);
   }
 }
