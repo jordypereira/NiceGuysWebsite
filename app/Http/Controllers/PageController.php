@@ -90,7 +90,7 @@ class PageController extends Controller {
         $page = Page::find($id);
         $images = Image::all();
         $headerImage = $page->image;
-        return view('admin/pages/edit', ['page' => $page, 'headerImage' => $headerImage, 'images' => $images]);
+        return view('admin/pages/edit', ['page' => $page, 'headerImage' => 'header/'.$headerImage, 'images' => $images]);
     } else {
         return redirect()->route('login');
     }
