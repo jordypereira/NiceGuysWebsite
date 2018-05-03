@@ -132,7 +132,7 @@ class HomeBlockController extends Controller{
     public function destroy($id) {
         if (Auth::check()) {
             HomeBlock::destroy($id);
-            Session::flash('message', 'Page has been deleted.');
+            Session::flash('message', 'Block has been deleted.');
             Session::flash('alert-class', 'alert-success');
             return redirect('admin/home');
         }
