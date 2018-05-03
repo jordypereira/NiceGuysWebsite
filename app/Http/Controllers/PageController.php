@@ -18,7 +18,7 @@ class PageController extends Controller {
   public function index() {
     if (Auth::check()) {
         $pages = Page::all();
-        return view('admin/pages/index', ['pages' => $pages]);
+        return view('admin/pages/index', ['pages' => $pages, 'headerImage' => 'headerbw.jpg']);
     } else {
         return redirect()->route('login');
     }
@@ -32,7 +32,7 @@ class PageController extends Controller {
   public function create() {
     if (Auth::check()) {
         $images = Image::all();
-        return view('admin/pages/create', ['images' => $images]);
+        return view('admin/pages/create', ['images' => $images, 'headerImage' => 'headerbw.jpg']);
     } else {
         return redirect()->route('login');
     }
@@ -143,7 +143,7 @@ class PageController extends Controller {
   public function render_upload() {
       if (Auth::check()) {
           $images = Image::all();
-          return view('admin/pages/upload', ["images" => $images]);
+          return view('admin/pages/upload', ["images" => $images, 'headerImage' => 'headerbw.jpg']);
       }
   }
   public function upload_image(Request $request) {
