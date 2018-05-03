@@ -77,7 +77,8 @@ class PageController extends Controller {
   public function show($slug) {
       $link = str_replace('-', ' ', $slug);
       $page = Page::where('link', $link)->firstOrFail();
-      return view('pages/slugpage', ['page' => $page, 'headerImage' => 'header/'.$page['image']]);
+      $headerImage = (!empty($page['image'])) ? 'header/'.$page['image'] : NULL;
+      return view('pages/slugpage', ['page' => $page, 'headerImage' => $headerImage]);
   }
 
   /**
@@ -91,8 +92,8 @@ class PageController extends Controller {
     if (Auth::check()) {
         $page = Page::find($id);
         $images = Image::where('type','=','header')->get();
-        $headerImage = $page->image;
-        return view('admin/pages/edit', ['page' => $page, 'headerImage' => 'header/'.$headerImage, 'images' => $images]);
+        $headerImage = (!empty($page->image)) ? 'header/'.$page->image : NULL;
+        return view('admin/pages/edit', ['page' => $page, 'headerImage' => $headerImage, 'images' => $images]);
     } else {
         return redirect()->route('login');
     }
@@ -146,11 +147,7 @@ class PageController extends Controller {
       if (Auth::check()) {
           $headerImages = Image::where('type','=','header')->get();
           $homeImages = Image::where('type','=','home')->get();
-          $isEmpty = true;
-          if (count($headerImages) or count($homeImages)) {
-              $isEmpty = false;
-          }
-          return view('admin/pages/upload', ["headerImages" => $headerImages, "homeImages" => $homeImages, 'headerImage' => 'headerbw.jpg', 'isEmpty' => $isEmpty]);
+          return view('admin/pages/upload', ["headerImages" => $headerImages, "homeImages" => $homeImages, 'headerImage' => 'headerbw.jpg']);
       }
   }
   public function upload_image(Request $request) {

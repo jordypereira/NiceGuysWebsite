@@ -5,7 +5,7 @@
     @yield('head')
 </head>
 <body>
-    @if (!empty($headerImage) > 0)
+    @if (!empty($headerImage))
     <div class="header" style="background-image: url('{{ asset('images/'.$headerImage) }}')">
     @else
     <div class="header" style="background-image: url('{{ asset('images/headerbw.jpg') }}')">

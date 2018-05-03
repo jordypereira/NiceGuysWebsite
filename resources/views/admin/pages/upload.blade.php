@@ -36,7 +36,7 @@
                 <button type="submit" class="btn btn-success">Uploaden</button>
             </div>
         </form>
-            @if(!$isEmpty)
+            @if(count($headerImages) or count($homeImages))
                 <h2 class="mb-4">Uploaded images</h2>
                 <div class="row">
                     <div class="col-md-6">
