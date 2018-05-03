@@ -39,7 +39,7 @@
                             <form action="{{ route('pages.destroy', $page['id']) }}" method="POST" class="n-button">
                                 @method('DELETE')
                                 @csrf
-                                <button class="delete-btn"><img src="{{ asset('images/cancel-button.png') }}" alt="Delete icon" title="Delete"></button>
+                                <button class="delete-btn" onclick="return confirm('Ben je zeker dat je deze pagina wilt verwijderen?')"><img src="{{ asset('images/cancel-button.png') }}" alt="Delete icon" title="Delete"></button>
                             </form>
                         </div>
                         <div class="collapse-wrapper">

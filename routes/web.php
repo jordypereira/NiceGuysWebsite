@@ -41,5 +41,4 @@ $this->get('admin/password/reset/{token}', 'Auth\ResetPasswordController@showRes
 $this->post('admin/password/reset', 'Auth\ResetPasswordController@reset');
 
 // Slug route must be last!
-
-Route::get('/{slug}', 'SlugController@slugpage');
+Route::get('/{slug}', 'PageController@show');
