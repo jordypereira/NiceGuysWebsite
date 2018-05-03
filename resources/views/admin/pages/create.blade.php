@@ -45,7 +45,7 @@
                 <label for="body">Body:</label>
                 <textarea class="form-control" name="body" id="body"></textarea>
             </div>
-            <div class="form-group" style="margin-top:60px">
+            <div class="form-group my-4">
                 <button type="submit" class="btn btn-success">Submit</button>
                 <a class="btn btn-danger" href="{{ URL::previous() }}">Decline</a>
             </div>

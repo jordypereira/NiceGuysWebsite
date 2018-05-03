@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\HomeBlock;
+use App\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -22,7 +23,8 @@ class HomeController extends Controller
      */
     public function create() {
         if (Auth::check()) {
-            return view('admin/home/create');
+            $images = Image::where('type','=','home')->get();
+            return view('admin/home/create', ["images" => $images]);
         } else {
             return redirect()->route('login');
         }
@@ -42,17 +44,12 @@ class HomeController extends Controller
             $validatedData = $request->validate([
                 'title' => 'required|max:255',
                 'text' => 'required',
-                'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'image' => 'required',
             ]);
-
-            if(request()->image){
-                $imageName = time().'_'.request()->image->getClientOriginalName();
-                request()->image->move(public_path('images/homeblock'), $imageName);
-                $homeBlock->image = $imageName;
-            }
 
             $homeBlock->title = $request->get('title');
             $homeBlock->text = $request->get('text');
+            $homeBlock->image = $request->get('image');
 
             $homeBlock->save();
             Session::flash('message', 'Home Block has been added.');

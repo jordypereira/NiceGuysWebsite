@@ -31,7 +31,7 @@ class PageController extends Controller {
    */
   public function create() {
     if (Auth::check()) {
-        $images = Image::all();
+        $images = Image::where('type','=','header')->get();
         return view('admin/pages/create', ['images' => $images, 'headerImage' => 'headerbw.jpg']);
     } else {
         return redirect()->route('login');
@@ -88,7 +88,7 @@ class PageController extends Controller {
   public function edit($id) {
     if (Auth::check()) {
         $page = Page::find($id);
-        $images = Image::all();
+        $images = Image::where('type','=','header')->get();
         $headerImage = $page->image;
         return view('admin/pages/edit', ['page' => $page, 'headerImage' => 'header/'.$headerImage, 'images' => $images]);
     } else {
@@ -151,15 +151,21 @@ class PageController extends Controller {
           $image = new Image;
 
           $validatedData = $request->validate([
-              'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+              'type' => 'required',
+              'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
           ]);
 
           if(request()->image){
               $imageName = time().'_'.request()->image->getClientOriginalName();
-              request()->image->move(public_path('images/header'), $imageName);
+              if($request->get('type') == 'home') {
+                  request()->image->move(public_path('images/homeblock'), $imageName);
+              }
+              else {
+                  request()->image->move(public_path('images/header'), $imageName);
+              }
               $image->filename = $imageName;
           }
-
+          $image->type = $request->get('type');
           $image->save();
           Session::flash('message', 'Image has been uploaded.');
           Session::flash('alert-class', 'alert-success');
