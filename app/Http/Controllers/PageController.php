@@ -70,12 +70,14 @@ class PageController extends Controller {
   /**
    * Display the specified resource.
    *
-   * @param  int $id
+   * @param  string $slug
    *
    * @return \Illuminate\Http\Response
    */
-  public function show($id) {
-    //
+  public function show($slug) {
+      $link = str_replace('-', ' ', $slug);
+      $page = Page::where('link', $link)->firstOrFail();
+      return view('pages/slugpage', ['page' => $page, 'headerImage' => 'header/'.$page['image']]);
   }
 
   /**
