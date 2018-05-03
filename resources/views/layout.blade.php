@@ -6,7 +6,7 @@
 </head>
 <body>
     @if (isset($headerImage))
-    <div class="header" style="background-image: url('{{ asset('images/header/'.$headerImage) }}')">
+    <div class="header" style="background-image: url('{{ asset('images/'.$headerImage) }}')">
     @else
     <div class="header">
     @endif

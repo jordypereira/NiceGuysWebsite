@@ -91,7 +91,6 @@ td {
     width: 35%;
 }
 blockquote {
-
     position: absolute;
     top: 35%;
     left: 25%;
@@ -110,6 +109,10 @@ blockquote {
     right: 2%;
 
 }
+.home-block{
+    display: flex;
+    justify-content: center;
+}
 .context-inner{
     margin: 0 auto;
     padding: 10px;
@@ -124,6 +127,11 @@ blockquote {
 }
 .neg-p-15{
     margin-left: -0.5rem;
+}
+.home-img{
+    max-height: 300px;
+    width: auto;
+    height: auto;
 }
 .gallery-wrapper {
     height: 100px;
@@ -142,4 +150,3 @@ blockquote {
     -moz-appearance: checkbox;
     -ms-progress-appearance: ring;
     -webkit-appearance: radio;
-}
