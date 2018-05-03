@@ -18,7 +18,7 @@
                     {!! $block['text'] !!}
                 </div>
                 <div class="col-xs-12 col-md-4 d-flex justify-content-center">
-                    <img src="{{ asset('images/'.$block['image']) }}" alt="Block Image" class="img-fluid p-3">
+                    <img src="{{ asset('images/homeblock/'.$block['image']) }}" alt="Block Image" class="home-img p-3">
                 </div>
             </div>
         </div>
