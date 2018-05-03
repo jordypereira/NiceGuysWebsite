@@ -88,7 +88,7 @@ class HomeBlockController extends Controller{
     public function edit($id) {
         if (Auth::check()) {
             $homeblock = HomeBlock::find($id);
-            $images = Image::where('type', '=', 'home');
+            $images = Image::where('type', '=', 'home')->get();
             return view('admin/home/edit', ['homeblock' => $homeblock, 'headerImage' => 'headerbw.jpg', 'images' => $images]);
         } else {
             return redirect()->route('login');
