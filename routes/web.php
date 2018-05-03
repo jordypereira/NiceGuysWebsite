@@ -13,7 +13,7 @@
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::resource('/admin/home', 'HomeController');
+Route::resource('/admin/home', 'HomeBlockController');
 
 Route::resource('admin/pages', 'PageController');
 
