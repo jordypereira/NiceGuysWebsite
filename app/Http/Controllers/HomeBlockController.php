@@ -108,18 +108,17 @@ class HomeBlockController extends Controller{
             $validatedData = $request->validate([
                 'title' => 'required|max:255',
                 'text' => 'required',
-                'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
 
             $homeBlock = HomeBlock::find($id);
             $homeBlock->title = $request->get('title');
             $homeBlock->text = $request->get('text');
-            $homeBlock->image = $request->get('image');
+            if(!empty($request->get('image'))) $homeBlock->image = $request->get('image');
             $homeBlock->save();
 
             Session::flash('message', 'Page has been updated.');
             Session::flash('alert-class', 'alert-success');
-            return redirect('admin/pages');
+            return redirect('admin/home');
         }
     }
 

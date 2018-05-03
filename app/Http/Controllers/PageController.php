@@ -119,7 +119,7 @@ class PageController extends Controller {
         $page->title = $request->get('title');
         $page->link = $request->get('link');
         $page->body = $request->get('body');
-        $page->image = $request->get('image');
+        if(!empty($request->get('image'))) $page->image = $request->get('image');
         $page->save();
 
         Session::flash('message', 'Page has been updated.');

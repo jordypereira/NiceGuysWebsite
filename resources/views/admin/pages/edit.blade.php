@@ -31,31 +31,19 @@
                 <input type="text" class="form-control" name="link" id="link" value="{{ $page['link'] }}">
             </div>
             <div class="form-group">
-                @if (isset($headerImage))
-                    <p class="mb-4">Current header image:</p>
-                    <div class="gallery-wrapper d-block">
-                        <img class="gallery-image" src="{{ asset('images/'.$headerImage) }}" alt="">
-                    </div>
-                    <a class="btn btn-outline-dark my-4" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Selecteer een andere foto</a>
-                    <div class="collapse multi-collapse" id="multiCollapseExample1">
-                        @foreach($images as $image)
-                            <div class="gallery-wrapper">
-                                <label class="gallery-label" for="image-{{$image["id"]}}"><img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt=""></label>
-                                <input class="gallery-radio" type="radio" name="image" id="image-{{$image["id"]}}" value="{{ $image["filename"] }}">
-                            </div>
-                        @endforeach
-                    </div>
-                @else
-                    <label for="image">Header image:</label>
-                    <div>
-                        @foreach($images as $image)
-                            <div class="gallery-wrapper">
-                                <label class="gallery-label" for="image-{{$image["id"]}}"><img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt=""></label>
-                                <input class="gallery-radio" type="radio" name="image" id="image-{{$image["id"]}}" value="{{ $image["filename"] }}">
-                            </div>
-                        @endforeach
-                    </div>
-                @endif
+                <p class="mb-4">Current header image:</p>
+                <div class="gallery-wrapper d-block">
+                    <img class="gallery-image" src="{{ asset('images/'.$headerImage) }}" alt="">
+                </div>
+                <a class="btn btn-outline-dark my-4" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Selecteer een andere foto</a>
+                <div class="collapse multi-collapse" id="multiCollapseExample1">
+                    @foreach($images as $image)
+                        <div class="gallery-wrapper">
+                            <label class="gallery-label" for="image-{{$image["id"]}}"><img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt=""></label>
+                            <input class="gallery-radio" type="radio" name="image" id="image-{{$image["id"]}}" value="{{ $image["filename"] }}">
+                        </div>
+                    @endforeach
+                </div>
             </div>
             <div class="form-group">
                 <label for="body">Body:</label>
