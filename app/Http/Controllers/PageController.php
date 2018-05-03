@@ -166,4 +166,12 @@ class PageController extends Controller {
           return redirect('admin/upload');
       }
   }
+  public function admin_page() {
+      if (Auth::check()) {
+          return redirect()->route('home');
+      }
+      else {
+          return redirect()->route('login');
+      }
+  }
 }
