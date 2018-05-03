@@ -144,8 +144,13 @@ class PageController extends Controller {
   }
   public function render_upload() {
       if (Auth::check()) {
-          $images = Image::all();
-          return view('admin/pages/upload', ["images" => $images, 'headerImage' => 'headerbw.jpg']);
+          $headerImages = Image::where('type','=','header')->get();
+          $homeImages = Image::where('type','=','home')->get();
+          $isEmpty = true;
+          if (count($headerImages) or count($homeImages)) {
+              $isEmpty = false;
+          }
+          return view('admin/pages/upload', ["headerImages" => $headerImages, "homeImages" => $homeImages, 'headerImage' => 'headerbw.jpg', 'isEmpty' => $isEmpty]);
       }
   }
   public function upload_image(Request $request) {

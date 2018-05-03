@@ -31,7 +31,10 @@
             </div>
             <div class="form-group">
                 <label class="d-block" for="image">Header Image</label>
+
                 <a class="btn btn-outline-dark my-3" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Selecteer een foto</a>
+                <a class="btn btn-outline-dark my-3" data-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2">Upload een foto</a>
+
                 <div class="collapse multi-collapse" id="multiCollapseExample1">
                     @foreach($images as $image)
                         <div class="gallery-wrapper">
@@ -39,6 +42,12 @@
                             <input class="gallery-radio" type="radio" name="image" id="image-{{$image["id"]}}" value="{{ $image["filename"] }}">
                         </div>
                     @endforeach
+                </div>
+
+                <div class="collapse" id="multiCollapseExample2" style="max-height: 64px">
+                    <div class="form-group">
+                        <input type="file" class="form-control p-3" name="image" id="image">
+                    </div>
                 </div>
             </div>
             <div class="form-group">

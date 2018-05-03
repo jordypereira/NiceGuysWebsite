@@ -36,12 +36,23 @@
                 <button type="submit" class="btn btn-success">Uploaden</button>
             </div>
         </form>
-            @if(!empty($images))
+            @if(!$isEmpty)
                 <h2 class="mb-4">Uploaded images</h2>
-                <div class="gallery-wrapper mb-4">
-                    @foreach($images as $image)
-                        <a href="{{ asset('images/header/'.$image["filename"]) }}" target="_blank"><img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt=""></a>
-                    @endforeach
+                <div class="row">
+                    <div class="col-md-6">
+                        @foreach($headerImages as $image)
+                            <div class="gallery-wrapper">
+                                <a href="{{ asset('images/header/'.$image["filename"]) }}" target="_blank"><img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt=""></a>
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="col-md-6">
+                        @foreach($homeImages as $image)
+                            <div class="gallery-wrapper">
+                                <a href="{{ asset('images/homeblock/'.$image["filename"]) }}" target="_blank"><img class="gallery-image" src="{{ asset('images/homeblock/'.$image["filename"]) }}" alt=""></a>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             @endif
     </main>
