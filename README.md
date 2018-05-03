@@ -11,6 +11,6 @@ Onze doelstelling is natuurlijk dat er geen slachtoffers meer vallen, elk beetje
 - composer install
 - npm install
 - copy the env.example to env
-- change sqlite path to your absolute path
+- change sqlite path to your absolute path and make the file ./database/database.sqlite
 - php artisan key:generate
 - php artisan migrate:refresh --seed
