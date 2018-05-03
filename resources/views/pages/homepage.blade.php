@@ -1,18 +1,18 @@
 @extends('layout')
 
 @section('content')
+    @if(!empty($blocks))
     @foreach($blocks as $key => $block)
-        @if($key % 2 !== 0)
-            <div class="home-block u-bg-black py-5">
+    @if($key % 2 === 0)
+        <div class="home-block u-bg-black py-5">
+    @else
+        <div class="home-block u-bg py-5">
+    @endif
+        @if($key % 2 === 0)
+            <div class="context-inner row">
         @else
-            <div class="home-block u-bg py-5">
-        @endif
-
-            @if($key % 2 !== 0)
-                <div class="context-inner row">
-            @else
-                <div class="context-inner row flex-row-reverse">
-            @endif
+            <div class="context-inner row flex-row-reverse">
+                @endif
                 <div class="col-xs-12 col-md-8">
                     <h2 class="h2 mb-5">{{ $block['title'] }}</h2>
                     {!! $block['text'] !!}
@@ -23,6 +23,7 @@
             </div>
         </div>
     @endforeach
+    @endif
     <div class="context-box-1 u-bg-light">
         <blockquote>
             <p>Blockquote: Arma virumque cano, Troiae qui primus ab oris Italiam, fato profugus, Laviniaque venit
