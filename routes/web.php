@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'HomeController@index')->name('home');
+
 Route::resource('/admin/home', 'HomeController');
 
 Route::resource('admin/pages', 'PageController');
@@ -19,7 +20,8 @@ Route::resource('admin/pages', 'PageController');
 Route::get('/admin/upload', 'PageController@render_upload');
 Route::post('/admin/upload', 'PageController@upload_image');
 
-Route::get('/admin', 'Auth\LoginController@showLoginForm');
+Route::get('/admin', 'PageController@admin_page');
+
 
 // Route::get('/register', 'HomeController@index');
 
