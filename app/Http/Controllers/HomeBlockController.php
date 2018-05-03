@@ -31,7 +31,8 @@ class HomeBlockController extends Controller{
      */
     public function create() {
         if (Auth::check()) {
-            return view('admin/home/create', ['headerImage' => 'headerbw.jpg']);
+            $images = Image::where('type','=','home')->get();
+            return view('admin/home/create', ['headerImage' => 'headerbw.jpg', 'images' => $images]);
         } else {
             return redirect()->route('login');
         }
@@ -54,14 +55,9 @@ class HomeBlockController extends Controller{
                 'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
 
-            if(request()->image){
-                $imageName = time().'_'.request()->image->getClientOriginalName();
-                request()->image->move(public_path('images/homeblock'), $imageName);
-                $homeBlock->image = $imageName;
-            }
-
             $homeBlock->title = $request->get('title');
             $homeBlock->text = $request->get('text');
+            $homeBlock->image = $request->get('image');
 
             $homeBlock->save();
             Session::flash('message', 'Home Block has been added.');

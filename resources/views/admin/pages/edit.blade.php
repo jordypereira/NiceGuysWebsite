@@ -34,7 +34,7 @@
                 @if (isset($headerImage))
                     <p class="mb-4">Current header image:</p>
                     <div class="gallery-wrapper d-block">
-                        <img class="gallery-image" src="{{ asset('images/header/'.$headerImage) }}" alt="">
+                        <img class="gallery-image" src="{{ asset('images/'.$headerImage) }}" alt="">
                     </div>
                     <a class="btn btn-outline-dark my-4" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Selecteer een andere foto</a>
                     <div class="collapse multi-collapse" id="multiCollapseExample1">

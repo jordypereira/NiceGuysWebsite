@@ -24,6 +24,14 @@
             <div class="form-group">
                 <input type="file" class="form-control p-3" name="image" id="image">
             </div>
+            <div class="d-block">
+                <input class="gallery-radio" id="home" name="type" type="radio" value="home">
+                <label for="home">Homepage foto</label>
+            </div>
+            <div class="d-block">
+                <input class="gallery-radio" id="header" name="type" type="radio" value="header">
+                <label for="header">Header foto</label>
+            </div>
             <div class="form-group my-4">
                 <button type="submit" class="btn btn-success">Uploaden</button>
             </div>
