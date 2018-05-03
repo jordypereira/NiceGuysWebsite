@@ -5,17 +5,17 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0 neg-p-15">
-                <li class="nav-item active">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-0 neg-p-15 w-100 d-block">
+                <li class="nav-item active d-inline-block">
                     <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 @foreach($pages as $page)
-                    <li class="nav-item">
+                    <li class="nav-item d-inline-block">
                         <a class="nav-link" href="/{{ str_replace(' ', '-', $page['link']) }}">{{ ucfirst($page['link']) }}</a>
                     </li>
                 @endforeach
                 @auth
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown d-inline-block float-right">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Admin actions
                         </a>
