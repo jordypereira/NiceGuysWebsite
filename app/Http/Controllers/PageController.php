@@ -108,7 +108,7 @@ class PageController extends Controller {
     if (Auth::check()) {
         $validatedData = $request->validate([
             'title' => 'required|max:255',
-            'link' => 'required|unique:pages|max:50',
+            'link' => 'required|unique:pages,'.$id.'|max:50',
             'body' => 'required',
         ]);
 
