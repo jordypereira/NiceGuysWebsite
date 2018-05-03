@@ -91,7 +91,6 @@ td {
     width: 35%;
 }
 blockquote {
-
     position: absolute;
     top: 35%;
     left: 25%;
@@ -109,6 +108,10 @@ blockquote {
     top: 40%;
     right: 2%;
 
+}
+.home-block{
+    display: flex;
+    justify-content: center;
 }
 .context-inner{
     margin: 0 auto;
