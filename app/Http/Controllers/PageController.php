@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Page;
+use App\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
@@ -30,7 +31,8 @@ class PageController extends Controller {
    */
   public function create() {
     if (Auth::check()) {
-        return view('admin/pages/create');
+        $images = Image::all();
+        return view('admin/pages/create', ['images' => $images]);
     } else {
         return redirect()->route('login');
     }
@@ -51,24 +53,17 @@ class PageController extends Controller {
             'title' => 'required|max:255',
             'link' => 'required|unique:pages|max:50',
             'body' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-
-        if(request()->image){
-          $imageName = time().'_'.request()->image->getClientOriginalName();
-          request()->image->move(public_path('images/header'), $imageName);
-          $page->image = $imageName;
-        }
-
 
         $page->title = $request->get('title');
         $page->link = $request->get('link');
         $page->body = $request->get('body');
+        $page->image = $request->get("image");
 
         $page->save();
         Session::flash('message', 'Page has been added.');
         Session::flash('alert-class', 'alert-success');
-        return redirect('admin/pages/create');
+        return redirect('admin/pages');
     }
   }
 
@@ -93,7 +88,9 @@ class PageController extends Controller {
   public function edit($id) {
     if (Auth::check()) {
         $page = Page::find($id);
-        return view('admin/pages/edit', ['page' => $page]);
+        $images = Image::all();
+        $headerImage = $page->image;
+        return view('admin/pages/edit', ['page' => $page, 'headerImage' => $headerImage, 'images' => $images]);
     } else {
         return redirect()->route('login');
     }
@@ -119,6 +116,7 @@ class PageController extends Controller {
         $page->title = $request->get('title');
         $page->link = $request->get('link');
         $page->body = $request->get('body');
+        $page->image = $request->get('image');
         $page->save();
 
         Session::flash('message', 'Page has been updated.');
@@ -141,5 +139,31 @@ class PageController extends Controller {
         Session::flash('alert-class', 'alert-success');
         return redirect('admin/pages');
     }
+  }
+  public function render_upload() {
+      if (Auth::check()) {
+          $images = Image::all();
+          return view('admin/pages/upload', ["images" => $images]);
+      }
+  }
+  public function upload_image(Request $request) {
+      if (Auth::check()) {
+          $image = new Image;
+
+          $validatedData = $request->validate([
+              'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+          ]);
+
+          if(request()->image){
+              $imageName = time().'_'.request()->image->getClientOriginalName();
+              request()->image->move(public_path('images/header'), $imageName);
+              $image->filename = $imageName;
+          }
+
+          $image->save();
+          Session::flash('message', 'Image has been uploaded.');
+          Session::flash('alert-class', 'alert-success');
+          return redirect('admin/upload');
+      }
   }
 }

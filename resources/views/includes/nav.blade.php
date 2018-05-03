@@ -22,6 +22,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="/admin/pages">View all pages</a>
                             <a class="dropdown-item" href="/admin/pages/create">Add a page</a>
+                            <a class="dropdown-item" href="/admin/upload">Upload an image</a>
                             <div class="dropdown-item">
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>

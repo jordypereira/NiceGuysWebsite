@@ -15,6 +15,9 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::resource('admin/pages', 'PageController');
 
+Route::get('/admin/upload', 'PageController@render_upload');
+Route::post('/admin/upload', 'PageController@upload_image');
+
 // Route::get('/register', 'HomeController@index');
 
 // Authentication Routes...
