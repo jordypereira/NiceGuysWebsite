@@ -28,12 +28,13 @@
                 <button type="submit" class="btn btn-success">Uploaden</button>
             </div>
         </form>
-
-        <h2 class="mb-4">Uploaded images</h2>
-        <div class="gallery-wrapper mb-4">
-            @foreach($images as $image)
-                <a href="{{ asset('images/header/'.$image["filename"]) }}" target="_blank"><img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt=""></a>
-            @endforeach
-        </div>
+            @if(!empty($images))
+                <h2 class="mb-4">Uploaded images</h2>
+                <div class="gallery-wrapper mb-4">
+                    @foreach($images as $image)
+                        <a href="{{ asset('images/header/'.$image["filename"]) }}" target="_blank"><img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt=""></a>
+                    @endforeach
+                </div>
+            @endif
     </main>
 @endsection
