@@ -36,17 +36,17 @@
                     <div class="collapse multi-collapse" id="multiCollapseExample1">
                         @foreach($images as $image)
                             <div class="gallery-wrapper">
-                                <label class="gallery-label" for="image-{{$image["id"]}}"><img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt=""></label>
+                                <label class="gallery-label" for="image-{{$image["id"]}}"><img class="gallery-image" src="{{ asset('images/homeblock/'.$image["filename"]) }}" alt=""></label>
                                 <input class="gallery-radio" type="radio" name="image" id="image-{{$image["id"]}}" value="{{ $image["filename"] }}">
                             </div>
                         @endforeach
                     </div>
                 @else
-                    <label for="image">Header image:</label>
+                    <label for="image">Home image:</label>
                     <div>
                         @foreach($images as $image)
                             <div class="gallery-wrapper">
-                                <label class="gallery-label" for="image-{{$image["id"]}}"><img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt=""></label>
+                                <label class="gallery-label" for="image-{{$image["id"]}}"><img class="gallery-image" src="{{ asset('images/homeblock/'.$image["filename"]) }}" alt=""></label>
                                 <input class="gallery-radio" type="radio" name="image" id="image-{{$image["id"]}}" value="{{ $image["filename"] }}">
                             </div>
                         @endforeach
