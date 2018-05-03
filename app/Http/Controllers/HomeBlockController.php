@@ -52,7 +52,7 @@ class HomeBlockController extends Controller{
             $validatedData = $request->validate([
                 'title' => 'required|max:255',
                 'text' => 'required',
-                'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'image' => 'required',
             ]);
 
             $homeBlock->title = $request->get('title');
