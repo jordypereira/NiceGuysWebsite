@@ -46,7 +46,8 @@
 
                 <div class="collapse" id="multiCollapseExample2" style="max-height: 64px">
                     <div class="form-group">
-                        <input type="file" class="form-control p-3" name="image" id="image">
+                        <input type="file" class="form-control p-3" name="upload" id="upload">
+                        <input type="hidden" value="header" id="type" name="type">
                     </div>
                 </div>
             </div>

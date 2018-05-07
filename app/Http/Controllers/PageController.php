@@ -55,10 +55,30 @@ class PageController extends Controller {
             'body' => 'required',
         ]);
 
+        if (request()->upload) {
+            $image = new Image;
+
+            $request->validate([
+                'type' => 'required',
+                'upload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
+
+            $imageName = time().'_'.request()->upload->getClientOriginalName();
+            request()->upload->move(public_path('images/header'), $imageName);
+            $image->filename = $imageName;
+            $image->type = $request->get('type');
+            $image->save();
+
+            $page->image = $imageName;
+        } else {
+            $request->validate([
+                'image' => 'required',
+            ]);
+            $page->image = $request->get('image');
+        }
         $page->title = $request->get('title');
         $page->link = $request->get('link');
         $page->body = $request->get('body');
-        $page->image = $request->get("image");
 
         $page->save();
         Session::flash('message', 'Page has been added.');

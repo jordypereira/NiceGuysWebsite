@@ -52,12 +52,32 @@ class HomeBlockController extends Controller{
             $validatedData = $request->validate([
                 'title' => 'required|max:255',
                 'text' => 'required',
-                'image' => 'required',
             ]);
+
+            if (request()->upload) {
+                $image = new Image;
+
+                $request->validate([
+                    'type' => 'required',
+                    'upload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+
+                $imageName = time().'_'.request()->upload->getClientOriginalName();
+                request()->upload->move(public_path('images/homeblock'), $imageName);
+                $image->filename = $imageName;
+                $image->type = $request->get('type');
+                $image->save();
+                
+                $homeBlock->image = $imageName;
+            } else {
+                $request->validate([
+                    'image' => 'required',
+                ]);
+                $homeBlock->image = $request->get('image');
+            }
 
             $homeBlock->title = $request->get('title');
             $homeBlock->text = $request->get('text');
-            $homeBlock->image = $request->get('image');
 
             $homeBlock->save();
             Session::flash('message', 'Home Block has been added.');
