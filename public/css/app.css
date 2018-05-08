@@ -131,7 +131,6 @@ blockquote {
 .home-img{
     width: 100%;
     height: auto;
-    max-height: 300px;
 }
 .gallery-wrapper {
     height: 100px;
@@ -150,4 +149,8 @@ blockquote {
     -moz-appearance: checkbox;
     -ms-progress-appearance: ring;
     -webkit-appearance: radio;
+}
+.flex-center {
+    align-items: center;
+    justify-content: center;
 }

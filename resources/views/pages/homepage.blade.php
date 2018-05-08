@@ -10,7 +10,7 @@
                             <h2 class="h2 mb-3">{{ $block['title'] }}</h2>
                             <p>{!! $block['text'] !!}</p>
                         </div>
-                        <div class="col-xs-12 col-md-4 col-lg-5 d-flex justify-content-center">
+                        <div class="col-xs-12 col-md-4 col-lg-5 d-flex flex-center">
                             <img src="{{ asset('images/homeblock/'.$block['image']) }}" alt="Block Image" class="home-img">
                         </div>
                     </div>
