@@ -7,12 +7,12 @@
 @section('content')
     <main class="container">
         @if(Session::has('message'))
-            <p class="alert {{ Session::get('alertclass', 'alertinfo') }}">{{ Session::get('message') }}</p>
+            <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
         @endif
         @if ($errors->any())
-            <div class="alert alertdanger">
+            <div class="alert alert-danger">
                 <ul>
-                    @foreach ($errors>all() as $error)
+                    @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
@@ -44,7 +44,7 @@
                         @foreach($images as $image)
                             <div class="gallery-wrapper">
                                 <label class="gallery-label" for="image{{$image["id"]}}">
-                                    <img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt="">
+                                    <img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt="Current Header Image">
                                 </label>
                                 <input class="gallery-radio" type="radio" name="image" id="image{{$image["id"]}}" value="{{ $image["filename"] }}">
                             </div>
@@ -56,7 +56,7 @@
                         @foreach($images as $image)
                             <div class="gallery-wrapper">
                                 <label class="gallery-label" for="image{{$image["id"]}}">
-                                    <img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt="">
+                                    <img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt="Header Image Gallery">
                                 </label>
                                 <input class="gallery-radio" type="radio" name="image" id="image{{$image["id"]}}" value="{{ $image["filename"] }}">
                             </div>
@@ -68,7 +68,7 @@
                 <label for="body">Body:</label>
                 <textarea class="form-control" name="body" id="body">{{ $page['body'] }}</textarea>
             </div>
-            <div class="form-group" style="margintop:60px">
+            <div class="form-group" style="margin-top:60px">
                 <button type="submit" class="btn btn-success">Submit</button>
                 <a class="btn btn-danger" href="{{ URL::previous() }}">Decline</a>
             </div>
