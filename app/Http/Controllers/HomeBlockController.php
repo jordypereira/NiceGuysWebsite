@@ -67,7 +67,7 @@ class HomeBlockController extends Controller{
                 $image->filename = $imageName;
                 $image->type = $request->get('type');
                 $image->save();
-                
+
                 $homeBlock->image = $imageName;
             } else {
                 $request->validate([
