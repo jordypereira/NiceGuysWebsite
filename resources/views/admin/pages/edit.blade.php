@@ -9,7 +9,7 @@
         @if(Session::has('message'))
             <p class="alert {{ Session::get('alertclass', 'alertinfo') }}">{{ Session::get('message') }}</p>
         @endif
-        @if ($errors>any())
+        @if ($errors->any())
             <div class="alert alertdanger">
                 <ul>
                     @foreach ($errors>all() as $error)
