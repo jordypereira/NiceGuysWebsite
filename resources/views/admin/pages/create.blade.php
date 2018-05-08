@@ -31,11 +31,10 @@
             </div>
             <div class="form-group">
                 <label class="d-block" for="image">Header Image</label>
-
-                <a class="btn btn-outline-dark my-3" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Selecteer een foto</a>
-                <a class="btn btn-outline-dark my-3" data-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2">Upload een foto</a>
-
-                <div class="collapse multi-collapse" id="multiCollapseExample1">
+                <div id="accordion">
+                    <button class="btn btn-outline-dark my-3" type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">Selecteer een foto</button>
+                    <button class="btn btn-outline-dark my-3" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Upload een foto</button>
+                <div class="collapse" id="multiCollapseExample1" data-parent="#accordion">
                     @foreach($images as $image)
                         <div class="gallery-wrapper">
                             <label class="gallery-label" for="image-{{$image["id"]}}"><img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt=""></label>
@@ -44,11 +43,12 @@
                     @endforeach
                 </div>
 
-                <div class="collapse" id="multiCollapseExample2" style="max-height: 64px">
+                <div class="collapse" id="multiCollapseExample2" style="max-height: 64px" data-parent="#accordion">
                     <div class="form-group">
                         <input type="file" class="form-control p-3" name="upload" id="upload">
                         <input type="hidden" value="header" id="type" name="type">
                     </div>
+                </div>
                 </div>
             </div>
             <div class="form-group">
