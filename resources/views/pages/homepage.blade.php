@@ -3,7 +3,7 @@
 @section('content')
     @if(!empty($blocks))
         @foreach($blocks as $key => $block)
-            <div class="{{($key % 2 === 0) ? "u-bg-black" : ""}}">
+            <div class="position-relative {{($key % 2 === 0) ? "u-bg-black" : ""}}">
                 <div class="container py-5">
                     <div class="row {{($key % 2 === 0) ? "flex-row-reverse" : ""}}">
                         <div class="col-xs-12 col-md-12 col-lg-6">
@@ -15,7 +15,19 @@
                         </div>
                     </div>
                 </div>
+                @auth
+                    <div class="position-absolute admin-actions">
+                        <button class="btn btn-dark my-3" type="button" data-toggle="collapse" data-target="#multiCollapseExample{{$key}}" aria-expanded="false" aria-controls="multiCollapseExample{{$key}}">edit</button>
+                    </div>
+                @endauth
             </div>
+            @auth
+                <div class="collapse" id="multiCollapseExample{{$key}}" data-parent="#accordion">
+                    <div class="container">
+                        <p>test</p>
+                    </div>
+                </div>
+            @endauth
         @endforeach
     @endif
     <div class="context-box-1 u-bg-light">

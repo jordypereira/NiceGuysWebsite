@@ -51,6 +51,7 @@ td {
 .context-box-1 {
     position: relative;
     height: 60vh;
+    z-index: -10;
 
 }
 .header-style {
@@ -153,4 +154,8 @@ blockquote {
 .flex-center {
     align-items: center;
     justify-content: center;
+}
+.admin-actions {
+    top: 0;
+    left: 0;
 }
