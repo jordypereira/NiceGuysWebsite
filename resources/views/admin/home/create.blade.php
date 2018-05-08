@@ -31,21 +31,23 @@
             </div>
             <div class="form-group">
                 <label class="d-block" for="image">Image</label>
-                <a class="btn btn-outline-dark my-3" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Selecteer een foto</a>
-                <a class="btn btn-outline-dark my-3" data-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2">Upload een foto</a>
-                <div class="collapse multi-collapse" id="multiCollapseExample1">
-                    @foreach($images as $image)
-                        <div class="gallery-wrapper">
-                            <label class="gallery-label" for="image-{{$image["id"]}}"><img class="gallery-image" src="{{ asset('images/homeblock/'.$image["filename"]) }}" alt=""></label>
-                            <input class="gallery-radio" type="radio" name="image" id="image-{{$image["id"]}}" value="{{ $image["filename"] }}">
-                        </div>
-                    @endforeach
-                </div>
+                <div id="accordion">
+                    <button class="btn btn-outline-dark my-3" type="button" data-toggle="collapse" href="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">Selecteer een foto</button>
+                    <button class="btn btn-outline-dark my-3" type="button" data-toggle="collapse" href="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Upload een foto</button>
+                    <div class="collapse multi-collapse" id="multiCollapseExample1" data-parent="#accordion">
+                        @foreach($images as $image)
+                            <div class="gallery-wrapper">
+                                <label class="gallery-label" for="image-{{$image["id"]}}"><img class="gallery-image" src="{{ asset('images/homeblock/'.$image["filename"]) }}" alt=""></label>
+                                <input class="gallery-radio" type="radio" name="image" id="image-{{$image["id"]}}" value="{{ $image["filename"] }}">
+                            </div>
+                        @endforeach
+                    </div>
 
-                <div class="collapse" id="multiCollapseExample2" style="max-height: 64px">
-                    <div class="form-group">
-                        <input type="file" class="form-control p-3" name="upload" id="upload">
-                        <input type="hidden" value="home" id="type" name="type">
+                    <div class="collapse" id="multiCollapseExample2" style="max-height: 64px" data-parent="#accordion">
+                        <div class="form-group">
+                            <input type="file" class="form-control p-3" name="upload" id="upload">
+                            <input type="hidden" value="home" id="type" name="type">
+                        </div>
                     </div>
                 </div>
             </div>
