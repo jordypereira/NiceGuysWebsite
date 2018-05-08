@@ -129,9 +129,9 @@ blockquote {
     margin-left: -0.5rem;
 }
 .home-img{
-    max-height: 300px;
-    width: auto;
+    width: 100%;
     height: auto;
+    max-height: 300px;
 }
 .gallery-wrapper {
     height: 100px;
