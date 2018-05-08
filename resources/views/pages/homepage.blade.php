@@ -6,11 +6,11 @@
             <div class="{{($key % 2 === 0) ? "u-bg-black" : ""}}">
                 <div class="container py-5">
                     <div class="row {{($key % 2 === 0) ? "flex-row-reverse" : ""}}">
-                        <div class="col-xs-12 col-md-8 col-lg-7">
+                        <div class="col-xs-12 col-md-12 col-lg-6">
                             <h2 class="h2 mb-3">{{ $block['title'] }}</h2>
                             <p>{!! $block['text'] !!}</p>
                         </div>
-                        <div class="col-xs-12 col-md-4 col-lg-5 d-flex flex-center">
+                        <div class="col-xs-12 col-md-12 col-lg-6 d-flex flex-center mt-4">
                             <img src="{{ asset('images/homeblock/'.$block['image']) }}" alt="Block Image" class="home-img">
                         </div>
                     </div>
