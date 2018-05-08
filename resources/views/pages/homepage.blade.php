@@ -2,27 +2,21 @@
 
 @section('content')
     @if(!empty($blocks))
-    @foreach($blocks as $key => $block)
-    @if($key % 2 === 0)
-        <div class="home-block u-bg-black py-5">
-    @else
-        <div class="home-block u-bg py-5">
-    @endif
-        @if($key % 2 === 0)
-            <div class="context-inner row">
-        @else
-            <div class="context-inner row flex-row-reverse">
-                @endif
-                <div class="col-xs-12 col-md-8">
-                    <h2 class="h2 mb-5">{{ $block['title'] }}</h2>
-                    {!! $block['text'] !!}
-                </div>
-                <div class="col-xs-12 col-md-4 d-flex justify-content-center">
-                    <img src="{{ asset('images/homeblock/'.$block['image']) }}" alt="Block Image" class="home-img p-3">
+        @foreach($blocks as $key => $block)
+            <div class="{{($key % 2 === 0) ? "u-bg-black" : ""}}">
+                <div class="container py-5">
+                    <div class="row {{($key % 2 === 0) ? "flex-row-reverse" : ""}}">
+                        <div class="col-xs-12 col-md-8 col-lg-6">
+                            <h2 class="h2 mb-5">{{ $block['title'] }}</h2>
+                            <p>{!! $block['text'] !!}</p>
+                        </div>
+                        <div class="col-xs-12 col-md-4 col-lg-6 d-flex justify-content-center">
+                            <img src="{{ asset('images/homeblock/'.$block['image']) }}" alt="Block Image" class="home-img">
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    @endforeach
+        @endforeach
     @endif
     <div class="context-box-1 u-bg-light">
         <blockquote>
