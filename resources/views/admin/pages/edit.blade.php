@@ -32,20 +32,21 @@
             </div>
             <div class="form-group">
                 @if (isset($headerImage))
-                    <p class="mb4">Current header image:</p>
-                    <div class="gallery-wrapper d-block">
-                        <img class="gallery-image" src="{{ asset('images/'.$headerImage) }}" alt="">
+                    <div class="collapse show multi-collapse">
+                        <p class="mb-4">Current header image:</p>
+                        <div class="gallery-wrapper d-block">
+                            <img class="gallery-image" src="{{ asset('images/'.$headerImage) }}" alt="">
+                        </div>
                     </div>
-                    <a class="btn btn-outline-dark my4" data-toggle="collapse" href="#multiCollapseExample1" role="button"
+                    <a class="btn btn-outline-dark my-4" data-toggle="collapse" href=".multi-collapse" role="button"
                        aria-expanded="false" aria-controls="multiCollapseExample1">Selecteer een andere foto</a>
                     <div class="collapse multi-collapse" id="multiCollapseExample1">
                         @foreach($images as $image)
                             <div class="gallery-wrapper">
-                                <label class="gallery-label" for="image{{$image["id"]}}"><img class="gallery-image"
-                                                                                             src="{{ asset('images/header/'.$image["filename"]) }}"
-                                                                                             alt=""></label>
-                                <input class="gallery-radio" type="radio" name="image" id="image{{$image["id"]}}"
-                                       value="{{ $image["filename"] }}">
+                                <label class="gallery-label" for="image{{$image["id"]}}">
+                                    <img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt="">
+                                </label>
+                                <input class="gallery-radio" type="radio" name="image" id="image{{$image["id"]}}" value="{{ $image["filename"] }}">
                             </div>
                         @endforeach
                     </div>
@@ -54,11 +55,10 @@
                     <div>
                         @foreach($images as $image)
                             <div class="gallery-wrapper">
-                                <label class="gallery-label" for="image{{$image["id"]}}"><img class="gallery-image"
-                                                                                              src="{{ asset('images/header/'.$image["filename"]) }}"
-                                                                                              alt=""></label>
-                                <input class="gallery-radio" type="radio" name="image" id="image{{$image["id"]}}"
-                                       value="{{ $image["filename"] }}">
+                                <label class="gallery-label" for="image{{$image["id"]}}">
+                                    <img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt="">
+                                </label>
+                                <input class="gallery-radio" type="radio" name="image" id="image{{$image["id"]}}" value="{{ $image["filename"] }}">
                             </div>
                         @endforeach
                     </div>
@@ -69,8 +69,8 @@
                 <textarea class="form-control" name="body" id="body">{{ $page['body'] }}</textarea>
             </div>
             <div class="form-group" style="margintop:60px">
-                <button type="submit" class="btn btnsuccess">Submit</button>
-                <a class="btn btndanger" href="{{ URL::previous() }}">Decline</a>
+                <button type="submit" class="btn btn-success">Submit</button>
+                <a class="btn btn-danger" href="{{ URL::previous() }}">Decline</a>
             </div>
             <script>
                 CKEDITOR.replace('body');
