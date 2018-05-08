@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('head')
-    <script src="{{ asset('vendor/unisharp/laravelckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
 @endsection
 
 @section('content')
@@ -22,29 +22,29 @@
         <form method="post" action="{{url('admin/pages', $page['id'] )}}">
             @method('PUT')
             @csrf
-            <div class="formgroup">
+            <div class="form-group">
                 <label for="title">Title:</label>
-                <input type="text" class="formcontrol" name="title" id="title" value="{{ $page['title'] }}">
+                <input type="text" class="form-control" name="title" id="title" value="{{ $page['title'] }}">
             </div>
-            <div class="formgroup">
+            <div class="form-group">
                 <label for="link">Link name:</label>
-                <input type="text" class="formcontrol" name="link" id="link" value="{{ $page['link'] }}">
+                <input type="text" class="form-control" name="link" id="link" value="{{ $page['link'] }}">
             </div>
-            <div class="formgroup">
+            <div class="form-group">
                 @if (isset($headerImage))
                     <p class="mb4">Current header image:</p>
-                    <div class="gallerywrapper dblock">
-                        <img class="galleryimage" src="{{ asset('images/'.$headerImage) }}" alt="">
+                    <div class="gallery-wrapper d-block">
+                        <img class="gallery-image" src="{{ asset('images/'.$headerImage) }}" alt="">
                     </div>
-                    <a class="btn btnoutlinedark my4" datatoggle="collapse" href="#multiCollapseExample1" role="button"
-                       ariaexpanded="false" ariacontrols="multiCollapseExample1">Selecteer een andere foto</a>
-                    <div class="collapse multicollapse" id="multiCollapseExample1">
+                    <a class="btn btn-outline-dark my4" data-toggle="collapse" href="#multiCollapseExample1" role="button"
+                       aria-expanded="false" aria-controls="multiCollapseExample1">Selecteer een andere foto</a>
+                    <div class="collapse multi-collapse" id="multiCollapseExample1">
                         @foreach($images as $image)
-                            <div class="gallerywrapper">
-                                <label class="gallerylabel" for="image{{$image["id"]}}"><img class="galleryimage"
+                            <div class="gallery-wrapper">
+                                <label class="gallery-label" for="image{{$image["id"]}}"><img class="gallery-image"
                                                                                              src="{{ asset('images/header/'.$image["filename"]) }}"
                                                                                              alt=""></label>
-                                <input class="galleryradio" type="radio" name="image" id="image{{$image["id"]}}"
+                                <input class="gallery-radio" type="radio" name="image" id="image{{$image["id"]}}"
                                        value="{{ $image["filename"] }}">
                             </div>
                         @endforeach
@@ -53,22 +53,22 @@
                     <label for="image">Header image:</label>
                     <div>
                         @foreach($images as $image)
-                            <div class="gallerywrapper">
-                                <label class="gallerylabel" for="image{{$image["id"]}}"><img class="galleryimage"
-                                                                                             src="{{ asset('images/header/'.$image["filename"]) }}"
-                                                                                             alt=""></label>
-                                <input class="galleryradio" type="radio" name="image" id="image{{$image["id"]}}"
+                            <div class="gallery-wrapper">
+                                <label class="gallery-label" for="image{{$image["id"]}}"><img class="gallery-image"
+                                                                                              src="{{ asset('images/header/'.$image["filename"]) }}"
+                                                                                              alt=""></label>
+                                <input class="gallery-radio" type="radio" name="image" id="image{{$image["id"]}}"
                                        value="{{ $image["filename"] }}">
                             </div>
                         @endforeach
                     </div>
                 @endif
             </div>
-            <div class="formgroup">
+            <div class="form-group">
                 <label for="body">Body:</label>
-                <textarea class="formcontrol" name="body" id="body">{{ $page['body'] }}</textarea>
+                <textarea class="form-control" name="body" id="body">{{ $page['body'] }}</textarea>
             </div>
-            <div class="formgroup" style="margintop:60px">
+            <div class="form-group" style="margintop:60px">
                 <button type="submit" class="btn btnsuccess">Submit</button>
                 <a class="btn btndanger" href="{{ URL::previous() }}">Decline</a>
             </div>
