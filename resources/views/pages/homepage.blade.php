@@ -10,24 +10,17 @@
                             <h2 class="h2 mb-3">{{ $block['title'] }}</h2>
                             <p>{!! $block['text'] !!}</p>
                         </div>
-                        <div class="col-xs-12 col-md-12 col-lg-6 d-flex flex-center mt-4">
+                        <div class="col-xs-12 col-md-12 col-lg-6 d-flex flex-center mt-sm-4">
                             <img src="{{ asset('images/homeblock/'.$block['image']) }}" alt="Block Image" class="home-img">
                         </div>
                     </div>
                 </div>
                 @auth
                     <div class="position-absolute admin-actions">
-                        <button class="btn btn-dark my-3" type="button" data-toggle="collapse" data-target="#multiCollapseExample{{$key}}" aria-expanded="false" aria-controls="multiCollapseExample{{$key}}">edit</button>
+                        <a class="btn btn-dark" href="/admin/home/{{$block['id']}}/edit">edit</a>
                     </div>
                 @endauth
             </div>
-            @auth
-                <div class="collapse" id="multiCollapseExample{{$key}}" data-parent="#accordion">
-                    <div class="container">
-                        <p>test</p>
-                    </div>
-                </div>
-            @endauth
         @endforeach
     @endif
     <div class="context-box-1 u-bg-light">
