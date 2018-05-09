@@ -165,5 +165,6 @@ blockquote {
     visibility: visible;
 }
 main {
-    height: calc(100vh - 320px - 100px)
+    box-sizing: border-box;
+    min-height: calc(100vh - 320px - 100px)
 }

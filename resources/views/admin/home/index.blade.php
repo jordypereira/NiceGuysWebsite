@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <main class="container">
+    <main class="container py-5">
         @if(Session::has('message'))
             <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
         @endif
@@ -14,7 +14,7 @@
                 </ul>
             </div>
         @endif
-        <h1>
+        <h1 class="mt-0 mb-4">
             All Home Blocks
             <a class="btn-link float-right" href="{{ route('home.create') }}">
                 <button class="btn btn-outline-dark">
@@ -22,11 +22,11 @@
                 </button>
             </a>
         </h1>
-        <table class="table">
+        <table class="table m-0">
             <tbody>
             @foreach ($blocks as $block)
                 <tr>
-                    <td>
+                    <td class="pt-0 pb-4">
                     <span class="table-span">
                         {{ ucfirst($block['title']) }}
                     </span>

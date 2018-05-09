@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <main class="container">
+    <main class="container py-5">
         @if(Session::has('message'))
             <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
         @endif
@@ -14,7 +14,7 @@
                 </ul>
             </div>
         @endif
-        <h1>
+        <h1 class="mt-0 mb-4">
             All custom pages
             <a class="btn-link float-right" href="{{ route('pages.create') }}">
                 <button class="btn btn-outline-dark">
@@ -22,16 +22,16 @@
                 </button>
             </a>
         </h1>
-        <table class="table">
+        <table class="table m-0">
             <tbody>
             @foreach ($pages as $page)
                 <tr>
-                    <td>
+                    <td class="pt-0 pb-4">
                     <span class="table-span">
                         {{ ucfirst($page['title']) }}
-                        <a title="Info" data-toggle="collapse" href="#multiCollapseExample{{ $page['id'] }}" role="button" aria-expanded="false" aria-controls="multiCollapseExample{{ $page['id'] }}">
-                            <img class="info-icon" src="{{ asset('images/info.png') }}" alt="Info icon">
-                        </a>
+                        {{--<a title="Info" data-toggle="collapse" href="#multiCollapseExample{{ $page['id'] }}" role="button" aria-expanded="false" aria-controls="multiCollapseExample{{ $page['id'] }}">--}}
+                            {{--<img class="info-icon" src="{{ asset('images/info.png') }}" alt="Info icon">--}}
+                        {{--</a>--}}
                     </span>
                         <div class="float-right">
                             <a href="/{{ str_replace(' ', '-', $page['link']) }}" target="_blank"><img src="{{ asset('images/eye.png') }}" alt="Eye icon" title="View"></a>
@@ -42,14 +42,14 @@
                                 <button class="delete-btn" onclick="return confirm('Ben je zeker dat je deze pagina wilt verwijderen?')"><img src="{{ asset('images/cancel-button.png') }}" alt="Delete icon" title="Delete"></button>
                             </form>
                         </div>
-                        <div class="collapse-wrapper">
-                            <div class="collapse multi-collapse" id="multiCollapseExample{{ $page['id'] }}">
-                                <div class="card card-body">
-                                    <p>Aangemaakt op: {{ $page['created_at'] }}</p>
-                                    <p>Laatst aangepast op: {{ $page['updated_at'] }}</p>
-                                </div>
-                            </div>
-                        </div>
+                        {{--<div class="collapse-wrapper">--}}
+                            {{--<div class="collapse multi-collapse" id="multiCollapseExample{{ $page['id'] }}">--}}
+                                {{--<div class="card card-body">--}}
+                                    {{--<p>Aangemaakt op: {{ $page['created_at'] }}</p>--}}
+                                    {{--<p>Laatst aangepast op: {{ $page['updated_at'] }}</p>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
                     </td>
                 </tr>
             @endforeach
