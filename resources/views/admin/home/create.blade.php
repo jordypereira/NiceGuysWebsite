@@ -26,6 +26,10 @@
                 <input type="text" class="form-control" name="title" id="title">
             </div>
             <div class="form-group mt-0 mb-4">
+                <label for="video">Video (embed link):</label>
+                <input type="text" class="form-control" name="video" id="video" placeholder="https://www.youtube.com/embed/5IpYOF4Hi6Q">
+            </div>
+            <div class="form-group mt-0 mb-4">
                 <label class="d-block" for="image">Image</label>
                 <div id="accordion">
                     <button class="btn btn-outline-dark my-3" type="button" data-toggle="collapse" href="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">Selecteer een foto</button>

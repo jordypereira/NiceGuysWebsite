@@ -76,6 +76,7 @@ class HomeBlockController extends Controller{
                 $homeBlock->image = $request->get('image');
             }
 
+            $homeBlock->video = $request->get('video');
             $homeBlock->title = $request->get('title');
             $homeBlock->text = $request->get('text');
 
@@ -136,7 +137,7 @@ class HomeBlockController extends Controller{
             if(!empty($request->get('image'))) $homeBlock->image = $request->get('image');
             $homeBlock->save();
 
-            Session::flash('message', 'Page has been updated.');
+            Session::flash('message', 'Block has been updated.');
             Session::flash('alert-class', 'alert-success');
             return redirect('admin/home');
         }

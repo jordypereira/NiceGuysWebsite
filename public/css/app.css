@@ -158,10 +158,10 @@ blockquote {
     top: 0;
     left: 0;
 }
-.home-block a {
+.home-block a, .wrapper a, .video-wrapper a {
     visibility: hidden;
 }
-.home-block:hover a {
+.home-block:hover a, .wrapper:hover a, .video-wrapper:hover a {
     visibility: visible;
 }
 main {

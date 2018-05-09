@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <main class="container">
+    <main class="container py-5">
         @if(Session::has('message'))
             <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
         @endif
@@ -18,34 +18,40 @@
                 </ul>
             </div>
         @endif
-        <h1>Edit Home Block {{ $homeblock['title'] }}</h1>
+        <h1 class="mt-0 mb-4">Edit home block</h1>
         <form method="post" action="{{url('admin/home', $homeblock['id'] )}}">
             @method('PUT')
             @csrf
-            <div class="form-group">
+            <div class="form-group mt-0 mb-4">
                 <label for="title">Title:</label>
                 <input type="text" class="form-control" name="title" id="title" value="{{ $homeblock->title }}">
             </div>
-            <div class="form-group">
-                <p class="mb-4">Current image:</p>
-                <div class="gallery-wrapper d-block">
-                    <img class="gallery-image" src="{{ asset('images/homeblock/'.$homeblock->image) }}" alt="">
+            <div class="form-group mt-0 mb-4">
+                <label for="video">Video (embed link):</label>
+                <input type="text" class="form-control" name="video" id="video" value="{{ $homeblock->video }}">
+            </div>
+            <div class="form-group mt-0 mb-4">
+                <div class="collapse show multi-collapse">
+                    <label>Image:</label>
+                    <div class="gallery-wrapper d-block mb-4">
+                        <img class="gallery-image" src="{{ asset('images/homeblock/'.$homeblock->image) }}" alt="">
+                    </div>
                 </div>
-                <a class="btn btn-outline-dark my-4" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Selecteer een andere foto</a>
+                <a class="btn btn-outline-dark mt-0 mb-4" data-toggle="collapse" href=".multi-collapse" role="button" aria-expanded="false" aria-controls="multi-collapse">Selecteer een andere foto</a>
                 <div class="collapse multi-collapse" id="multiCollapseExample1">
                     @foreach($images as $image)
                         <div class="gallery-wrapper">
                             <label class="gallery-label" for="image-{{$image["id"]}}"><img class="gallery-image" src="{{ asset('images/homeblock/'.$image["filename"]) }}" alt=""></label>
-                            <input class="gallery-radio" type="radio" name="image" id="image-{{$image["id"]}}" value="{{ $image["filename"] }}">
+                            <center><input class="gallery-radio" type="radio" name="image" id="image-{{$image["id"]}}" value="{{ $image["filename"] }}"></center>
                         </div>
                     @endforeach
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group mt-0 mb-4">
                 <label for="text">Text:</label>
                 <textarea class="form-control" name="text" id="text">{{ $homeblock['text'] }}</textarea>
             </div>
-            <div class="form-group" style="margin-top:60px">
+            <div class="form-group mt-0 mb-4" style="margin-top:60px">
                 <button type="submit" class="btn btn-success">Submit</button>
                 <a class="btn btn-danger" href="{{ URL::previous() }}">Decline</a>
             </div>

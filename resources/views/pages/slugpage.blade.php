@@ -1,8 +1,16 @@
 @extends('layout')
 
 @section('content')
-    <main class="container py-5">
-        <h1 class="mb-4 mt-0">{{ $page['title'] }}</h1>
-        <p>{!! $page['body'] !!}</p>
-    </main>
+    <div class="wrapper position-relative">
+        <main class="container py-5">
+            <h1 class="mb-4 mt-0">{{ $page['title'] }}</h1>
+            <p>{!! $page['body'] !!}</p>
+
+            @auth
+                <div class="position-absolute admin-actions m-1">
+                    <a class="btn btn-outline-dark" href="/admin/pages/{{$page['id']}}/edit">edit</a>
+                </div>
+            @endauth
+        </main>
+    </div>
 @endsection

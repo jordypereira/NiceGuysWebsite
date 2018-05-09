@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <main class="container">
+    <main class="container py-5">
         @if(Session::has('message'))
             <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
         @endif
@@ -18,21 +18,21 @@
                 </ul>
             </div>
         @endif
-        <h1>Foto uploaden</h1>
+        <h1 class="mt-0 mb-4">Foto uploaden</h1>
         <form method="post" action="{{url('admin/upload')}}" enctype="multipart/form-data">
             @csrf
-            <div class="form-group">
+            <div class="form-group mt-0 mb-4">
                 <input type="file" class="form-control p-3" name="image" id="image">
             </div>
             <div class="d-block">
                 <input class="gallery-radio" id="home" name="type" type="radio" value="home">
                 <label for="home">Homepage foto</label>
             </div>
-            <div class="d-block">
+            <div class="d-block mb-4">
                 <input class="gallery-radio" id="header" name="type" type="radio" value="header">
                 <label for="header">Header foto</label>
             </div>
-            <div class="form-group my-4">
+            <div class="form-group mt-0 mb-4">
                 <button type="submit" class="btn btn-success">Uploaden</button>
             </div>
         </form>

@@ -17,10 +17,30 @@
                 </div>
                 @auth
                     <div class="position-absolute admin-actions m-1">
-                        <a class="btn btn-dark" href="/admin/home/{{$block['id']}}/edit">edit</a>
+                        <a class="btn btn-outline-dark" href="/admin/home/{{$block['id']}}/edit">edit</a>
                     </div>
                 @endauth
             </div>
+            @if($block['video'])
+                <div class="video-wrapper bg-dark py-5 position-relative">
+                    <div class="container">
+                        <iframe
+                                {{--width="1280"--}}
+                                height="600"
+                                class="w-100"
+                                src="{{$block['video']}}"
+                                frameborder="0"
+                                allow="autoplay; encrypted-media"
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    @auth
+                        <div class="position-absolute admin-actions m-1">
+                            <a class="btn btn-outline-light" href="/admin/home/{{$block['id']}}/edit">edit</a>
+                        </div>
+                    @endauth
+                </div>
+            @endif
         @endforeach
     @endif
     <div class="context-box-1 u-bg-white">
