@@ -1,5 +1,6 @@
 body {
     position: relative;
+    overflow-y: scroll;
 }
 .header {
     background-position: center;
@@ -162,4 +163,7 @@ blockquote {
 }
 .home-block:hover a {
     visibility: visible;
+}
+main {
+    height: calc(100vh - 320px - 100px)
 }
