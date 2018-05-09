@@ -2,8 +2,10 @@ body {
     position: relative;
 }
 .header {
+    background-position: center;
+    background-size: cover;
     background-color: darkgray;
-    height: 250px;
+    height: 320px;
     width: 100%;
 }
 .a-logo {
@@ -110,10 +112,6 @@ blockquote {
     right: 2%;
 
 }
-.home-block{
-    display: flex;
-    justify-content: center;
-}
 .context-inner{
     margin: 0 auto;
     padding: 10px;
@@ -158,4 +156,10 @@ blockquote {
 .admin-actions {
     top: 0;
     left: 0;
+}
+.home-block a {
+    visibility: hidden;
+}
+.home-block:hover a {
+    visibility: visible;
 }

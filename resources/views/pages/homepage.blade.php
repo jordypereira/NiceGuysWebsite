@@ -3,7 +3,7 @@
 @section('content')
     @if(!empty($blocks))
         @foreach($blocks as $key => $block)
-            <div class="position-relative {{($key % 2 === 0) ? "u-bg-black" : ""}}">
+            <div class="home-block position-relative {{($key % 2 === 0) ? "u-bg" : "u-bg-light"}}">
                 <div class="container py-5">
                     <div class="row {{($key % 2 === 0) ? "flex-row-reverse" : ""}}">
                         <div class="col-xs-12 col-md-12 col-lg-6">
@@ -16,14 +16,14 @@
                     </div>
                 </div>
                 @auth
-                    <div class="position-absolute admin-actions">
+                    <div class="position-absolute admin-actions m-1">
                         <a class="btn btn-dark" href="/admin/home/{{$block['id']}}/edit">edit</a>
                     </div>
                 @endauth
             </div>
         @endforeach
     @endif
-    <div class="context-box-1 u-bg-light">
+    <div class="context-box-1 u-bg-white">
         <blockquote>
             <p>Blockquote: Arma virumque cano, Troiae qui primus ab oris Italiam, fato profugus, Laviniaque venit
                 litora, multum ille et terris iactatus et alto vi superum saevae memorem Iunonis ob iram.</p>
