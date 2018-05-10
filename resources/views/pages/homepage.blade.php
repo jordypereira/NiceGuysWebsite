@@ -1,6 +1,18 @@
 @extends('layout')
 
 @section('content')
+    @if(Session::has('message'))
+        <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+    @endif
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul class="m-0">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     @if(!empty($blocks))
         @foreach($blocks as $key => $block)
             <div class="home-block position-relative {{($key % 2 === 0) ? "u-bg" : "u-bg-light"}}">

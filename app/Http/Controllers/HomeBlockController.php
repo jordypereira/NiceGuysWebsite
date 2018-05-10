@@ -141,7 +141,7 @@ class HomeBlockController extends Controller{
 
             Session::flash('message', 'Block has been updated.');
             Session::flash('alert-class', 'alert-success');
-            return redirect('admin/home');
+            return redirect('/');
         }
     }
 
