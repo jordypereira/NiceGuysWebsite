@@ -37,7 +37,7 @@
                         <img class="gallery-image" src="{{ asset('images/homeblock/'.$homeblock->image) }}" alt="">
                     </div>
                 </div>
-                <a class="btn btn-outline-dark mt-0 mb-4" data-toggle="collapse" href=".multi-collapse" role="button" aria-expanded="false" aria-controls="multi-collapse">Selecteer een andere foto</a>
+                <button class="btn btn-outline-dark mt-0 mb-4" data-toggle="collapse" href=".multi-collapse" type="button" aria-expanded="false" aria-controls="multi-collapse">Selecteer een andere foto</button>
                 <div class="collapse multi-collapse" id="multiCollapseExample1">
                     @foreach($images as $image)
                         <div class="gallery-wrapper">
