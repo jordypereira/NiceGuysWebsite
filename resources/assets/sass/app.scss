@@ -1,2 +1,174 @@
 // Variables
 @import "variables";
+
+
+body {
+  position: relative;
+  overflow-y: scroll;
+}
+.header {
+  background-position: center;
+  background-size: cover;
+  background-color: darkgray;
+  height: 320px;
+  width: 100%;
+}
+.a-logo {
+  width: 96px;
+  height: 96px;
+}
+.n-button {
+  display: inline-block !important;
+}
+
+.delete-btn {
+  border:none;
+  background-color: unset;
+  padding:0;
+  cursor: pointer;
+}
+h1 {
+  margin:20px 0;
+}
+.btn-link {
+  color:black;
+}
+.btn-link:hover {
+  text-decoration: none;
+}
+.table-span {
+  font-size: 1.5rem;
+}
+.collapse-wrapper {
+  padding-top: 15px;
+}
+.border-unset {
+  border: unset !important;
+}
+td {
+  border: unset !important;
+  padding: 10px 0 !important;
+}
+.info-icon {
+  opacity: 0.1;
+}
+.info-icon:hover {
+  opacity: 1;
+}
+.context-box-1 {
+  position: relative;
+  height: 60vh;
+  z-index: -10;
+
+}
+.header-style {
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  color: white;
+}
+.diagram-logo {
+  position:absolute;
+  left: 60%;
+  top: 25%;
+}
+.paragraph-style {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  color: white;
+  width: 35%;
+}
+.image-preview {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+}
+.header-style-2 {
+  position: absolute;
+  top: 15%;
+  right: 10%;
+
+}
+.paragraph-style-2 {
+  position: absolute;
+  text-align: right;
+  font-weight: bold;
+  top: 30%;
+  right:10%;
+  width: 35%;
+}
+blockquote {
+  position: absolute;
+  top: 35%;
+  left: 25%;
+  width: 50%;
+  color: black;
+
+}
+.left-arrow {
+  position: absolute;
+  top: 40%;
+  left: 2%;
+}
+.right-arrow {
+  position: absolute;
+  top: 40%;
+  right: 2%;
+
+}
+.context-inner{
+  margin: 0 auto;
+  padding: 10px;
+}
+.u-bg-black{
+  color: #fff;
+}
+@media (min-width: 480px) {
+  .context-inner{
+    width: 80%;
+  }
+}
+.neg-p-15{
+  margin-left: -0.5rem;
+}
+.home-img{
+  width: 100%;
+  height: auto;
+}
+.gallery-wrapper {
+  height: 100px;
+  width: auto;
+  display: inline-block;
+}
+.gallery-label {
+  width: 100%;
+  height: 100%;
+}
+.gallery-image {
+  width: auto;
+  height: 100%;
+}
+.gallery-radio {
+  -moz-appearance: checkbox;
+  -ms-progress-appearance: ring;
+  -webkit-appearance: radio;
+}
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}
+.admin-actions {
+  top: 0;
+  left: 0;
+}
+.home-block a, .wrapper a, .video-wrapper a {
+  visibility: hidden;
+}
+.home-block:hover a, .wrapper:hover a, .video-wrapper:hover a {
+  visibility: visible;
+}
+main {
+  box-sizing: border-box;
+  min-height: calc(100vh - 320px - 100px)
+}
