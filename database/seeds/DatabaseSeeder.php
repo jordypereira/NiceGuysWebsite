@@ -57,6 +57,14 @@ class DatabaseSeeder extends Seeder
                     culpa qui officia deserunt mollit anim id est laborum. </p>',
           'image' => 'picture.png'
       ]);
+      DB::table('images')->insert([
+          'filename' => 'picture.png',
+          'type' => 'home'
+      ]);
+      DB::table('images')->insert([
+          'filename' => 'diagram-example.png',
+          'type' => 'home'
+      ]);
 
     }
 }
