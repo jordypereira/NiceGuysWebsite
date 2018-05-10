@@ -46,7 +46,9 @@
                                 <label class="gallery-label" for="image{{$image["id"]}}">
                                     <img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt="Current Header Image">
                                 </label>
-                                <center><input class="gallery-radio" type="radio" name="image" id="image{{$image["id"]}}" value="{{ $image["filename"] }}"></center>
+                                <div class="text-center">
+                                    <input class="gallery-radio" type="radio" name="image" id="image{{$image["id"]}}" value="{{ $image["filename"] }}">
+                                </div>
                             </div>
                         @endforeach
                     </div>

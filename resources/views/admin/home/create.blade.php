@@ -40,14 +40,16 @@
                             @foreach($images as $image)
                                 <div class="gallery-wrapper">
                                     <label class="gallery-label" for="image-{{$image["id"]}}"><img class="gallery-image" src="{{ asset('images/homeblock/'.$image["filename"]) }}" alt=""></label>
-                                    <center><input class="gallery-radio" type="radio" name="image" id="image-{{$image["id"]}}" value="{{ $image["filename"] }}">  </center>
+                                    <div class="text-center">
+                                        <input class="gallery-radio" type="radio" name="image" id="image-{{$image["id"]}}" value="{{ $image["filename"] }}">
+                                    </div>
                                 </div>
                             @endforeach
                         </div> 
                     @else
                         <div class="collapse multi-collapse" id="multiCollapseExample1" style="max-height: 46px" data-parent="#accordion">
                             <div class="alert alert-danger">
-                                <p>U moet eerst een foto uploaden voor u er een kunt selecteren!</p>
+                                <p class="m-0">U moet eerst een foto uploaden voor u er een kunt selecteren!</p>
                             </div>
                         </div>
                     @endif
