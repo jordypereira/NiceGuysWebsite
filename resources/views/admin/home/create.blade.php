@@ -11,7 +11,7 @@
         @endif
         @if ($errors->any())
             <div class="alert alert-danger">
-                <ul>
+                <ul class="m-0">
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
@@ -23,11 +23,11 @@
             @csrf
             <div class="form-group mt-0 mb-4">
                 <label for="title">Title:</label>
-                <input type="text" class="form-control" name="title" id="title">
+                <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}">
             </div>
             <div class="form-group mt-0 mb-4">
                 <label for="video">Video (embed link):</label>
-                <input type="text" class="form-control" name="video" id="video" placeholder="https://www.youtube.com/embed/5IpYOF4Hi6Q">
+                <input type="text" class="form-control" name="video" id="video" placeholder="https://www.youtube.com/embed/5IpYOF4Hi6Q" value="{{ old('video') }}">
             </div>
             <div class="form-group mt-0 mb-4">
                 <label class="d-block" for="image">Image</label>
@@ -63,7 +63,7 @@
             </div>
             <div class="form-group mt-0 mb-4">
                 <label for="text">Text:</label>
-                <textarea type="text" class="form-control" name="text" id="text"></textarea>
+                <textarea type="text" class="form-control" name="text" id="text">{{ old('text') }}</textarea>
             </div>
             <div class="form-group mt-0 mb-4">
                 <button type="submit" class="btn btn-success">Submit</button>
