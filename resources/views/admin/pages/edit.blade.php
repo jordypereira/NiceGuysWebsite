@@ -53,14 +53,19 @@
                         @endforeach
                     </div>
                 @else
-                    <label for="image">Header image:</label>
+                    <label class="mb-4" for="image">No header image selected (using default):</label>
                     <div>
+                        <a class="btn btn-outline-dark mt-0 mb-4" data-toggle="collapse" href=".multi-collapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Selecteer een andere foto</a>
+                    </div>
+                    <div class="collapse multi-collapse">
                         @foreach($images as $image)
                             <div class="gallery-wrapper">
                                 <label class="gallery-label" for="image{{$image["id"]}}">
                                     <img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt="Header Image Gallery">
                                 </label>
-                                <input class="gallery-radio" type="radio" name="image" id="image{{$image["id"]}}" value="{{ $image["filename"] }}">
+                                <div class="text-center">
+                                    <input class="gallery-radio" type="radio" name="image" id="image{{$image["id"]}}" value="{{ $image["filename"] }}">
+                                </div>
                             </div>
                         @endforeach
                     </div>
