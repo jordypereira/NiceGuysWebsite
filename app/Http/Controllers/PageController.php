@@ -71,10 +71,9 @@ class PageController extends Controller {
 
             $page->image = $imageName;
         } else {
-            $request->validate([
-                'image' => 'required',
-            ]);
-            $page->image = $request->get('image');
+            if (request()->image) {
+                $page->image = $request->get('image');
+            }
         }
         $page->title = $request->get('title');
         $page->link = $request->get('link');
