@@ -37,7 +37,7 @@
                     </div>
                     @auth
                         <div class="position-absolute admin-actions m-1">
-                            <a class="btn btn-outline-light" href="/admin/home/{{$block['id']}}/edit">edit</a>
+                            <a class="btn btn-outline-light" href="/admin/home/{{$block['id']}}/edit" title="Edit block #{{$block['id']}}">edit</a>
                         </div>
                     @endauth
                 </div>
