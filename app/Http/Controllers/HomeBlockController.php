@@ -136,6 +136,7 @@ class HomeBlockController extends Controller{
             $homeBlock = HomeBlock::find($id);
             $homeBlock->title = $request->get('title');
             $homeBlock->text = $request->get('text');
+            $homeBlock->video = $request->get('video');
             if(!empty($request->get('image'))) $homeBlock->image = $request->get('image');
             $homeBlock->save();
 
