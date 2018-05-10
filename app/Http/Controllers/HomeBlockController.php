@@ -69,7 +69,7 @@ class HomeBlockController extends Controller{
                 $image->save();
 
                 $homeBlock->image = $imageName;
-            } else {
+            } elseif(request()->image) {
                 $request->validate([
                     'image' => 'required',
                 ]);
