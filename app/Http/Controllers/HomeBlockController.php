@@ -158,7 +158,7 @@ class HomeBlockController extends Controller{
             HomeBlock::destroy($id);
             Session::flash('message', 'Block has been deleted.');
             Session::flash('alert-class', 'alert-success');
-            return redirect('admin/home');
+            return redirect('/');
         }
     }
 }
