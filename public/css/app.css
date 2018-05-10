@@ -10607,13 +10607,15 @@ blockquote {
 
 .home-block a,
 .wrapper a,
-.video-wrapper a {
+.video-wrapper a,
+.home-block button {
   visibility: hidden;
 }
 
 .home-block:hover a,
 .wrapper:hover a,
-.video-wrapper:hover a {
+.video-wrapper:hover a,
+.home-block:hover button {
   visibility: visible;
 }
 

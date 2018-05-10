@@ -30,6 +30,15 @@
                 @auth
                     <div class="position-absolute admin-actions m-1">
                         <a class="btn btn-outline-dark" href="/admin/home/{{$block['id']}}/edit" title="Edit block #{{$block['id']}}">edit</a>
+                        <form action="{{ route('home.destroy', $block['id']) }}" method="POST" class="d-inline-block delete-button">
+                            @method('DELETE')
+                            @csrf
+                            <button class="btn btn-outline-danger"
+                                    onclick="return confirm('Ben je zeker dat je deze Home Block wilt verwijderen?')"
+                                    title="Delete block #{{$block['id']}}">
+                                delete
+                            </button>
+                        </form>
                         <a class="btn btn-outline-dark" href="/admin/home/create" title="Add a home block">add</a>
                     </div>
                 @endauth
