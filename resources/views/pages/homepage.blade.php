@@ -1,70 +1,72 @@
 @extends('layout')
 
 @section('content')
-    @if(Session::has('message'))
-        <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
-    @endif
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul class="m-0">
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-    @if(!empty($blocks))
-        @foreach($blocks as $key => $block)
-            <div class="home-block position-relative {{($key % 2 === 0) ? "u-bg" : "u-bg-light"}}">
-                <div class="container py-5">
-                    <div class="row {{($key % 2 === 0) ? "flex-row-reverse" : ""}}">
-                        <div class="col-xs-12 col-md-12 col-lg-6">
-                            <h2 class="h2 mb-3">{{ $block['title'] }}</h2>
-                            <p>{!! $block['text'] !!}</p>
-                        </div>
-                        <div class="col-xs-12 col-md-12 col-lg-6 d-flex flex-center mt-sm-4 mt-md-0 mt-lg-0">
-                            <img src="{{ asset('images/homeblock/'.$block['image']) }}" alt="Block Image" class="home-img border">
-                        </div>
-                    </div>
-                </div>
-                @auth
-                    <div class="position-absolute admin-actions m-1">
-                        <a class="btn btn-outline-dark" href="/admin/home/{{$block['id']}}/edit" title="Edit block #{{$block['id']}}">edit</a>
-                        <form action="{{ route('home.destroy', $block['id']) }}" method="POST" class="d-inline-block delete-button">
-                            @method('DELETE')
-                            @csrf
-                            <button class="btn btn-outline-danger"
-                                    onclick="return confirm('Ben je zeker dat je deze Home Block wilt verwijderen?')"
-                                    title="Delete block #{{$block['id']}}">
-                                delete
-                            </button>
-                        </form>
-                        <a class="btn btn-outline-dark" href="/admin/home/create" title="Add a home block">add</a>
-                    </div>
-                @endauth
+    <main>
+        @if(Session::has('message'))
+            <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+        @endif
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul class="m-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
-            @if($block['video'])
-                <div class="video-wrapper bg-dark py-5 position-relative">
-                    <div class="container">
-                        <iframe
-                                {{--width="1280"--}}
-                                height="600"
-                                class="w-100"
-                                src="{{$block['video']}}"
-                                frameborder="0"
-                                allow="autoplay; encrypted-media"
-                                allowfullscreen>
-                        </iframe>
+        @endif
+        @if(!empty($blocks))
+            @foreach($blocks as $key => $block)
+                <div class="home-block position-relative {{($key % 2 === 0) ? "u-bg" : "u-bg-light"}}">
+                    <div class="container py-5">
+                        <div class="row {{($key % 2 === 0) ? "flex-row-reverse" : ""}}">
+                            <div class="col-xs-12 col-md-12 col-lg-6">
+                                <h2 class="h2 mb-3">{{ $block['title'] }}</h2>
+                                <p>{!! $block['text'] !!}</p>
+                            </div>
+                            <div class="col-xs-12 col-md-12 col-lg-6 d-flex flex-center mt-sm-4 mt-md-0 mt-lg-0">
+                                <img src="{{ asset('images/homeblock/'.$block['image']) }}" alt="Block Image" class="home-img border">
+                            </div>
+                        </div>
                     </div>
                     @auth
                         <div class="position-absolute admin-actions m-1">
-                            <a class="btn btn-outline-light" href="/admin/home/{{$block['id']}}/edit" title="Edit block #{{$block['id']}}">edit</a>
+                            <a class="btn btn-outline-dark" href="/admin/home/{{$block['id']}}/edit" title="Edit block #{{$block['id']}}">edit</a>
+                            <form action="{{ route('home.destroy', $block['id']) }}" method="POST" class="d-inline-block delete-button">
+                                @method('DELETE')
+                                @csrf
+                                <button class="btn btn-outline-danger"
+                                        onclick="return confirm('Ben je zeker dat je deze Home Block wilt verwijderen?')"
+                                        title="Delete block #{{$block['id']}}">
+                                    delete
+                                </button>
+                            </form>
+                            <a class="btn btn-outline-dark" href="/admin/home/create" title="Add a home block">add</a>
                         </div>
                     @endauth
                 </div>
-            @endif
-        @endforeach
-    @endif
+                @if($block['video'])
+                    <div class="video-wrapper bg-dark py-5 position-relative">
+                        <div class="container">
+                            <iframe
+                                    {{--width="1280"--}}
+                                    height="600"
+                                    class="w-100"
+                                    src="{{$block['video']}}"
+                                    frameborder="0"
+                                    allow="autoplay; encrypted-media"
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                        @auth
+                            <div class="position-absolute admin-actions m-1">
+                                <a class="btn btn-outline-light" href="/admin/home/{{$block['id']}}/edit" title="Edit block #{{$block['id']}}">edit</a>
+                            </div>
+                        @endauth
+                    </div>
+                @endif
+            @endforeach
+        @endif
+    </main>
     {{--<div class="context-box-1 u-bg-white">--}}
         {{--<blockquote>--}}
             {{--<p>Blockquote: Arma virumque cano, Troiae qui primus ab oris Italiam, fato profugus, Laviniaque venit--}}
