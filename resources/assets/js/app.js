@@ -6,6 +6,7 @@
  */
 
 import 'bootstrap';
+import 'animate.css';
 
 // window.Vue = require('vue');
 //
