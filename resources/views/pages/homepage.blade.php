@@ -24,7 +24,7 @@
                                 <p>{!! $block['text'] !!}</p>
                             </div>
                             <div class="col-xs-12 col-md-12 col-lg-6 d-flex flex-center mt-sm-4 mt-md-0 mt-lg-0">
-                                <img src="{{ asset('images/homeblock/'.$block['image']) }}" alt="Block Image" class="home-img border">
+                                <img src="{{ asset('images/homeblock/'.$block['image']) }}" alt="Block Image" class="home-img border invisible animated">
                             </div>
                         </div>
                     </div>
