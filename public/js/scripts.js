@@ -13,8 +13,15 @@ function getElPos(e) {
     }
 }
 
+function scrollToTop(e) {
+    window.scrollTo(0,0);
+}
+
 function bindEvents() {
     window.addEventListener('load', getElPos);
     window.addEventListener('scroll', getElPos);
+
+    let footerBtn = document.getElementById("footer-button");
+    footerBtn.addEventListener('click', scrollToTop);
 }
 bindEvents();
