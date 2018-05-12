@@ -108,11 +108,12 @@ class HomeBlockController extends Controller{
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) {
+    public function edit(Request $request, $id) {
         if (Auth::check()) {
             $homeblock = HomeBlock::find($id);
             $images = Image::where('type', '=', 'home')->get();
-            return view('admin/home/edit', ['homeblock' => $homeblock, 'headerImage' => 'headerbw.jpg', 'images' => $images]);
+            $focus = $request->get('f');
+            return view('admin/home/edit', ['homeblock' => $homeblock, 'headerImage' => 'headerbw.jpg', 'images' => $images, 'focus' => $focus]);
         } else {
             return redirect()->route('login');
         }
