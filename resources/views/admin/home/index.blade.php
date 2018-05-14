@@ -15,10 +15,10 @@
             </div>
         @endif
         <h1 class="mt-0 mb-4">
-            All Home Blocks
+            Alle Home Blocks
             <a class="btn-link float-right" href="{{ route('home.create') }}">
                 <button class="btn btn-outline-dark">
-                    Create a new Block
+                    Creëer een home block
                 </button>
             </a>
         </h1>
