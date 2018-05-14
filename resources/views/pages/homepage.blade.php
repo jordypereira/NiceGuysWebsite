@@ -40,7 +40,7 @@
                                     verwijderen
                                 </button>
                             </form>
-                            <a class="btn btn-outline-dark" href="/admin/home/create" title="Add a home block">Toevoegen</a>
+                            <a class="btn btn-outline-dark" href="/admin/home/create" title="Add a home block">toevoegen</a>
                         </div>
                     @endauth
                 </div>
