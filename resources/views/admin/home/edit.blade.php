@@ -18,12 +18,12 @@
                 </ul>
             </div>
         @endif
-        <h1 class="mt-0 mb-4">Edit home block</h1>
+        <h1 class="mt-0 mb-4"> Bewerk home block</h1>
         <form method="post" action="{{url('admin/home', $homeblock['id'] )}}">
             @method('PUT')
             @csrf
             <div class="form-group mt-0 mb-4">
-                <label for="title">Title:</label>
+                <label for="title">Titel:</label>
                 <input type="text" class="form-control" name="title" id="title" value="{{ $homeblock->title }}">
             </div>
             <div class="form-group mt-0 mb-4">
@@ -32,7 +32,7 @@
             </div>
             <div class="form-group mt-0 mb-4">
                 <div class="collapse show multi-collapse">
-                    <label>Image:</label>
+                    <label>Foto:</label>
                     <div class="gallery-wrapper d-block mb-4">
                         <img class="gallery-image" src="{{ asset('images/homeblock/'.$homeblock->image) }}" alt="">
                     </div>
@@ -59,8 +59,8 @@
                 {{--{{($focus === "v") ? "autofocus" : ""}}--}}
             </div>
             <div class="form-group mt-0 mb-4" style="margin-top:60px">
-                <button type="submit" class="btn btn-success">Submit</button>
-                <a class="btn btn-danger" href="{{ URL::previous() }}">Decline</a>
+                <button type="submit" class="btn btn-success">Bevestigen</button>
+                <a class="btn btn-danger" href="{{ URL::previous() }}">Afwijzen</a>
             </div>
             <script>
                 CKEDITOR.replace('text');
