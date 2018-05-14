@@ -17,16 +17,16 @@
                 @auth
                     <li class="nav-item dropdown d-inline-block float-md-none float-lg-right">
                         <a class="nav-link dropdown-toggle {{(Request::is('admin/*')) ? "active" : ""}}"" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Admin actions
+                            Admin acties
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="/admin/pages/create">Add a page</a>
-                            <a class="dropdown-item" href="/admin/pages">View all pages</a>
+                            <a class="dropdown-item" href="/admin/pages/create">Maak een pagina</a>
+                            <a class="dropdown-item" href="/admin/pages">Bekijk alle pagina's</a>
                             <hr class="my-2">
-                            <a class="dropdown-item" href="/admin/home/create">Add a home block</a>
-                            <a class="dropdown-item" href="/admin/home">View all home blocks</a>
+                            <a class="dropdown-item" href="/admin/home/create">Maak een home block</a>
+                            <a class="dropdown-item" href="/admin/home">Bekijk alle home blocks</a>
                             <hr class="my-2">
-                            <a class="dropdown-item" href="/admin/upload">Upload an image</a>
+                            <a class="dropdown-item" href="/admin/upload">Upload een foto</a>
                             <hr class="my-2">
                             <div class="dropdown-item">
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
