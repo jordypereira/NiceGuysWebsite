@@ -30,17 +30,17 @@
                     </div>
                     @auth
                         <div class="position-absolute admin-actions m-1">
-                            <a class="btn btn-outline-dark" href="/admin/home/{{$block['id']}}/edit" title="Edit block #{{$block['id']}}">edit</a>
+                            <a class="btn btn-outline-dark" href="/admin/home/{{$block['id']}}/edit" title="Edit block #{{$block['id']}}">bewerken</a>
                             <form action="{{ route('home.destroy', $block['id']) }}" method="POST" class="d-inline-block delete-button">
                                 @method('DELETE')
                                 @csrf
                                 <button class="btn btn-outline-danger"
                                         onclick="return confirm('Ben je zeker dat je deze Home Block wilt verwijderen?')"
                                         title="Delete block #{{$block['id']}}">
-                                    delete
+                                    verwijderen
                                 </button>
                             </form>
-                            <a class="btn btn-outline-dark" href="/admin/home/create" title="Add a home block">add</a>
+                            <a class="btn btn-outline-dark" href="/admin/home/create" title="Add a home block">Toevoegen</a>
                         </div>
                     @endauth
                 </div>
@@ -59,7 +59,7 @@
                         </div>
                         @auth
                             <div class="position-absolute admin-actions m-1">
-                                <a class="btn btn-outline-light" href="/admin/home/{{$block['id']}}/edit" title="Edit block #{{$block['id']}}">edit</a>
+                                <a class="btn btn-outline-light" href="/admin/home/{{$block['id']}}/edit" title="Edit block #{{$block['id']}}">bewerken</a>
                             </div>
                         @endauth
                     </div>
