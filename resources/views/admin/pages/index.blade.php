@@ -15,10 +15,10 @@
             </div>
         @endif
         <h1 class="mt-0 mb-4">
-            All custom pages
+            Alle pagina's
             <a class="btn-link float-right" href="{{ route('pages.create') }}">
                 <button class="btn btn-outline-dark">
-                    Create a new page
+                    Maak een nieuwe pagina
                 </button>
             </a>
         </h1>
