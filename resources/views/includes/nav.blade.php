@@ -20,7 +20,7 @@
                             Admin acties
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="/admin/pages/create">Maak een pagina</a>
+                            <a class="dropdown-item" href="/admin/pages/create">Creëer een pagina</a>
                             <a class="dropdown-item" href="/admin/pages">Bekijk alle pagina's</a>
                             <hr class="my-2">
                             <a class="dropdown-item" href="/admin/home/create">Maak een home block</a>

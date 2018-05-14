@@ -18,7 +18,7 @@
             Alle pagina's
             <a class="btn-link float-right" href="{{ route('pages.create') }}">
                 <button class="btn btn-outline-dark">
-                    Maak een nieuwe pagina
+                    Creëer een pagina
                 </button>
             </a>
         </h1>
