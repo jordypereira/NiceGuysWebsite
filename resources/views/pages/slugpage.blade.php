@@ -8,7 +8,7 @@
 
             @auth
                 <div class="position-absolute admin-actions m-1">
-                    <a class="btn btn-outline-dark" href="/admin/pages/{{$page['id']}}/edit">edit</a>
+                    <a class="btn btn-outline-dark" href="/admin/pages/{{$page['id']}}/edit">Bewerken</a>
                 </div>
             @endauth
         </main>
