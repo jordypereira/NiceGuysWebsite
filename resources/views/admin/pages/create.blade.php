@@ -23,10 +23,12 @@
             @csrf
             <div class="form-group mt-0 mb-4">
                 <label for="title">Title:</label>
+                <span class="hidden"></span>
                 <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}">
             </div>
             <div class="form-group mt-0 mb-4">
                 <label for="link">Link name:</label>
+                <span class="hidden"></span>
                 <input type="text" class="form-control" name="link" id="link" value="{{ old('link') }}">
             </div>
             <div class="form-group mt-0 mb-4">
@@ -74,7 +76,7 @@
                 <textarea class="form-control" name="body" id="body">{{ old('body') }}</textarea>
             </div>
             <div class="form-group mt-0 mb-4">
-                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="submit" class="btn btn-success" id="submit-btn">Submit</button>
                 <a class="btn btn-danger" href="{{ URL::previous() }}">Decline</a>
             </div>
             <script>

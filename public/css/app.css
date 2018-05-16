@@ -10625,3 +10625,7 @@ main {
   min-height: calc(100vh - 320px - 100px);
 }
 
+.invalid-field {
+  color: #dc3545;
+  display: inline-block;
+}

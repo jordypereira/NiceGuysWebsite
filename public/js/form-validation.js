@@ -4,7 +4,7 @@ function validateFields(e) {
     const errorMsg   = "Dit veld is vereist";
     let input_fields = document.querySelectorAll("input[type=text]");
     let text_el      = document.querySelector('textarea');
-    let error_el     = document.querySelectorAll("div > span.hidden");
+    let error_el     = document.querySelectorAll("span.hidden");
     console.log(text_el.childNodes);
     console.log(text_el.childNodes.length);
 
@@ -20,6 +20,7 @@ function validateFields(e) {
         } else {
             input_fields[i].classList.remove('is-invalid');
             error_el[i].classList.remove('invalid-field');
+            error_el[i].innerHTML = "";
             validFields++;
         }
     }
