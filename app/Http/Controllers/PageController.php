@@ -136,10 +136,26 @@ class PageController extends Controller {
         ]);
 
         $page = Page::find($id);
+        if (request()->upload) {
+            $image = new Image;
+
+            $request->validate([
+                'upload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
+
+            $imageName = time().'_'.request()->upload->getClientOriginalName();
+            request()->upload->move(public_path('images/header'), $imageName);
+            $image->filename = $imageName;
+            $image->type = 'header';
+            $image->save();
+
+            $page->image = $imageName;
+        } else {
+            if(!empty($request->get('image'))) $page->image = $request->get('image');
+        }
         $page->title = $request->get('title');
         $page->link = $request->get('link');
         $page->body = $request->get('body');
-        if(!empty($request->get('image'))) $page->image = $request->get('image');
         $page->save();
 
         Session::flash('message', 'Page has been updated.');

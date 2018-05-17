@@ -7,7 +7,7 @@
 @section('content')
     <main class="container py-5">
         <h1 class="mt-0 mb-4">Bewerk pagina</h1>
-        <form method="post" action="{{url('admin/pages', $page['id'] )}}">
+        <form method="post" action="{{url('admin/pages', $page['id'] )}}" enctype="multipart/form-data">
             @method('PUT')
             @csrf
             <div class="form-group mt-0 mb-4">
@@ -50,7 +50,6 @@
                         <div class="collapse" id="multiCollapseExample4" style="max-height: 64px" data-parent="#accordion">
                             <div class="form-group">
                                 <input type="file" class="form-control p-3" name="upload" id="upload">
-                                <input type="hidden" value="header" id="type" name="type">
                             </div>
                         </div>
                     </div>
