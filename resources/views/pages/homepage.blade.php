@@ -69,7 +69,7 @@
                                     <button class="btn btn-outline-danger"
                                             onclick="return confirm('Ben je zeker dat je deze Home Block wilt verwijderen?')"
                                             title="Delete block #{{$block['id']}}">
-                                        verwijderen
+                                        <img src="{{ asset('images/cancel-button.png') }}" alt="Delete icon">
                                     </button>
                                     @endisset
                                 </form>
