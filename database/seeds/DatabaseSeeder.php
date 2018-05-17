@@ -59,12 +59,44 @@ class DatabaseSeeder extends Seeder
 
 <p>Informatie over <a href="http://www.elfri.be/aanranding-van-de-eerbaarheid">schending van de eerbaarheid</a> (volgens het wetboek).</p>',
       ]);
+
+      DB::table('pages')->insert([
+         'title' => 'Wat kan je zelf doen?',
+         'link' => 'Zelf doen',
+         'body' => '<p>Steeds meer en meer scholieren krijgen te maken met grensoverschrijdend gedrag. Inplaats van deze feiten te vedringen is het verstanding om zelf stappen te kunnen ondernemen.</p>
+
+<p><strong>Hoe?</strong></p>
+
+<p>Aangifte doen bij de politie:</p>
+
+<ul>
+    <li>Bij dringende hulp gelieve het noodnummer <strong>101</strong> te bellen om in contact te komen bij de juiste hulpdiensten.</li>
+    <li>Bij niet-dringende hulp:&nbsp; Bel de blauwe lijn: <a href="https://www.politieantwerpen.be/">0800 123 12</a>. Maak een online-afspraak: <a href="https://www.politieantwerpen.be/">Politie Antwerpen</a></li>
+</ul>
+
+<hr />
+<p>Scholieren kunnen altijd terecht bij andere hulporganisaties:</p>
+
+<div style="background:#eeeeee; border:1px solid #cccccc; padding:5px 10px">Jong &amp; Van Zin: Organisatie die zorgt voor informatie, participatie en vorming voor kinderen, jongeren en hun begeleiders. Ze hebben een ervaringsgericht vormingsaanbod. <a href="https://www.pimento.be/">(site)</a></div>
+
+<div style="background:#eeeeee; border:1px solid #cccccc; padding:5px 10px">Sensoa: Sensoa helpt om te praten over relaties, seksualiteit, grensoverschrijdend gedrag, seksuele diversiteit enzovoort. Ze bieden vormingsmateriaal aan en organiseren interessante opleidingen. <a href="https://www.sensoa.be/">(site)</a></div>
+
+<p>&nbsp;</p>'
+      ]);
       DB::table('home_blocks')->insert([
           'title' => 'Strafbaarheid',
           'text' => '
                 <p>In belgi&euml; deelt men de strafbare feiten op in verschillende gebieden. Als dit gedrag wordt gesteld ten opzichte van minderjarigen, geldt dat als verzwarende omstandigheid en zijn ook de straffen zwaarder.</p>
 
 <p>Klik&nbsp;<a href="/Strafbaarheid">hier</a></p>
+'
+      ]);
+      DB::table('home_blocks')->insert([
+          'title' => 'Wat kan je zelf doen?',
+          'text' => '
+                <p>Steeds meer en meer scholieren krijgen te maken met grensoverschrijdend gedrag. Inplaats van deze feiten te vedringen is het verstanding om zelf stappen te kunnen ondernemen.</p>
+
+<p>Klik&nbsp;<a href="/Zelf-doen">hier</a></p>
 '
       ]);
       DB::table('home_blocks')->insert([
