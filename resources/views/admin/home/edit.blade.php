@@ -12,11 +12,11 @@
             @csrf
             <div class="form-group mt-0 mb-4">
                 <label for="title">Titel:</label>
-                <input type="text" class="form-control" name="title" id="title" value="{{ $homeblock->title }}">
+                <input type="text" class="form-control" name="title" id="title" value="{{ $homeblock->title }}" {{($focus === "b") ? "autofocus" : ""}}>
             </div>
             <div class="form-group mt-0 mb-4">
                 <label for="video">Video (embed link):</label>
-                <input type="text" class="form-control" name="video" id="video"  value="{{ $homeblock->video }}">
+                <input type="text" class="form-control" name="video" id="video"  value="{{ $homeblock->video }}" {{($focus === "v") ? "autofocus" : ""}}>
             </div>
             <div class="form-group mt-0 mb-4">
                 <div class="collapse show multi-collapse">
@@ -53,11 +53,6 @@
             <div class="form-group mt-0 mb-4">
                 <label for="text">Body:</label>
                 <textarea class="form-control" name="text" id="text">{{ $homeblock['text'] }}</textarea>
-
-                {{--Dit op het element zetten voor autofocus--}}
-
-                {{--{{($focus === "b") ? "autofocus" : ""}}--}}
-                {{--{{($focus === "v") ? "autofocus" : ""}}--}}
             </div>
             <div class="form-group mt-0 mb-4" style="margin-top:60px">
                 <button type="submit" class="btn btn-success">Bevestigen</button>
