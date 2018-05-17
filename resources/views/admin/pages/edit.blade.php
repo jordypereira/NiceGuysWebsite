@@ -41,30 +41,37 @@
                         @endforeach
                     </div>
                 @else
-                    <label class="mb-4" for="image">Geen header foto geselecteerd (gebruik default foto):</label>
-                    <div>
-                        <a class="btn btn-outline-dark mt-0 mb-4" data-toggle="collapse" href=".multi-collapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Selecteer een andere foto</a>
-                    </div>
-                    @if(count($images) > 0)
-                        <div class="collapse multi-collapse">
-                            @foreach($images as $image)
-                                <div class="gallery-wrapper">
-                                    <label class="gallery-label" for="image{{$image["id"]}}">
-                                        <img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt="Header Image Gallery">
-                                    </label>
-                                    <div class="text-center">
-                                        <input class="gallery-radio" type="radio" name="image" id="image{{$image["id"]}}" value="{{ $image["filename"] }}">
+                    <label class="d-block" for="image">Geen header foto geselecteerd (gebruik default foto):</label>
+                    <div id="accordion">
+                        <button class="btn btn-outline-dark my-3" type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">Selecteer een foto</button>
+                        <button class="btn btn-outline-dark my-3" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Upload een foto</button>
+                        @if(count($images) > 0)
+                            <div class="collapse">
+                                @foreach($images as $image)
+                                    <div class="gallery-wrapper">
+                                        <label class="gallery-label" for="image{{$image["id"]}}">
+                                            <img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt="Header Image Gallery">
+                                        </label>
+                                        <div class="text-center">
+                                            <input class="gallery-radio" type="radio" name="image" id="image{{$image["id"]}}" value="{{ $image["filename"] }}">
+                                        </div>
                                     </div>
+                                @endforeach
+                            </div>
+                        @else
+                            <div class="collapse" id="multiCollapseExample1" style="max-height: 46px" data-parent="#accordion">
+                                <div class="alert alert-danger">
+                                    <p class="m-0">U moet eerst een foto uploaden voor u er een kunt selecteren!</p>
                                 </div>
-                            @endforeach
-                        </div>
-                    @else
-                        <div class="collapse multi-collapse" id="multiCollapseExample1" style="max-height: 46px" data-parent="#accordion">
-                            <div class="alert alert-danger">
-                                <p class="m-0">U moet eerst een foto uploaden voor u er een kunt selecteren!</p>
+                            </div>
+                        @endif
+                        <div class="collapse" id="multiCollapseExample2" style="max-height: 64px" data-parent="#accordion">
+                            <div class="form-group">
+                                <input type="file" class="form-control p-3" name="upload" id="upload">
+                                <input type="hidden" value="header" id="type" name="type">
                             </div>
                         </div>
-                    @endif
+                    </div>
                 @endif
             </div>
             <div class="form-group mt-0 mb-4">

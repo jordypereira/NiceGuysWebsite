@@ -22,16 +22,8 @@
                 <div id="accordion">
                     <button class="btn btn-outline-dark my-3" type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">Selecteer een foto</button>
                     <button class="btn btn-outline-dark my-3" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Upload een foto</button>
-                    {{--<div class="collapse" id="multiCollapseExample1" data-parent="#accordion">--}}
-                        {{--@foreach($images as $image)--}}
-                            {{--<div class="gallery-wrapper">--}}
-                                {{--<label class="gallery-label" for="image-{{$image["id"]}}"><img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt=""></label>--}}
-                                {{--<input class="gallery-radio" type="radio" name="image" id="image-{{$image["id"]}}" value="{{ $image["filename"] }}">--}}
-                            {{--</div>--}}
-                        {{--@endforeach--}}
-                    {{--</div>--}}
                     @if(count($images) > 0)
-                        <div class="collapse multi-collapse" id="multiCollapseExample1" data-parent="#accordion">
+                        <div class="collapse" id="multiCollapseExample1" data-parent="#accordion">
                             @foreach($images as $image)
                                 <div class="gallery-wrapper">
                                     <label class="gallery-label" for="image-{{$image["id"]}}"><img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt=""></label>
@@ -42,13 +34,12 @@
                             @endforeach
                         </div>
                     @else
-                        <div class="collapse multi-collapse" id="multiCollapseExample1" style="max-height: 46px" data-parent="#accordion">
+                        <div class="collapse" id="multiCollapseExample1" style="max-height: 46px" data-parent="#accordion">
                             <div class="alert alert-danger">
                                 <p class="m-0">U moet eerst een foto uploaden voor u er een kunt selecteren!</p>
                             </div>
                         </div>
                     @endif
-
                     <div class="collapse" id="multiCollapseExample2" style="max-height: 64px" data-parent="#accordion">
                         <div class="form-group">
                             <input type="file" class="form-control p-3" name="upload" id="upload">

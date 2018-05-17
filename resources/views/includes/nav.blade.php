@@ -23,7 +23,7 @@
                             <a class="dropdown-item" href="/admin/pages/create">Creëer een pagina</a>
                             <a class="dropdown-item" href="/admin/pages">Bekijk alle pagina's</a>
                             <hr class="my-2">
-                            <a class="dropdown-item" href="/admin/home/create">Maak een home block</a>
+                            <a class="dropdown-item" href="/admin/home/create">Creëer een home block</a>
                             <a class="dropdown-item" href="/admin/home">Bekijk alle home blocks</a>
                             <hr class="my-2">
                             <a class="dropdown-item" href="/admin/upload">Upload een foto</a>
