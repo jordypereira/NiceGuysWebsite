@@ -7,13 +7,19 @@
                 <div class="home-block position-relative {{($key % 2 === 0) ? "u-bg" : "u-bg-light"}}">
                     <div class="container py-5">
                         <div class="row {{($key % 2 === 0) ? "flex-row-reverse" : ""}}">
+                            @if(!empty($block['image']))
                             <div class="col-xs-12 col-md-12 col-lg-6">
-                                <h2 class="h2 mb-3">{{ $block['title'] }}</h2>
+                            @else
+                            <div class="col-xs-12 col-md-12 col-lg-12">
+                            @endif
+                                    <h2 class="h2 mb-3">{{ $block['title'] }}</h2>
                                 <p>{!! $block['text'] !!}</p>
                             </div>
+                            @if(!empty($block['image']))
                             <div class="col-xs-12 col-md-12 col-lg-6 d-flex flex-center mt-sm-4 mt-md-0 mt-lg-0">
                                 <img src="{{ asset('images/homeblock/'.$block['image']) }}" alt="Block Image" class="home-img border invisible animated">
                             </div>
+                            @endif
                         </div>
                     </div>
                     @auth

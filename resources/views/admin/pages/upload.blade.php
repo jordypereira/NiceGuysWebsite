@@ -11,6 +11,7 @@
             @csrf
             <div class="form-group mt-0 mb-4">
                 <input type="file" class="form-control p-3" name="image" id="image">
+                <div class="form-text text-muted">Max upload size: 2048kb</div>
             </div>
             <div class="d-block">
                 <input class="gallery-radio" id="home" name="type" type="radio" value="home">
@@ -27,14 +28,16 @@
             @if(count($headerImages) or count($homeImages))
                 <h2 class="mb-4">Uploaded images</h2>
                 <div class="row">
-                    <div class="col-md-6">
+                    <h5>Header Images</h5>
+                    <div class="col-12">
                         @foreach($headerImages as $image)
                             <div class="gallery-wrapper">
                                 <a href="{{ asset('images/header/'.$image["filename"]) }}" target="_blank"><img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt=""></a>
                             </div>
                         @endforeach
                     </div>
-                    <div class="col-md-6">
+                    <h5>Home Images</h5>
+                    <div class="col-12">
                         @foreach($homeImages as $image)
                             <div class="gallery-wrapper">
                                 <a href="{{ asset('images/homeblock/'.$image["filename"]) }}" target="_blank"><img class="gallery-image" src="{{ asset('images/homeblock/'.$image["filename"]) }}" alt=""></a>
