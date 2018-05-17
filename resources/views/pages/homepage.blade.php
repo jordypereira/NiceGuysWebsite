@@ -4,6 +4,7 @@
     <main>
         @if(!empty($blocks))
             @foreach($blocks as $key => $block)
+                @isset($block['title'])
                 <div class="home-block position-relative {{($key % 2 === 0) ? "u-bg" : "u-bg-light"}}">
                     <div class="container py-5">
                         <div class="row {{($key % 2 === 0) ? "flex-row-reverse" : ""}}">
@@ -38,6 +39,7 @@
                         </div>
                     @endauth
                 </div>
+                @endisset
                 @if($block['video'])
                     <div class="video-wrapper bg-dark py-5 position-relative">
                         <div class="container">
@@ -54,6 +56,17 @@
                         @auth
                             <div class="position-absolute admin-actions m-1">
                                 <a class="btn btn-outline-light adminButton" href="/admin/home/{{$block['id']}}/edit" title="Edit block #{{$block['id']}}">bewerken</a>
+                                <form action="{{ route('home.destroy', $block['id']) }}" method="POST" class="d-inline-block adminButton">
+                                    @method('DELETE')
+                                    @csrf
+                                    @isset($block['title'])
+                                    <button class="btn btn-outline-danger"
+                                            onclick="return confirm('Ben je zeker dat je deze Home Block wilt verwijderen?')"
+                                            title="Delete block #{{$block['id']}}">
+                                        verwijderen
+                                    </button>
+                                    @endisset
+                                </form>
                             </div>
                         @endauth
                     </div>
