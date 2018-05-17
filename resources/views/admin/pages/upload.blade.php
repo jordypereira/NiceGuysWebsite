@@ -11,6 +11,7 @@
             @csrf
             <div class="form-group mt-0 mb-4">
                 <input type="file" class="form-control p-3" name="image" id="image">
+                <div class="form-text text-muted">Max upload size: 2048kb</div>
             </div>
             <div class="d-block">
                 <input class="gallery-radio" id="home" name="type" type="radio" value="home">
