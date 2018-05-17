@@ -65,12 +65,15 @@
                                 <form action="{{ route('home.destroy', $block['id']) }}" method="POST" class="d-inline-block adminButton">
                                     @method('DELETE')
                                     @csrf
-                                    <button class="btn btn-outline-danger"
+                                    <button class="btn btn-outline-light"
                                             onclick="return confirm('Ben je zeker dat je deze Home Block wilt verwijderen?')"
                                             title="Delete block #{{$block['id']}}">
                                         <img src="{{ asset('images/cancel-button.png') }}" alt="Delete icon">
                                     </button>
                                 </form>
+                                <a class="btn btn-outline-light adminButton" href="/admin/home/create" title="Add a home block">
+                                    <img src="{{ asset('images/add.png') }}" alt="Delete icon">
+                                </a>
                             </div>
                         @endauth
                     </div>

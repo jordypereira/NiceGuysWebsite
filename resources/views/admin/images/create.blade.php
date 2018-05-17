@@ -7,11 +7,11 @@
 @section('content')
     <main class="container py-5">
         <h1 class="mt-0 mb-4">Foto uploaden</h1>
-        <form method="post" action="{{url('admin/images/create')}}" enctype="multipart/form-data">
+        <form method="post" action="{{url('admin/upload')}}" enctype="multipart/form-data">
             @csrf
             <div class="form-group mt-0 mb-4">
                 <input type="file" class="form-control p-3" name="image" id="image">
-                <div class="form-text text-muted">Max upload size: 2048kb</div>
+                <div class="form-text text-muted">Max upload size: 2048 kB</div>
             </div>
             <div class="d-block">
                 <input class="gallery-radio" id="home" name="type" type="radio" value="home">
@@ -28,19 +28,19 @@
         @if(count($headerImages) or count($homeImages))
             <h2 class="mb-4">Uploaded images</h2>
             <div class="row">
-                <h5>Header Images</h5>
                 <div class="col-12">
+                    <h5 class="m-0 pt-4 pb-2">Header Images</h5>
                     @foreach($headerImages as $image)
                         <div class="gallery-wrapper">
-                            <a href="{{ asset('images/header/'.$image["filename"]) }}" target="_blank"><img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt=""></a>
+                            <a href="{{ asset('images/header/'.$image["filename"]) }}" target="_blank"><img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt="" title="{{$image["filename"]}}"></a>
                         </div>
                     @endforeach
                 </div>
-                <h5>Home Images</h5>
                 <div class="col-12">
+                    <h5 class="m-0 pt-4 pb-2">Home Images</h5>
                     @foreach($homeImages as $image)
                         <div class="gallery-wrapper">
-                            <a href="{{ asset('images/homeblock/'.$image["filename"]) }}" target="_blank"><img class="gallery-image" src="{{ asset('images/homeblock/'.$image["filename"]) }}" alt=""></a>
+                            <a href="{{ asset('images/homeblock/'.$image["filename"]) }}" target="_blank"><img class="gallery-image" src="{{ asset('images/homeblock/'.$image["filename"]) }}" alt="" title="{{$image["filename"]}}"></a>
                         </div>
                     @endforeach
                 </div>
