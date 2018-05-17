@@ -10477,66 +10477,6 @@ td {
   opacity: 1;
 }
 
-.context-box-1 {
-  position: relative;
-  height: 60vh;
-  z-index: -10;
-}
-
-.header-style {
-  position: absolute;
-  top: 15%;
-  left: 10%;
-  color: white;
-}
-
-.diagram-logo {
-  position: absolute;
-  left: 60%;
-  top: 25%;
-}
-
-.paragraph-style {
-  position: absolute;
-  top: 30%;
-  left: 10%;
-  color: white;
-  width: 35%;
-}
-
-.image-preview {
-  position: absolute;
-  top: 20%;
-  left: 10%;
-}
-
-.header-style-2 {
-  position: absolute;
-  top: 15%;
-  right: 10%;
-}
-
-.paragraph-style-2 {
-  position: absolute;
-  text-align: right;
-  font-weight: bold;
-  top: 30%;
-  right: 10%;
-  width: 35%;
-}
-
-.left-arrow {
-  position: absolute;
-  top: 40%;
-  left: 2%;
-}
-
-.right-arrow {
-  position: absolute;
-  top: 40%;
-  right: 2%;
-}
-
 .context-inner {
   margin: 0 auto;
   padding: 10px;
