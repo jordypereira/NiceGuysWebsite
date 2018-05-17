@@ -20,7 +20,7 @@
             </div>
             <div class="form-group mt-0 mb-4">
                 <div class="collapse show multi-collapse">
-                    <label><a href="{{ asset('images/homeblock/'.$homeblock->image) }}">Foto:</a></label>
+                    <label><a href="{{ asset('images/homeblock/'.$homeblock->image) }}" target="_blank">Foto:</a></label>
                 </div>
                 <div id="accordion">
                     <button class="btn btn-outline-dark mb-3" type="button" data-toggle="collapse" href="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">Selecteer een foto</button>
