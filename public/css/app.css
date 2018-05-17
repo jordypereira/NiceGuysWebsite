@@ -10525,14 +10525,6 @@ td {
   width: 35%;
 }
 
-blockquote {
-  position: absolute;
-  top: 35%;
-  left: 25%;
-  width: 50%;
-  color: black;
-}
-
 .left-arrow {
   position: absolute;
   top: 40%;
