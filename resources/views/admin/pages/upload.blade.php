@@ -28,16 +28,16 @@
             @if(count($headerImages) or count($homeImages))
                 <h2 class="mb-4">Uploaded images</h2>
                 <div class="row">
-                    <h5>Header Images</h5>
                     <div class="col-12">
+                        <h5 class="m-0 pt-4 pb-2">Header Images</h5>
                         @foreach($headerImages as $image)
                             <div class="gallery-wrapper">
-                                <a href="{{ asset('images/header/'.$image["filename"]) }}" target="_blank"><img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt=""></a>
+                                <a href="{{ asset('images/header/'.$image["filename"]) }}" target="_blank"><img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt="" title="header image"></a>
                             </div>
                         @endforeach
                     </div>
-                    <h5>Home Images</h5>
                     <div class="col-12">
+                        <h5 class="m-0 pt-4 pb-2">Home Images</h5>
                         @foreach($homeImages as $image)
                             <div class="gallery-wrapper">
                                 <a href="{{ asset('images/homeblock/'.$image["filename"]) }}" target="_blank"><img class="gallery-image" src="{{ asset('images/homeblock/'.$image["filename"]) }}" alt=""></a>
