@@ -2,18 +2,6 @@
 
 @section('content')
     <main class="container py-5">
-        @if(Session::has('message'))
-            <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
-        @endif
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
         <h1 class="mt-0 mb-4">
             Alle pagina's
             <a class="btn-link float-right" href="{{ route('pages.create') }}">
