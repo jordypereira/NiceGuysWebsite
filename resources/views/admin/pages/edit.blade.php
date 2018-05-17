@@ -45,18 +45,26 @@
                     <div>
                         <a class="btn btn-outline-dark mt-0 mb-4" data-toggle="collapse" href=".multi-collapse" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Selecteer een andere foto</a>
                     </div>
-                    <div class="collapse multi-collapse">
-                        @foreach($images as $image)
-                            <div class="gallery-wrapper">
-                                <label class="gallery-label" for="image{{$image["id"]}}">
-                                    <img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt="Header Image Gallery">
-                                </label>
-                                <div class="text-center">
-                                    <input class="gallery-radio" type="radio" name="image" id="image{{$image["id"]}}" value="{{ $image["filename"] }}">
+                    @if(count($images) > 0)
+                        <div class="collapse multi-collapse">
+                            @foreach($images as $image)
+                                <div class="gallery-wrapper">
+                                    <label class="gallery-label" for="image{{$image["id"]}}">
+                                        <img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt="Header Image Gallery">
+                                    </label>
+                                    <div class="text-center">
+                                        <input class="gallery-radio" type="radio" name="image" id="image{{$image["id"]}}" value="{{ $image["filename"] }}">
+                                    </div>
                                 </div>
+                            @endforeach
+                        </div>
+                    @else
+                        <div class="collapse multi-collapse" id="multiCollapseExample1" style="max-height: 46px" data-parent="#accordion">
+                            <div class="alert alert-danger">
+                                <p class="m-0">U moet eerst een foto uploaden voor u er een kunt selecteren!</p>
                             </div>
-                        @endforeach
-                    </div>
+                        </div>
+                    @endif
                 @endif
             </div>
             <div class="form-group mt-0 mb-4">
