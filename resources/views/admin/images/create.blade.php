@@ -40,7 +40,7 @@
                     <h5 class="m-0 pt-4 pb-2">Home Images</h5>
                     @foreach($homeImages as $image)
                         <div class="gallery-wrapper">
-                            <a href="{{ url('admin/images/'.$image["id"]) }}" target="_blank"><img class="gallery-image" src="{{ asset('images/homeblock/'.$image["filename"]) }}" alt="" title="{{$image["filename"]}}"></a>
+                            <a href="{{ url('admin/images/'.$image["id"]) }}" target="_blank"><img class="gallery-image" src="{{ asset('images/home/'.$image["filename"]) }}" alt="" title="{{$image["filename"]}}"></a>
                         </div>
                     @endforeach
                 </div>
