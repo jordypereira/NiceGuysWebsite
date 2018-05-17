@@ -25,7 +25,7 @@
                     </div>
                     @auth
                         <div class="position-absolute admin-actions m-1">
-                            <a class="btn btn-outline-light adminButton" href="/admin/home/{{$block['id']}}/edit" title="Edit block #{{$block['id']}}">
+                            <a class="btn btn-outline-light adminButton" href="/admin/home/{{$block['id']}}/edit?f=b" title="Edit block #{{$block['id']}}">
                                 <img src="{{ asset('images/pencil.png') }}" alt="Edit icon">
                             </a>
                             <form action="{{ route('home.destroy', $block['id']) }}" method="POST" class="d-inline-block adminButton">
@@ -59,7 +59,7 @@
                         </div>
                         @auth
                             <div class="position-absolute admin-actions m-1">
-                                <a class="btn btn-outline-light adminButton" href="/admin/home/{{$block['id']}}/edit" title="Edit block #{{$block['id']}}">
+                                <a class="btn btn-outline-light adminButton" href="/admin/home/{{$block['id']}}/edit?f=v" title="Edit block #{{$block['id']}}">
                                     <img src="{{ asset('images/pencil.png') }}" alt="Edit icon">
                                 </a>
                                 <form action="{{ route('home.destroy', $block['id']) }}" method="POST" class="d-inline-block adminButton">
