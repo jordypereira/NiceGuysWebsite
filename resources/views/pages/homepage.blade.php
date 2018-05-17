@@ -24,8 +24,8 @@
                     </div>
                     @auth
                         <div class="position-absolute admin-actions m-1">
-                            <a class="btn btn-outline-dark" href="/admin/home/{{$block['id']}}/edit" title="Edit block #{{$block['id']}}">bewerken</a>
-                            <form action="{{ route('home.destroy', $block['id']) }}" method="POST" class="d-inline-block delete-button">
+                            <a class="btn btn-outline-dark adminButton" href="/admin/home/{{$block['id']}}/edit" title="Edit block #{{$block['id']}}">bewerken</a>
+                            <form action="{{ route('home.destroy', $block['id']) }}" method="POST" class="d-inline-block adminButton">
                                 @method('DELETE')
                                 @csrf
                                 <button class="btn btn-outline-danger"
@@ -34,7 +34,7 @@
                                     verwijderen
                                 </button>
                             </form>
-                            <a class="btn btn-outline-dark" href="/admin/home/create" title="Add a home block">toevoegen</a>
+                            <a class="btn btn-outline-dark adminButton" href="/admin/home/create" title="Add a home block">toevoegen</a>
                         </div>
                     @endauth
                 </div>
@@ -53,7 +53,7 @@
                         </div>
                         @auth
                             <div class="position-absolute admin-actions m-1">
-                                <a class="btn btn-outline-light" href="/admin/home/{{$block['id']}}/edit" title="Edit block #{{$block['id']}}">bewerken</a>
+                                <a class="btn btn-outline-light adminButton" href="/admin/home/{{$block['id']}}/edit" title="Edit block #{{$block['id']}}">bewerken</a>
                             </div>
                         @endauth
                     </div>
@@ -61,15 +61,4 @@
             @endforeach
         @endif
     </main>
-    {{--<div class="context-box-1 u-bg-white">--}}
-        {{--<blockquote>--}}
-            {{--<p>Blockquote: Arma virumque cano, Troiae qui primus ab oris Italiam, fato profugus, Laviniaque venit--}}
-                {{--litora, multum ille et terris iactatus et alto vi superum saevae memorem Iunonis ob iram.</p>--}}
-            {{--<p>Multa quoque et bello passus, dum conderet urbem, inferretque deos Latio, genus unde Latinum, Albanique--}}
-                {{--patres, atque altae moenia Romae.</p>--}}
-            {{--<cite>Publius Vergilius Maro</cite>--}}
-        {{--</blockquote>--}}
-        {{--<img src="{{ asset('images/left-arrow.png') }}" alt="left-arrow" class="left-arrow">--}}
-        {{--<img src="{{ asset('images/right-arrow.png') }}" alt="right-arrow" class="right-arrow">--}}
-    {{--</div>--}}
 @endsection
