@@ -7,7 +7,7 @@
 @section('content')
     <main class="container py-5">
         <h1 class="mt-0 mb-4">Foto uploaden</h1>
-        <form method="post" action="{{url('admin/upload')}}" enctype="multipart/form-data">
+        <form method="post" action="{{url('admin/images')}}" enctype="multipart/form-data">
             @csrf
             <div class="form-group mt-0 mb-4">
                 <input type="file" class="form-control p-3" name="image" id="image">
@@ -40,7 +40,7 @@
                     <h5 class="m-0 pt-4 pb-2">Home Images</h5>
                     @foreach($homeImages as $image)
                         <div class="gallery-wrapper">
-                            <a href="{{ asset('images/homeblock/'.$image["filename"]) }}" target="_blank"><img class="gallery-image" src="{{ asset('images/homeblock/'.$image["filename"]) }}" alt="" title="{{$image["filename"]}}"></a>
+                            <a href="{{ url('admin/images/'.$image["id"]) }}" target="_blank"><img class="gallery-image" src="{{ asset('images/homeblock/'.$image["filename"]) }}" alt="" title="{{$image["filename"]}}"></a>
                         </div>
                     @endforeach
                 </div>

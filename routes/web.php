@@ -17,8 +17,7 @@ Route::resource('/admin/home', 'HomeBlockController');
 
 Route::resource('admin/pages', 'PageController');
 
-Route::get('/admin/upload', 'PageController@render_upload');
-Route::post('/admin/upload', 'PageController@upload_image');
+Route::resource('admin/images', 'ImageController');
 
 Route::get('/admin', 'PageController@admin_page');
 

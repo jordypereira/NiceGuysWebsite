@@ -54,7 +54,7 @@ class ImageController extends Controller {
             if(request()->image){
                 $imageName = time().'_'.request()->image->getClientOriginalName();
                 if($request->get('type') == 'home') {
-                    request()->image->move(public_path('images/homeblock'), $imageName);
+                    request()->image->move(public_path('images/home'), $imageName);
                 }
                 else {
                     request()->image->move(public_path('images/header'), $imageName);
@@ -76,8 +76,9 @@ class ImageController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($slug) {
-
+    public function show($id) {
+        $image = Image::find($id);
+        return view('admin/images/show', ['image' => $image]);
     }
 
     /**
@@ -113,9 +114,9 @@ class ImageController extends Controller {
     public function destroy($id) {
         if (Auth::check()) {
             Image::destroy($id);
-            Session::flash('message', 'Page has been deleted.');
+            Session::flash('message', 'Foto is verwijderd.');
             Session::flash('alert-class', 'alert-success');
-            return redirect('admin/images');
+            return redirect('admin/images/create');
         }
     }
 }

@@ -26,7 +26,7 @@
                             <a class="dropdown-item" href="/admin/home/create">Creëer een home block</a>
                             <a class="dropdown-item" href="/admin/home">Bekijk alle home blocks</a>
                             <hr class="my-2">
-                            <a class="dropdown-item" href="/admin/upload">Upload een foto</a>
+                            <a class="dropdown-item" href="/admin/images/create">Upload een foto</a>
                             <hr class="my-2">
                             <div class="dropdown-item">
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
