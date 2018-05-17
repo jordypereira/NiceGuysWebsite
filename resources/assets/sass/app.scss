@@ -66,6 +66,14 @@ td {
 .u-bg-black{
   color: #fff;
 }
+.u-bg-light{
+  background-color: #4a5157;
+  color: #fff;
+}
+.u-bg{
+  background-color: #737e88;
+  color: #fff;
+}
 @media (min-width: 480px) {
   .context-inner{
     width: 80%;
@@ -113,4 +121,9 @@ td {
 main {
   box-sizing: border-box;
   min-height: calc(100vh - 320px - 100px)
+}
+.home-block {
+  a{
+    color: #b4daff;
+  }
 }
