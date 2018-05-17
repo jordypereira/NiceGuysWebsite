@@ -55,7 +55,7 @@
             </div>
             <div class="form-group mt-0 mb-4">
                 <button type="submit" class="btn btn-success">Bevestigen</button>
-                <a class="btn btn-danger" href="{{ URL::previous() }}">Afwijzen</a>
+                <a class="btn btn-danger" href="{{ URL::previous() }}">Annuleren</a>
             </div>
             <script>
                 CKEDITOR.replace('text');
