@@ -50,7 +50,7 @@ class HomeBlockController extends Controller{
             $homeBlock = new HomeBlock;
 
             $validatedData = $request->validate([
-                'title' => 'required|max:255',
+                'title' => 'required_without_all:video|max:255',
                 'upload' => 'required_without_all:image,video',
                 'image' => 'required_without_all:upload,video',
                 'video' => 'required_without_all:upload,image',
