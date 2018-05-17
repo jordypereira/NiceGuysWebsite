@@ -16,7 +16,7 @@
                 @endforeach
                 @auth
                     <li class="nav-item dropdown d-md-inline-block float-md-none float-lg-right">
-                        <a class="nav-link dropdown-toggle {{(Request::is('admin/*')) ? "active" : ""}}"" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle {{(Request::is('admin/*')) ? "active" : ""}}" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Admin acties
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
