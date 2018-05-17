@@ -135,6 +135,26 @@ class HomeBlockController extends Controller{
             ]);
 
             $homeBlock = HomeBlock::find($id);
+            if (request()->upload) {
+                $image = new Image;
+
+                $request->validate([
+                    'upload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+
+                $imageName = time().'_'.request()->upload->getClientOriginalName();
+                request()->upload->move(public_path('images/homeblock'), $imageName);
+                $image->filename = $imageName;
+                $image->type = 'home';
+                $image->save();
+
+                $homeBlock->image = $imageName;
+            } elseif(request()->image) {
+                $request->validate([
+                    'image' => 'required',
+                ]);
+                $homeBlock->image = $request->get('image');
+            }
             $homeBlock->title = $request->get('title');
             $homeBlock->text = $request->get('text');
             $homeBlock->video = $request->get('video');
