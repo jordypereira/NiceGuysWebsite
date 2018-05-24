@@ -13,3 +13,4 @@ yarn-error.log
 .env
 /public/images/header/*
 /public/images/homeblock/*
+/public/images/home/*
