@@ -13,8 +13,10 @@
                             @else
                             <div class="col-xs-12 col-md-12 col-lg-12">
                             @endif
-                                    <h2 class="h2 mb-3">{{ $block['title'] }}</h2>
-                                <p>{!! $block['text'] !!}</p>
+                                <h2 class="animated invisible mb-3">{{ $block['title'] }}</h2>
+                                <div class="animated invisible">
+                                    {!! $block['text'] !!}
+                                </div>
                             </div>
                             @if(!empty($block['image']))
                             <div class="col-xs-12 col-md-12 col-lg-6 d-flex flex-center mt-sm-4 mt-md-0 mt-lg-0">

@@ -85,6 +85,7 @@ class DatabaseSeeder extends Seeder
       ]);
       DB::table('home_blocks')->insert([
           'title' => 'Strafbaarheid',
+          'order' => '1',
           'text' => '
                 <p>In belgi&euml; deelt men de strafbare feiten op in verschillende gebieden. Als dit gedrag wordt gesteld ten opzichte van minderjarigen, geldt dat als verzwarende omstandigheid en zijn ook de straffen zwaarder.</p>
 
@@ -93,6 +94,7 @@ class DatabaseSeeder extends Seeder
       ]);
       DB::table('home_blocks')->insert([
           'title' => 'Wat kan je zelf doen?',
+          'order' => '2',
           'text' => '
                 <p>Steeds meer en meer scholieren krijgen te maken met grensoverschrijdend gedrag. Inplaats van deze feiten te vedringen is het verstanding om zelf stappen te kunnen ondernemen.</p>
 
@@ -100,6 +102,7 @@ class DatabaseSeeder extends Seeder
 '
       ]);
       DB::table('home_blocks')->insert([
+          'order' => '3',
           'video' => 'https://www.youtube.com/embed/HWJLiDkvgQ8'
       ]);
       DB::table('orders')->insert([
