@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\HomeBlock;
 use App\Image;
+use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -83,6 +84,11 @@ class HomeBlockController extends Controller{
             $homeBlock->text = $request->get('text');
 
             $homeBlock->save();
+
+            $order = new Order();
+            $order->home_blocks_id = $homeBlock->id;
+            $order->save();
+
             Session::flash('message', 'Home Block has been added.');
             Session::flash('alert-class', 'alert-success');
             return redirect('/');

@@ -102,5 +102,14 @@ class DatabaseSeeder extends Seeder
       DB::table('home_blocks')->insert([
           'video' => 'https://www.youtube.com/embed/HWJLiDkvgQ8'
       ]);
+      DB::table('orders')->insert([
+         'home_blocks_id' => 2
+      ]);
+      DB::table('orders')->insert([
+         'home_blocks_id' => 1
+      ]);
+      DB::table('orders')->insert([
+         'home_blocks_id' => 3
+      ]);
     }
 }
