@@ -1,4 +1,18 @@
 
+function showOrders(e) {
+    let invisibleEls = document.querySelectorAll(".order");
+
+    for (let i = 0, ilen = invisibleEls.length; i < ilen; i++) {
+        if (invisibleEls[i].classList.contains('invisible')) {
+            invisibleEls[i].classList.remove("invisible");
+            invisibleEls[i].classList.add("visible");
+        } else {
+            invisibleEls[i].classList.remove('visible')
+            invisibleEls[i].classList.add('invisible')
+        }
+    }
+}
+
 function getElPos(e) {
     let animEls = document.getElementsByClassName('animated');
 
@@ -23,5 +37,8 @@ function bindEvents() {
 
     let footerBtn = document.getElementById("footer-button");
     footerBtn.addEventListener('click', scrollToTop);
+
+    let orderBtn = document.getElementById("order-btn");
+    orderBtn.addEventListener('click', showOrders);
 }
 bindEvents();
