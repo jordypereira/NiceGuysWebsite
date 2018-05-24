@@ -18,7 +18,10 @@ class HomeBlockController extends Controller{
      */
     public function index() {
         if (Auth::check()) {
-            $blocks = HomeBlock::all();
+            $blocks = HomeBlock::join('orders', 'home_blocks.id', '=', 'orders.home_blocks_id')
+                ->select('*', 'orders.id AS order_id')
+                ->orderBy('orders.id')
+                ->get();
             return view('admin/home/index', ['blocks' => $blocks, 'headerImage' => 'headerbw.jpg']);
         } else {
             return redirect()->route('login');

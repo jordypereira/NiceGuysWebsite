@@ -13,7 +13,7 @@
                 </a>
             </div>
         </h1>
-        <form action="">
+        <form method="post" action="{{route('admin.order.update')}}">
             @csrf
             <table class="table m-0">
                 <tbody>
@@ -25,16 +25,16 @@
                         </span>
                         </td>
                         <td class="invisible order">
-                            <input class="order-input form-control" type="number" min="0" value="{{ $block['order'] }}">
+                            <input class="order-input form-control" type="number" min="1" value="{{ $block['order_id'] }}" name="{{ $block['id'] }}">
                         </td>
                         <td>
                             <div class="float-right">
                                 <a href="{{ route('home.edit', $block['id']) }}" class="n-button"><img src="{{ asset('images/pencil.png') }}" alt="Edit icon" title="Edit"></a>
-                                <form action="{{ route('home.destroy', $block['id']) }}" method="POST" class="n-button">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button class="delete-btn" onclick="return confirm('Ben je zeker dat je deze Home Block wilt verwijderen?')"><img src="{{ asset('images/cancel-button.png') }}" alt="Delete icon" title="Delete"></button>
-                                </form>
+                                {{--<form action="{{ route('home.destroy', $block['id']) }}" method="POST" class="n-button">--}}
+                                    {{--@method('DELETE')--}}
+                                    {{--@csrf--}}
+                                    {{--<button class="delete-btn" onclick="return confirm('Ben je zeker dat je deze Home Block wilt verwijderen?')"><img src="{{ asset('images/cancel-button.png') }}" alt="Delete icon" title="Delete"></button>--}}
+                                {{--</form>--}}
                             </div>
                         </td>
                     </tr>
