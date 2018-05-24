@@ -65,7 +65,7 @@ class HomeBlockController extends Controller{
                 ]);
 
                 $imageName = time().'_'.request()->upload->getClientOriginalName();
-                request()->upload->move(public_path('images/homeblock'), $imageName);
+                request()->upload->move(public_path('images/home'), $imageName);
                 $image->filename = $imageName;
                 $image->type = $request->get('type');
                 $image->save();
@@ -143,7 +143,7 @@ class HomeBlockController extends Controller{
                 ]);
 
                 $imageName = time().'_'.request()->upload->getClientOriginalName();
-                request()->upload->move(public_path('images/homeblock'), $imageName);
+                request()->upload->move(public_path('images/home'), $imageName);
                 $image->filename = $imageName;
                 $image->type = 'home';
                 $image->save();
