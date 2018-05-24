@@ -16,7 +16,7 @@
                 <tr>
                     <td class="pt-0 pb-4">
                     <span class="table-span">
-                        {{ ucfirst($block['title']) }}
+                        {{ isset($block['title']) ? ucfirst($block['title']) : $block['video'] }}
                     </span>
                         <div class="float-right">
                             <a href="{{ route('home.edit', $block['id']) }}" class="n-button"><img src="{{ asset('images/pencil.png') }}" alt="Edit icon" title="Edit"></a>
