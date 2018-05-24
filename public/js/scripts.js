@@ -8,7 +8,7 @@ function getElPos(e) {
             elRect.bottom > 0 && elRect.bottom < window.innerHeight) {
             animEls[i].classList.remove('invisible');
             animEls[i].classList.add('visible');
-            animEls[i].classList.add('bounceIn');
+            animEls[i].classList.add('slideInUp');
         }
     }
 }
