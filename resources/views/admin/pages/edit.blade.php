@@ -32,7 +32,7 @@
                                 @foreach($images as $image)
                                     <div class="gallery-wrapper">
                                         <label class="gallery-label" for="image{{$image["id"]}}">
-                                            <img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt="Header Image Gallery">
+                                            <img class="gallery-image img-thumbnail" src="{{ asset('images/header/'.$image["filename"]) }}" alt="Header Image Gallery">
                                         </label>
                                         <div class="text-center">
                                             <input class="gallery-radio" type="radio" name="image" id="image{{$image["id"]}}" value="{{ $image["filename"] }}">

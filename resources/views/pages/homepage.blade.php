@@ -2,7 +2,31 @@
 
 @section('content')
     <main>
-        @if(!empty($blocks))
+        @if(count($blocks) > 0)
+            @foreach($blocks as $block)
+                <div class="modal fade" id="exampleModal{{$block['id']}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Bent u zeker dat u dit block wilt verwijderen?</p>
+                                <form action="{{ route('home.destroy', $block['id']) }}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="button" class="btn btn-success" data-dismiss="modal">Annuleren</button>
+                                    <button type="submit" class="btn btn-danger">Verwijderen</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+
             @foreach($blocks as $key => $block)
                 @isset($block['title'])
                 <div class="home-block position-relative {{($key % 2 === 0) ? "u-bg" : "u-bg-light"}}">
@@ -30,17 +54,11 @@
                             <a class="btn btn-outline-light adminButton" href="/admin/home/{{$block['id']}}/edit?f=b" title="Edit block #{{$block['id']}}">
                                 <img src="{{ asset('images/pencil.png') }}" alt="Edit icon">
                             </a>
-                            <form action="{{ route('home.destroy', $block['id']) }}" method="POST" class="d-inline-block adminButton">
-                                @method('DELETE')
-                                @csrf
-                                <button class="btn btn-outline-light"
-                                        onclick="return confirm('Ben je zeker dat je deze Home Block wilt verwijderen?')"
-                                        title="Delete block #{{$block['id']}}">
-                                    <img src="{{ asset('images/cancel-button.png') }}" alt="Delete icon">
-                                </button>
-                            </form>
-                            <a class="btn btn-outline-light adminButton" href="/admin/home/create" title="Add a home block">
-                                <img src="{{ asset('images/add.png') }}" alt="Delete icon">
+                            <button type="button" class="btn btn-outline-light adminButton" data-toggle="modal" data-target="#exampleModal{{$block['id']}}" title="Delete block #{{$block['id']}}">
+                                <img src="{{ asset('images/cancel-button.png') }}" alt="Delete icon">
+                            </button>
+                            <a class="btn btn-outline-light adminButton" href="/admin/home/create" title="Add a homeblock">
+                                <img src="{{ asset('images/add.png') }}" alt="Add icon">
                             </a>
                         </div>
                     @endauth
@@ -64,23 +82,25 @@
                                 <a class="btn btn-outline-light adminButton" href="/admin/home/{{$block['id']}}/edit?f=v" title="Edit block #{{$block['id']}}">
                                     <img src="{{ asset('images/pencil.png') }}" alt="Edit icon">
                                 </a>
-                                <form action="{{ route('home.destroy', $block['id']) }}" method="POST" class="d-inline-block adminButton">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button class="btn btn-outline-light"
-                                            onclick="return confirm('Ben je zeker dat je deze Home Block wilt verwijderen?')"
-                                            title="Delete block #{{$block['id']}}">
-                                        <img src="{{ asset('images/cancel-button.png') }}" alt="Delete icon">
-                                    </button>
-                                </form>
-                                <a class="btn btn-outline-light adminButton" href="/admin/home/create" title="Add a home block">
-                                    <img src="{{ asset('images/add.png') }}" alt="Delete icon">
+                                <button type="button" class="btn btn-outline-light adminButton" data-toggle="modal" data-target="#exampleModal{{$block['id']}}" title="Delete block #{{$block['id']}}">
+                                    <img src="{{ asset('images/cancel-button.png') }}" alt="Delete icon">
+                                </button>
+                                <a class="btn btn-outline-light adminButton" href="/admin/home/create" title="Add a homeblock">
+                                    <img src="{{ asset('images/add.png') }}" alt="Add icon">
                                 </a>
                             </div>
                         @endauth
                     </div>
                 @endif
             @endforeach
+        @else
+            @auth
+                            <div class="m-1">
+                                <a href="/admin/home/create" class="btn btn-outline-dark" title="Voeg een homeblock toe">
+                                    <img src="{{ asset('images/add.png') }}" alt="Add icon">
+                                </a>
+                            </div>
+            @endauth
         @endif
     </main>
 @endsection

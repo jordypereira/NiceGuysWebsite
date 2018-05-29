@@ -24,8 +24,8 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <p>Bent u zeker dat u block {{$block['id']}} wilt verwijderen?</p>
-                            <form action="{{ route('home.destroy', $block['id']) }}" method="POST" class="n-button">
+                            <p>Bent u zeker dat u dit block wilt verwijderen?</p>
+                            <form action="{{ route('home.destroy', $block['id']) }}" method="POST">
                                 @method('DELETE')
                                 @csrf
                                 <button type="button" class="btn btn-success" data-dismiss="modal">Annuleren</button>

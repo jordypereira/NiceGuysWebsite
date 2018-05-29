@@ -10,6 +10,29 @@
                 </button>
             </a>
         </h1>
+        @foreach ($pages as $page)
+            <div class="modal fade" id="exampleModal{{ $page['id'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Bent u zeker dat u deze pagina wilt verwijderen?</p>
+                            <form action="{{ route('pages.destroy', $page['id']) }}" method="POST">
+                                @method('DELETE')
+                                @csrf
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Annuleren</button>
+                                <button type="submit" class="btn btn-danger">Verwijderen</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
         <table class="table m-0">
             <tbody>
             @foreach ($pages as $page)
@@ -17,27 +40,14 @@
                     <td class="pt-0 pb-4">
                     <span class="table-span">
                         {{ ucfirst($page['title']) }}
-                        {{--<a title="Info" data-toggle="collapse" href="#multiCollapseExample{{ $page['id'] }}" role="button" aria-expanded="false" aria-controls="multiCollapseExample{{ $page['id'] }}">--}}
-                            {{--<img class="info-icon" src="{{ asset('images/info.png') }}" alt="Info icon">--}}
-                        {{--</a>--}}
                     </span>
                         <div class="float-right">
                             <a href="/{{ str_replace(' ', '-', $page['link']) }}" target="_blank"><img src="{{ asset('images/eye.png') }}" alt="Eye icon" title="View"></a>
                             <a href="{{ route('pages.edit', $page['id']) }}" class="n-button"><img src="{{ asset('images/pencil.png') }}" alt="Edit icon" title="Edit"></a>
-                            <form action="{{ route('pages.destroy', $page['id']) }}" method="POST" class="n-button">
-                                @method('DELETE')
-                                @csrf
-                                <button class="delete-btn" onclick="return confirm('Ben je zeker dat je deze pagina wilt verwijderen?')"><img src="{{ asset('images/cancel-button.png') }}" alt="Delete icon" title="Delete"></button>
-                            </form>
+                            <button type="button" class="delete-btn" data-toggle="modal" data-target="#exampleModal{{ $page['id'] }}">
+                                <img src="{{ asset('images/cancel-button.png') }}" alt="">
+                            </button>
                         </div>
-                        {{--<div class="collapse-wrapper">--}}
-                            {{--<div class="collapse multi-collapse" id="multiCollapseExample{{ $page['id'] }}">--}}
-                                {{--<div class="card card-body">--}}
-                                    {{--<p>Aangemaakt op: {{ $page['created_at'] }}</p>--}}
-                                    {{--<p>Laatst aangepast op: {{ $page['updated_at'] }}</p>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
                     </td>
                 </tr>
             @endforeach

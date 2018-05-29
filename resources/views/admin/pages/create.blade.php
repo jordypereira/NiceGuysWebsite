@@ -26,7 +26,7 @@
                         <div class="collapse" id="multiCollapseExample1" data-parent="#accordion">
                             @foreach($images as $image)
                                 <div class="gallery-wrapper">
-                                    <label class="gallery-label" for="image-{{$image["id"]}}"><img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt=""></label>
+                                    <label class="gallery-label" for="image-{{$image["id"]}}"><img class="gallery-image img-thumbnail" src="{{ asset('images/header/'.$image["filename"]) }}" alt=""></label>
                                     <div class="text-center">
                                         <input class="gallery-radio" type="radio" name="image" id="image-{{$image["id"]}}" value="{{ $image["filename"] }}">
                                     </div>
