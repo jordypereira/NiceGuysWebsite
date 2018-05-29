@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <main>
+    <main class="position-relative">
         @if(count($blocks) > 0)
             @foreach($blocks as $block)
                 <div class="modal fade" id="exampleModal{{$block['id']}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -103,10 +103,13 @@
             @endforeach
         @else
             @auth
-                            <div class="m-1">
-                                <a href="/admin/home/create" class="btn btn-outline-dark" title="Voeg een homeblock toe">
-                                    <img src="{{ asset('images/add.png') }}" alt="Add icon">
+                            <div class="position-absolute admin-actions m-1">
+                                <a class="btn btn-dark adminButton" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img src="{{ asset('images/edit.png') }}" alt="">
                                 </a>
+                                <div class="dropdown-menu bg-dark adminButton" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item admin-dropdown-item" href="/admin/home/create" title="Maak een nieuw homeblock">Nieuw homeblock</a>
+                                </div>
                             </div>
             @endauth
         @endif
