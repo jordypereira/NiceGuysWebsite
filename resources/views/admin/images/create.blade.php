@@ -25,24 +25,80 @@
                 <button type="submit" class="btn btn-success">Uploaden</button>
             </div>
         </form>
+        @foreach($headerImages as $image)
+            <div class="modal fade" id="exampleModal{{$image['id']}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Bent u zeker dat u foto {{$image['id']}} wilt verwijderen?</p>
+                            <button type="button" class="btn btn-success" data-dismiss="modal">Annuleren</button>
+                            <button type="button" class="btn btn-danger">Verwijderen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+        @foreach($homeImages as $image)
+            <div class="modal fade" id="exampleModal{{$image['id']}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Bent u zeker dat u foto {{$image['id']}} wilt verwijderen?</p>
+                            <button type="button" class="btn btn-success" data-dismiss="modal">Annuleren</button>
+                            <button type="button" class="btn btn-danger">Verwijderen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
         @if(count($headerImages) or count($homeImages))
             <h2 class="mb-4">Uploaded images</h2>
             <div class="row">
-                <div class="col-12">
-                    <h5 class="m-0 pt-4 pb-2">Header Images</h5>
-                    @foreach($headerImages as $image)
-                        <div class="gallery-wrapper">
-                            <a href="{{ asset('images/header/'.$image["filename"]) }}"><img class="gallery-image" src="{{ asset('images/header/'.$image["filename"]) }}" alt="" title="{{$image["filename"]}}"></a>
+                <div class="col-12 pb-4">
+                    <h5 class="m-0 pb-4">Header foto's</h5>
+                    @if(count($headerImages))
+                        @foreach($headerImages as $image)
+                            <div class="gallery-wrapper position-relative">
+                                <button type="button" class="position-absolute delete-image-btn btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$image['id']}}">
+                                    X
+                                </button>
+                                <a href="{{ asset('images/header/'.$image["filename"]) }}"><img class="gallery-image img-thumbnail" src="{{ asset('images/header/'.$image["filename"]) }}" alt="" title="{{$image["filename"]}}"></a>
+                            </div>
+                        @endforeach
+                    @else
+                        <div class="alert alert-danger">
+                            <p class="m-0">Geen foto's gevonden.</p>
                         </div>
-                    @endforeach
+                    @endif
                 </div>
-                <div class="col-12">
-                    <h5 class="m-0 pt-4 pb-2">Home Images</h5>
-                    @foreach($homeImages as $image)
-                        <div class="gallery-wrapper">
-                            <a href="{{ url('admin/images/'.$image["id"]) }}"><img class="gallery-image" src="{{ asset('images/home/'.$image["filename"]) }}" alt="" title="{{$image["filename"]}}"></a>
+                <div class="col-12 pb-4">
+                    <h5 class="m-0 pb-4">Home pagina foto's</h5>
+                    @if(count($homeImages))
+                        @foreach($homeImages as $image)
+                            <div class="gallery-wrapper position-relative">
+                                <button type="button" class="position-absolute delete-image-btn btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$image['id']}}">
+                                    X
+                                </button>
+                                <a href="{{ url('admin/images/'.$image["id"]) }}"><img class="gallery-image img-thumbnail" src="{{ asset('images/home/'.$image["filename"]) }}" alt="" title="{{$image["filename"]}}"></a>
+                            </div>
+                        @endforeach
+                    @else
+                        <div class="alert alert-danger">
+                            <p class="m-0">Geen foto's gevonden.</p>
                         </div>
-                    @endforeach
+                    @endif
                 </div>
             </div>
         @endif

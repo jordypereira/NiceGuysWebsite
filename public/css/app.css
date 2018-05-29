@@ -10550,14 +10550,16 @@ td {
 .home-block .adminButton,
 .wrapper .adminButton,
 .video-wrapper .adminButton,
-.home-block .adminButton {
+.home-block .adminButton,
+.delete-image-btn {
   visibility: hidden;
 }
 
 .home-block:hover .adminButton,
 .wrapper:hover .adminButton,
 .video-wrapper:hover .adminButton,
-.home-block:hover .adminButton {
+.home-block:hover .adminButton,
+.gallery-wrapper:hover .delete-image-btn {
   visibility: visible;
 }
 
