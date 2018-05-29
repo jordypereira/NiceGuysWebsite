@@ -130,3 +130,10 @@ main {
 .order-input {
   max-width: 50px;
 }
+.admin-dropdown-item {
+  cursor: pointer;
+  color: white !important;
+}
+.admin-dropdown-item:hover {
+  background-color: $gray-700;
+}

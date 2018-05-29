@@ -51,15 +51,19 @@
                     </div>
                     @auth
                         <div class="position-absolute admin-actions m-1">
-                            <a class="btn btn-outline-light adminButton" href="/admin/home/{{$block['id']}}/edit?f=b" title="Edit block #{{$block['id']}}">
-                                <img src="{{ asset('images/pencil.png') }}" alt="Edit icon">
+                            <a class="btn btn-dark adminButton" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="{{ asset('images/edit.png') }}" alt="">
                             </a>
-                            <button type="button" class="btn btn-outline-light adminButton" data-toggle="modal" data-target="#exampleModal{{$block['id']}}" title="Delete block #{{$block['id']}}">
-                                <img src="{{ asset('images/cancel-button.png') }}" alt="Delete icon">
-                            </button>
-                            <a class="btn btn-outline-light adminButton" href="/admin/home/create" title="Add a homeblock">
-                                <img src="{{ asset('images/add.png') }}" alt="Add icon">
-                            </a>
+                            <div class="dropdown-menu bg-dark adminButton" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item admin-dropdown-item" href="/admin/home/{{$block['id']}}/edit?f=b" title="Edit block #{{$block['id']}}">
+                                    Edit block
+                                </a>
+                                <span class="dropdown-item admin-dropdown-item" data-toggle="modal" data-target="#exampleModal{{$block['id']}}" title="Delete block #{{$block['id']}}">
+                                    Delete block
+                                </span>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item admin-dropdown-item" href="/admin/home/create" title="Maak een nieuw homeblock">Nieuw homeblock</a>
+                            </div>
                         </div>
                     @endauth
                 </div>
@@ -79,15 +83,19 @@
                         </div>
                         @auth
                             <div class="position-absolute admin-actions m-1">
-                                <a class="btn btn-outline-light adminButton" href="/admin/home/{{$block['id']}}/edit?f=v" title="Edit block #{{$block['id']}}">
-                                    <img src="{{ asset('images/pencil.png') }}" alt="Edit icon">
+                                <a class="btn btn-dark adminButton" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img src="{{ asset('images/edit.png') }}" alt="">
                                 </a>
-                                <button type="button" class="btn btn-outline-light adminButton" data-toggle="modal" data-target="#exampleModal{{$block['id']}}" title="Delete block #{{$block['id']}}">
-                                    <img src="{{ asset('images/cancel-button.png') }}" alt="Delete icon">
-                                </button>
-                                <a class="btn btn-outline-light adminButton" href="/admin/home/create" title="Add a homeblock">
-                                    <img src="{{ asset('images/add.png') }}" alt="Add icon">
-                                </a>
+                                <div class="dropdown-menu bg-dark adminButton" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item admin-dropdown-item" href="/admin/home/{{$block['id']}}/edit?f=b" title="Edit block #{{$block['id']}}">
+                                        Edit block
+                                    </a>
+                                    <span class="dropdown-item admin-dropdown-item" data-toggle="modal" data-target="#exampleModal{{$block['id']}}" title="Delete block #{{$block['id']}}">
+                                    Delete block
+                                </span>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item admin-dropdown-item" href="/admin/home/create" title="Maak een nieuw homeblock">Nieuw homeblock</a>
+                                </div>
                             </div>
                         @endauth
                     </div>
