@@ -13,31 +13,52 @@
                 </a>
             </div>
         </h1>
+        @foreach ($blocks as $block)
+            <div class="modal fade" id="exampleModal{{$block['id']}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Bent u zeker dat u block {{$block['id']}} wilt verwijderen?</p>
+                            <form action="{{ route('home.destroy', $block['id']) }}" method="POST" class="n-button">
+                                @method('DELETE')
+                                @csrf
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Annuleren</button>
+                                <button type="submit" class="btn btn-danger">Verwijderen</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
         <form method="post" action="{{route('admin.order.update')}}">
             @csrf
             <table class="table m-0">
                 <tbody>
-                @foreach ($blocks as $block)
-                    <tr>
-                        <td class="pt-0 pb-4">
-                        <span class="table-span">
-                            {{ isset($block['title']) ? ucfirst($block['title']) : $block['video'] }}
-                        </span>
-                        </td>
-                        <td class="invisible order">
-                            <input class="order-input form-control" type="number" min="1" value="{{ $block['order_id'] }}" name="{{ $block['id'] }}">
-                        </td>
-                        <td>
-                            <div class="float-right">
-                                <a href="{{ route('home.edit', $block['id']) }}" class="n-button"><img src="{{ asset('images/pencil.png') }}" alt="Edit icon" title="Edit"></a>
-                                {{--<form action="{{ route('home.destroy', $block['id']) }}" method="POST" class="n-button">--}}
-                                    {{--@method('DELETE')--}}
-                                    {{--@csrf--}}
-                                    {{--<button class="delete-btn" onclick="return confirm('Ben je zeker dat je deze Home Block wilt verwijderen?')"><img src="{{ asset('images/cancel-button.png') }}" alt="Delete icon" title="Delete"></button>--}}
-                                {{--</form>--}}
-                            </div>
-                        </td>
-                    </tr>
+                @foreach($blocks as $block)
+                <tr>
+                    <td class="pt-0 pb-4">
+                            <span class="table-span">
+                                {{ isset($block['title']) ? ucfirst($block['title']) : $block['video'] }}
+                            </span>
+                    </td>
+                    <td class="invisible order">
+                        <input class="order-input form-control" type="number" min="1" value="{{ $block['order_id'] }}" name="{{ $block['id'] }}">
+                    </td>
+                    <td>
+                        <div class="float-right">
+                            <a href="{{ route('home.edit', $block['id']) }}" class="n-button"><img src="{{ asset('images/pencil.png') }}" alt="Edit icon" title="Edit"></a>
+                            <button type="button" class="delete-btn" data-toggle="modal" data-target="#exampleModal{{$block['id']}}">
+                                <img src="{{ asset('images/cancel-button.png') }}">
+                            </button>
+                        </div>
+                    </td>
+                </tr>
                 @endforeach
                 </tbody>
             </table>
