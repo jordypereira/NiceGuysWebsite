@@ -82,7 +82,7 @@
                                 <button type="button" class="position-absolute delete-image-btn btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$image['id']}}">
                                     X
                                 </button>
-                                <a href="{{ asset('images/header/'.$image["filename"]) }}"><img class="gallery-image img-thumbnail" src="{{ asset('images/header/'.$image["filename"]) }}" alt="" title="{{$image["filename"]}}"></a>
+                                <a href="{{ url('admin/images/'.$image["id"]) }}"><img class="gallery-image img-thumbnail" src="{{ asset('images/header/'.$image["filename"]) }}" alt="" title="{{$image["filename"]}}"></a>
                             </div>
                         @endforeach
                     @else
