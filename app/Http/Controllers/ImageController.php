@@ -72,7 +72,7 @@ class ImageController extends Controller {
     /**
      * Display the specified resource.
      *
-     * @param  string $slug
+     * @param  int $id
      *
      * @return \Illuminate\Http\Response
      */
@@ -113,7 +113,10 @@ class ImageController extends Controller {
      */
     public function destroy($id) {
         if (Auth::check()) {
-            Image::destroy($id);
+            $image = Image::find($id);
+            $image->delete();
+            $image_path = public_path('images/').$image['type'].'/'.$image['filename'];
+            unlink($image_path);
             Session::flash('message', 'Foto is verwijderd.');
             Session::flash('alert-class', 'alert-success');
             return redirect('admin/images/create');
