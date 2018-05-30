@@ -94,7 +94,7 @@ class HomeBlockController extends Controller{
 
             Session::flash('message', 'Home Block has been added.');
             Session::flash('alert-class', 'alert-success');
-            return redirect('/');
+            return redirect()->back();
         }
     }
 
@@ -172,7 +172,7 @@ class HomeBlockController extends Controller{
 
             Session::flash('message', 'Block has been updated.');
             Session::flash('alert-class', 'alert-success');
-            return redirect('/');
+            return redirect()->back();
         }
     }
 
@@ -188,7 +188,7 @@ class HomeBlockController extends Controller{
             HomeBlock::destroy($id);
             Session::flash('message', 'Block has been deleted.');
             Session::flash('alert-class', 'alert-success');
-            return redirect('/');
+            return redirect()->back();
         }
     }
 }
