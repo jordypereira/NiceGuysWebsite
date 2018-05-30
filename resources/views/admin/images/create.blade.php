@@ -35,7 +35,14 @@
                             </button>
                             <p>Bent u zeker dat u foto {{$image['id']}} wilt verwijderen?</p>
                             <button type="button" class="btn btn-success" data-dismiss="modal">Annuleren</button>
-                            <button type="button" class="btn btn-danger">Verwijderen</button>
+                            <form action="{{ route('images.destroy', $image['id']) }}" method="POST" class="d-inline-block adminButton">
+                                @method('DELETE')
+                                @csrf
+                                <button class="btn btn-danger"
+                                        title="Delete foto #{{$image['id']}}">
+                                    Verwijderen
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -51,7 +58,14 @@
                             </button>
                             <p>Bent u zeker dat u foto {{$image['id']}} wilt verwijderen?</p>
                             <button type="button" class="btn btn-success" data-dismiss="modal">Annuleren</button>
-                            <button type="button" class="btn btn-danger">Verwijderen</button>
+                            <form action="{{ route('images.destroy', $image['id']) }}" method="POST" class="d-inline-block adminButton">
+                                @method('DELETE')
+                                @csrf
+                                <button class="btn btn-danger"
+                                        title="Delete foto #{{$image['id']}}">
+                                    Verwijderen
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
