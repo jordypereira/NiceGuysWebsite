@@ -38,7 +38,7 @@ function bindEvents() {
     let footerBtn = document.getElementById("footer-button");
     footerBtn.addEventListener('click', scrollToTop);
 
-    let orderBtn = document.getElementById("order-btn");
-    orderBtn.addEventListener('click', showOrders);
+    // let orderBtn = document.getElementById("order-btn");
+    // orderBtn.addEventListener('click', showOrders);
 }
 bindEvents();

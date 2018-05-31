@@ -13,7 +13,7 @@
         @include('includes.header')
     </div>
     @include('includes.nav')
-        @include('includes.alerts')
+    @include('includes.alerts')
     @yield('content')
     <footer>
         @include('includes.footer')

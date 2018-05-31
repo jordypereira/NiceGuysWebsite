@@ -113,15 +113,17 @@ td {
   left: 0;
 }
 .home-block .adminButton, .wrapper .adminButton, .video-wrapper .adminButton, .home-block .adminButton, .delete-image-btn, main .admin-actions {
+  overflow-y: hidden;
   visibility: hidden;
 }
 .home-block:hover .adminButton, .wrapper:hover .adminButton, .video-wrapper:hover .adminButton, .home-block:hover .adminButton, .gallery-wrapper:hover .delete-image-btn, main:hover .admin-actions {
+  overflow-y: hidden;
   visibility: visible;
 }
 main {
   box-sizing: border-box;
   min-height: calc(100vh - 320px - 100px);
-  height: auto;
+  overflow-y: hidden;
 }
 .home-block {
   a{
@@ -143,4 +145,7 @@ main {
 }
 .home-block-option:hover {
   text-decoration: underline;
+}
+.bg-red {
+  background-color: #d0003a;
 }

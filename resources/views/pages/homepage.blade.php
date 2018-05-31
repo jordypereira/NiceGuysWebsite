@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <main class="position-relative d-flex flex-column">
+    <main class="position-relative d-block">
         @if(count($blocks) > 0)
             @foreach($blocks as $block)
                 <div class="modal fade" id="exampleModal{{$block['id']}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
