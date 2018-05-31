@@ -41,7 +41,14 @@
                 <tr>
                     <td class="pt-0 pb-4">
                             <span class="table-span">
-                                {{ isset($block['title']) ? ucfirst($block['title']) : $block['video'] }}
+                                @if ($block['title'])
+                                    {{ ucfirst($block['title']) }}
+                                @elseif(!$block['title'] && $block['video'])
+                                    {{ $block['video'] }}
+                                @else
+                                    {{ $block['image'] }}
+                                @endif
+                                {{ !isset($block['title']) ? ucfirst($block['title']) : "" }}
                             </span>
                     </td>
                     <td class="invisible order">

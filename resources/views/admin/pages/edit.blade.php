@@ -29,16 +29,18 @@
                         <button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#multiCollapseExample4" aria-expanded="false" aria-controls="multiCollapseExample4">Upload een foto</button>
                         @if(count($images) > 0)
                             <div class="collapse" id="multiCollapseExample3" data-parent="#accordion">
-                                @foreach($images as $image)
-                                    <div class="gallery-wrapper">
-                                        <label class="gallery-label" for="image{{$image["id"]}}">
-                                            <img class="gallery-image img-thumbnail" src="{{ asset('images/header/'.$image["filename"]) }}" alt="Header Image Gallery">
-                                        </label>
-                                        <div class="text-center">
-                                            <input class="gallery-radio" type="radio" name="image" id="image{{$image["id"]}}" value="{{ $image["filename"] }}">
+                                <div class="pt-4">
+                                    @foreach($images as $image)
+                                        <div class="gallery-wrapper">
+                                            <label class="gallery-label" for="image{{$image["id"]}}">
+                                                <img class="gallery-image img-thumbnail" src="{{ asset('images/header/'.$image["filename"]) }}" alt="Header Image Gallery">
+                                            </label>
+                                            <div class="text-center">
+                                                <input class="gallery-radio" type="radio" name="image" id="image{{$image["id"]}}" value="{{ $image["filename"] }}">
+                                            </div>
                                         </div>
-                                    </div>
-                                @endforeach
+                                    @endforeach
+                                </div>
                             </div>
                         @else
                             <div class="collapse" id="multiCollapseExample3" style="max-height: 46px" data-parent="#accordion">
@@ -47,9 +49,11 @@
                                 </div>
                             </div>
                         @endif
-                        <div class="collapse" id="multiCollapseExample4" style="max-height: 64px" data-parent="#accordion">
-                            <div class="form-group">
-                                <input type="file" class="form-control p-3" name="upload" id="upload">
+                        <div class="collapse" id="multiCollapseExample4" style="max-height: 88px" data-parent="#accordion">
+                            <div class="pt-4">
+                                <div class="form-group">
+                                    <input type="file" class="form-control p-3" name="upload" id="upload">
+                                </div>
                             </div>
                         </div>
                     </div>

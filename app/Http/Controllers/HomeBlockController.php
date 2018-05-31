@@ -53,38 +53,48 @@ class HomeBlockController extends Controller{
         if (Auth::check()) {
             $homeBlock = new HomeBlock;
 
-            $validatedData = $request->validate([
-                'title' => 'required_without_all:video|max:255',
-                'upload' => 'required_without_all:image,video',
-                'image' => 'required_without_all:upload,video',
-                'video' => 'required_without_all:upload,image',
-            ]);
+//            $request->validate([
+//                'title' => 'required_without_all:video|max:255',
+//                'upload' => 'required_without_all:image,video',
+//                'image' => 'required_without_all:upload,video',
+//                'video' => 'required_without_all:upload,image',
+//            ]);
 
-            if (request()->upload) {
-                $image = new Image;
-
-                $request->validate([
-                    'type' => 'required',
-                    'upload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                ]);
-
-                $imageName = time().'_'.request()->upload->getClientOriginalName();
-                request()->upload->move(public_path('images/home'), $imageName);
-                $image->filename = $imageName;
-                $image->type = $request->get('type');
-                $image->save();
-
-                $homeBlock->image = $imageName;
-            } elseif(request()->image) {
-                $request->validate([
-                    'image' => 'required',
-                ]);
-                $homeBlock->image = $request->get('image');
+            if (request()->title) {
+                $homeBlock->title = $request->get('title');
             }
 
-            $homeBlock->video = $request->get('video');
-            $homeBlock->title = $request->get('title');
-            $homeBlock->text = $request->get('text');
+            if (request()->image || request()->upload) {
+                if (request()->upload) {
+                    $image = new Image;
+
+                    $request->validate([
+                        'type' => 'required',
+                        'upload' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                    ]);
+
+                    $imageName = time().'_'.request()->upload->getClientOriginalName();
+                    request()->upload->move(public_path('images/home'), $imageName);
+                    $image->filename = $imageName;
+                    $image->type = $request->get('type');
+                    $image->save();
+
+                    $homeBlock->image = $imageName;
+                } else {
+                    $request->validate([
+                        'image' => 'required',
+                    ]);
+                    $homeBlock->image = $request->get('image');
+                }
+            }
+
+            if (request()->video) {
+                $homeBlock->video = $request->get('video');
+            }
+
+            if (request()->text) {
+                $homeBlock->text = $request->get('text');
+            }
 
             $homeBlock->save();
 
@@ -94,7 +104,7 @@ class HomeBlockController extends Controller{
 
             Session::flash('message', 'Home Block has been added.');
             Session::flash('alert-class', 'alert-success');
-            return redirect()->back();
+            return redirect()->to('admin/home');
         }
     }
 
@@ -138,12 +148,17 @@ class HomeBlockController extends Controller{
      */
     public function update(Request $request, $id) {
         if (Auth::check()) {
-            $validatedData = $request->validate([
-                'title' => 'required|max:255',
-                'text' => 'required',
-            ]);
+//            $validatedData = $request->validate([
+//                'title' => 'required|max:255',
+//                'text' => 'required',
+//            ]);
 
             $homeBlock = HomeBlock::find($id);
+
+            if (request()->title) {
+                $homeBlock->title = $request->get('title');
+            }
+
             if (request()->upload) {
                 $image = new Image;
 
@@ -164,9 +179,14 @@ class HomeBlockController extends Controller{
                 ]);
                 $homeBlock->image = $request->get('image');
             }
-            $homeBlock->title = $request->get('title');
-            $homeBlock->text = $request->get('text');
-            $homeBlock->video = $request->get('video');
+
+            if (request()->text) {
+                $homeBlock->text = $request->get('text');
+            }
+            if (request()->video) {
+                $homeBlock->video = $request->get('video');
+            }
+
             if(!empty($request->get('image'))) $homeBlock->image = $request->get('image');
             $homeBlock->save();
 

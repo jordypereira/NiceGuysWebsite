@@ -25,78 +25,29 @@
             @endforeach
 
             @foreach($blocks as $key => $block)
-                @isset($block['title'])
-                <div class="home-block position-relative {{($key % 2 === 0) ? "u-bg" : "u-bg-light"}}">
-                    <div class="container py-5">
-                        <div class="row {{($key % 2 === 0) ? "flex-row-reverse" : ""}}">
-                            @if(!empty($block['image']))
-                            <div class="col-xs-12 col-md-12 col-lg-6">
-                            @else
-                            <div class="col-xs-12 col-md-12 col-lg-12">
-                            @endif
-                                <h2 class="animated invisible mb-3">{{ $block['title'] }}</h2>
-                                <div class="animated invisible">
-                                    {!! $block['text'] !!}
-                                </div>
-                            </div>
-                            @if(!empty($block['image']))
-                            <div class="col-xs-12 col-md-12 col-lg-6 d-flex flex-center mt-sm-4 mt-md-0 mt-lg-0">
-                                <img src="{{ asset('images/home/'.$block['image']) }}" alt="Block Image" class="home-img border invisible animated">
-                            </div>
-                            @endif
-                        </div>
-                    </div>
-                    @auth
-                        <div class="position-absolute admin-actions m-1">
-                            <a class="btn btn-dark adminButton" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="{{ asset('images/edit.png') }}" alt="">
-                            </a>
-                            <div class="dropdown-menu bg-dark adminButton" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item admin-dropdown-item" href="/admin/home/{{$block['id']}}/edit?f=b" title="Edit block #{{$block['id']}}">
-                                    Edit block
-                                </a>
-                                <span class="dropdown-item admin-dropdown-item" data-toggle="modal" data-target="#exampleModal{{$block['id']}}" title="Delete block #{{$block['id']}}">
-                                    Delete block
-                                </span>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item admin-dropdown-item" href="/admin/home/create" title="Maak een nieuw homeblock">Nieuw homeblock</a>
-                            </div>
-                        </div>
-                    @endauth
-                </div>
-                @endisset
-                @if($block['video'])
-                    <div class="video-wrapper bg-dark py-5 position-relative">
-                        <div class="container">
-                            <iframe
-                                    {{--width="1280"--}}
-                                    height="600"
-                                    class="w-100"
-                                    src="{{$block['video']}}"
-                                    frameborder="0"
-                                    allow="autoplay; encrypted-media"
-                                    allowfullscreen>
-                            </iframe>
-                        </div>
-                        @auth
-                            <div class="position-absolute admin-actions m-1">
-                                <a class="btn btn-dark adminButton" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img src="{{ asset('images/edit.png') }}" alt="">
-                                </a>
-                                <div class="dropdown-menu bg-dark adminButton" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item admin-dropdown-item" href="/admin/home/{{$block['id']}}/edit?f=b" title="Edit block #{{$block['id']}}">
-                                        Edit block
-                                    </a>
-                                    <span class="dropdown-item admin-dropdown-item" data-toggle="modal" data-target="#exampleModal{{$block['id']}}" title="Delete block #{{$block['id']}}">
-                                    Delete block
-                                </span>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item admin-dropdown-item" href="/admin/home/create" title="Maak een nieuw homeblock">Nieuw homeblock</a>
-                                </div>
-                            </div>
-                        @endauth
-                    </div>
-                @endif
+                @switch($block['type'])
+
+                    @case(1)
+                        @include('pages/parts/title-text-image')
+                    @break
+
+                    @case(2)
+                        @include('pages/parts/title-text')
+                    @break
+
+                    @case(3)
+                        @include('pages/parts/title-image')
+                    @break
+
+                    @case(4)
+                        @include('pages/parts/image')
+                    @break
+
+                    @case(5)
+                        @include('pages/parts/video')
+                    @break
+
+                @endswitch
             @endforeach
         @else
             @auth

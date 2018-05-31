@@ -12,7 +12,7 @@
                         <img src="{{ asset('images/edit.png') }}" alt="">
                     </a>
                     <div class="dropdown-menu bg-dark adminButton" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item admin-dropdown-item" href="/admin/home/{{$page['id']}}/edit?f=b" title="Edit block #{{$page['id']}}">
+                        <a class="dropdown-item admin-dropdown-item" href="/admin/pages/{{$page['id']}}/edit" title="Edit block #{{$page['id']}}">
                             Pagina bewerken
                         </a>
                     </div>

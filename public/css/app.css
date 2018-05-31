@@ -10551,7 +10551,8 @@ td {
 .wrapper .adminButton,
 .video-wrapper .adminButton,
 .home-block .adminButton,
-.delete-image-btn {
+.delete-image-btn,
+main .admin-actions {
   visibility: hidden;
 }
 
@@ -10559,7 +10560,8 @@ td {
 .wrapper:hover .adminButton,
 .video-wrapper:hover .adminButton,
 .home-block:hover .adminButton,
-.gallery-wrapper:hover .delete-image-btn {
+.gallery-wrapper:hover .delete-image-btn,
+main:hover .admin-actions {
   visibility: visible;
 }
 

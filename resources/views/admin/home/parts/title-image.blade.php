@@ -11,14 +11,16 @@
             <button class="btn btn-outline-dark" type="button" data-toggle="collapse" href="#multiCollapseExample4" aria-expanded="false" aria-controls="multiCollapseExample4">Upload een foto</button>
             @if(count($images) > 0)
                 <div class="collapse multi-collapse" id="multiCollapseExample3" data-parent="#accordion2">
-                    @foreach($images as $image)
-                        <div class="gallery-wrapper">
-                            <label class="gallery-label" for="image-{{$image["id"]}}"><img class="gallery-image img-thumbnail" src="{{ asset('images/home/'.$image["filename"]) }}" alt=""></label>
-                            <div class="text-center">
-                                <input class="gallery-radio" type="radio" name="image" id="image-{{$image["id"]}}" value="{{ $image["filename"] }}">
+                    <div class="pt-4">
+                        @foreach($images as $image)
+                            <div class="gallery-wrapper">
+                                <label class="gallery-label" for="image-2-{{$image["id"]}}"><img class="gallery-image img-thumbnail" src="{{ asset('images/home/'.$image["filename"]) }}" alt=""></label>
+                                <div class="text-center">
+                                    <input class="gallery-radio" type="radio" name="image" id="image-2-{{$image["id"]}}" value="{{ $image["filename"] }}">
+                                </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    </div>
                 </div>
             @else
                 <div class="collapse multi-collapse" id="multiCollapseExample3" style="max-height: 46px" data-parent="#accordion2">
@@ -27,10 +29,12 @@
                     </div>
                 </div>
             @endif
-            <div class="collapse" id="multiCollapseExample4" style="max-height: 64px" data-parent="#accordion2">
-                <div class="form-group">
-                    <input type="file" class="form-control p-3" name="upload" id="upload">
-                    <input type="hidden" value="home" id="type" name="type">
+            <div class="collapse" id="multiCollapseExample4" style="max-height: 88px" data-parent="#accordion2">
+                <div class="pt-4">
+                    <div class="form-group">
+                        <input type="file" class="form-control p-3" name="upload" id="upload">
+                        <input type="hidden" value="home" id="type" name="type">
+                    </div>
                 </div>
             </div>
         </div>
