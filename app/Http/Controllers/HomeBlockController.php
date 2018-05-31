@@ -68,18 +68,14 @@ class HomeBlockController extends Controller{
         if (Auth::check()) {
             $homeBlock = new HomeBlock;
 
-//            $request->validate([
-//                'title' => 'required_without_all:video|max:255',
-//                'upload' => 'required_without_all:image,video',
-//                'image' => 'required_without_all:upload,video',
-//                'video' => 'required_without_all:upload,image',
-//            ]);
-
-            if (request()->title) {
+            if ($request->has('title')){
+                $request->validate([
+                'title' => 'required|max:255',
+            ]);
                 $homeBlock->title = $request->get('title');
             }
 
-            if (request()->image || request()->upload) {
+            if ($request->has('type')) {
                 if (request()->upload) {
                     $image = new Image;
 
@@ -103,11 +99,17 @@ class HomeBlockController extends Controller{
                 }
             }
 
-            if (request()->video) {
+            if ($request->has('video')) {
+                $request->validate([
+                        'video' => 'required',
+                    ]);
                 $homeBlock->video = $request->get('video');
             }
 
-            if (request()->text) {
+            if ($request->has('text')) {
+                $request->validate([
+                        'text' => 'required',
+                    ]);
                 $homeBlock->text = $request->get('text');
             }
 
