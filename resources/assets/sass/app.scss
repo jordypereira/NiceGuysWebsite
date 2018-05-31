@@ -120,7 +120,8 @@ td {
 }
 main {
   box-sizing: border-box;
-  min-height: calc(100vh - 320px - 100px)
+  min-height: calc(100vh - 320px - 100px);
+  height: auto;
 }
 .home-block {
   a{

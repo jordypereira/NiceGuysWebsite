@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <main class="position-relative">
+    <main class="position-relative d-flex flex-column">
         @if(count($blocks) > 0)
             @foreach($blocks as $block)
                 <div class="modal fade" id="exampleModal{{$block['id']}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -51,14 +51,14 @@
             @endforeach
         @else
             @auth
-                            <div class="position-absolute admin-actions m-1">
-                                <a class="btn btn-dark adminButton" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img src="{{ asset('images/edit.png') }}" alt="">
-                                </a>
-                                <div class="dropdown-menu bg-dark adminButton" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item admin-dropdown-item" href="/admin/home/create" title="Maak een nieuw homeblock">Nieuw homeblock</a>
-                                </div>
-                            </div>
+                <div class="position-absolute admin-actions m-1">
+                    <a class="btn btn-dark adminButton" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="{{ asset('images/edit.png') }}" alt="">
+                    </a>
+                    <div class="dropdown-menu bg-dark adminButton" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item admin-dropdown-item" href="/admin/home/create" title="Maak een nieuw homeblock">Nieuw homeblock</a>
+                    </div>
+                </div>
             @endauth
         @endif
     </main>
