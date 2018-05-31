@@ -5,7 +5,7 @@
                 <h2 class="animated invisible mb-3">{{ $block['title'] }}</h2>
             </div>
             <div class="col-12">
-                <img src="{{ asset('images/home/'.$block['image']) }}" alt="Block Image" class="home-img border invisible animated">
+                <img src="{{ asset('images/home/'.$block['image']) }}" alt="Block Image" class="home-img invisible animated">
             </div>
         </div>
         @auth
