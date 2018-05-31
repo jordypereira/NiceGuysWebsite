@@ -161,7 +161,7 @@ class PageController extends Controller {
         Session::flash('message', 'Page has been updated.');
         Session::flash('alert-class', 'alert-success');
         $headerImage = (!empty($page['image'])) ? 'header/'.$page['image'] : NULL;
-        return view('pages/slugpage', ['page' => $page, 'headerImage' => $headerImage]);
+        return redirect()->route('pages.show', [$slug = str_replace(' ', '-', $page->link)]);
     }
   }
 
