@@ -56,8 +56,8 @@
                     </td>
                     <td>
                         <div class="float-right">
-                            <a href="/admin/home/{{$block['id']}}/edit?type={{$block['type']}}" class="n-button"><img src="{{ asset('images/pencil.png') }}" alt="Edit icon" title="Edit"></a>
-                            <button type="button" class="delete-btn" data-toggle="modal" data-target="#exampleModal{{$block['id']}}">
+                            <a href="/admin/home/{{$block['id']}}/edit?type={{$block['type']}}" class="n-button"><img src="{{ asset('images/pencil.png') }}" alt="Edit icon" title="Aanpassen"></a>
+                            <button type="button" class="delete-btn" data-toggle="modal" data-target="#exampleModal{{$block['id']}}" title="Verwijderen">
                                 <img src="{{ asset('images/cancel-button.png') }}">
                             </button>
                         </div>

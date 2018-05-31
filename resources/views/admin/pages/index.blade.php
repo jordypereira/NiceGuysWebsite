@@ -39,9 +39,9 @@
                         {{ ucfirst($page['title']) }}
                     </span>
                         <div class="float-right">
-                            <a href="/{{ str_replace(' ', '-', $page['link']) }}" target="_blank"><img src="{{ asset('images/eye.png') }}" alt="Eye icon" title="View"></a>
-                            <a href="{{ route('pages.edit', $page['id']) }}" class="n-button"><img src="{{ asset('images/pencil.png') }}" alt="Edit icon" title="Edit"></a>
-                            <button type="button" class="delete-btn" data-toggle="modal" data-target="#exampleModal{{ $page['id'] }}">
+                            <a href="/{{ str_replace(' ', '-', $page['link']) }}" target="_blank"><img src="{{ asset('images/eye.png') }}" alt="Eye icon" title="Bekijken"></a>
+                            <a href="{{ route('pages.edit', $page['id']) }}" class="n-button"><img src="{{ asset('images/pencil.png') }}" alt="Edit icon" title="Aanpassen"></a>
+                            <button type="button" class="delete-btn" data-toggle="modal" data-target="#exampleModal{{ $page['id'] }}" title="Verwijderen">
                                 <img src="{{ asset('images/cancel-button.png') }}" alt="">
                             </button>
                         </div>
