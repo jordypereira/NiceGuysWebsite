@@ -3,10 +3,10 @@
 @section('content')
     <main class="container py-5">
         <h1 class="mt-0 mb-4">
-            Alle home blocks
+            Alle homeblocks
             <a class="btn-link float-sm-right" href="{{ route('home.create') }}">
                 <button class="btn btn-outline-dark">
-                    Creëer een home block
+                    Creëer een homeblock
                 </button>
             </a>
         </h1>
