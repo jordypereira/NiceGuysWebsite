@@ -6,7 +6,7 @@
 
 @section('content')
     <main class="container py-5">
-        <h1 class="mt-0 mb-4">Nieuw homeblock
+        <h1 class="mt-0 mb-4">Nieuwe homeblock
             <a class="btn btn-danger float-right" href="{{ URL::previous() }}">Annuleren</a>
         </h1>
         <div id="accordion">
@@ -14,7 +14,7 @@
                 <div class="card-header" id="headingOne">
                     <h5 class="mb-0">
                         <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                            Homeblock met een titel veld, een tekst veld en een foto.
+                            Titel, tekstveld en foto.
                         </button>
                     </h5>
                 </div>
@@ -29,7 +29,7 @@
                 <div class="card-header" id="headingTwo">
                     <h5 class="mb-0">
                         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Homeblock met een titel veld en een tekst veld.
+                            Titel en tekstveld.
                         </button>
                     </h5>
                 </div>
@@ -43,7 +43,7 @@
                 <div class="card-header" id="headingThree">
                     <h5 class="mb-0">
                         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Homeblock met een titel veld en een foto.
+                            Titel en foto.
                         </button>
                     </h5>
                 </div>
@@ -57,7 +57,7 @@
                 <div class="card-header" id="headingFour">
                     <h5 class="mb-0">
                         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                            Homeblock met alleen een foto.
+                            Foto
                         </button>
                     </h5>
                 </div>
@@ -71,7 +71,7 @@
                 <div class="card-header" id="headingFive">
                     <h5 class="mb-0">
                         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                            Homeblock met alleen een video.
+                            Video
                         </button>
                     </h5>
                 </div>
