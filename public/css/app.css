@@ -10553,7 +10553,6 @@ td {
 .home-block .adminButton,
 .delete-image-btn,
 main .admin-actions {
-  overflow-y: hidden;
   visibility: hidden;
 }
 
@@ -10563,7 +10562,6 @@ main .admin-actions {
 .home-block:hover .adminButton,
 .gallery-wrapper:hover .delete-image-btn,
 main:hover .admin-actions {
-  overflow-y: hidden;
   visibility: visible;
 }
 
@@ -10571,6 +10569,10 @@ main {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   min-height: calc(100vh - 320px - 100px);
+  overflow-y: hidden;
+}
+
+.home-block {
   overflow-y: hidden;
 }
 
