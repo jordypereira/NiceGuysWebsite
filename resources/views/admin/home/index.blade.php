@@ -3,7 +3,7 @@
 @section('content')
     <main class="container py-5">
         <h1 class="mt-0 mb-4">
-            Alle Home Blocks
+            Alle home blocks
             <div class="float-right">
                 <button class="btn btn-outline-dark" id="order-btn">Volgorde aanpassen</button>
                 <a class="btn-link" href="{{ route('home.create') }}">
@@ -56,7 +56,7 @@
                     </td>
                     <td>
                         <div class="float-right">
-                            <a href="{{ route('home.edit', $block['id']) }}" class="n-button"><img src="{{ asset('images/pencil.png') }}" alt="Edit icon" title="Edit"></a>
+                            <a href="/admin/home/{{$block['id']}}/edit?type={{$block['type']}}" class="n-button"><img src="{{ asset('images/pencil.png') }}" alt="Edit icon" title="Edit"></a>
                             <button type="button" class="delete-btn" data-toggle="modal" data-target="#exampleModal{{$block['id']}}">
                                 <img src="{{ asset('images/cancel-button.png') }}">
                             </button>
