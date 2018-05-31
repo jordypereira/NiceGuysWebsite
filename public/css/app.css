@@ -10586,3 +10586,11 @@ main {
   background-color: #495057;
 }
 
+.home-block-option {
+  cursor: pointer;
+}
+
+.home-block-option:hover {
+  text-decoration: underline;
+}
+

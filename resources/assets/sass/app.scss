@@ -137,3 +137,9 @@ main {
 .admin-dropdown-item:hover {
   background-color: $gray-700;
 }
+.home-block-option {
+  cursor: pointer;
+}
+.home-block-option:hover {
+  text-decoration: underline;
+}

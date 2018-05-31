@@ -20,8 +20,8 @@
             <div class="form-group mt-0 mb-4">
                 <label class="d-block" for="image">Header foto:</label>
                 <div id="accordion">
-                    <button class="btn btn-outline-dark mb-3" type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">Selecteer een foto</button>
-                    <button class="btn btn-outline-dark mb-3" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Upload een foto</button>
+                    <button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">Selecteer een foto</button>
+                    <button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Upload een foto</button>
                     @if(count($images) > 0)
                         <div class="collapse" id="multiCollapseExample1" data-parent="#accordion">
                             @foreach($images as $image)

@@ -25,8 +25,8 @@
                     <label class="d-block" for="image">Geen header foto geselecteerd (gebruikt default foto):</label>
                 @endif
                     <div id="accordion">
-                        <button class="btn btn-outline-dark mb-3" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">Selecteer een foto</button>
-                        <button class="btn btn-outline-dark mb-3" type="button" data-toggle="collapse" data-target="#multiCollapseExample4" aria-expanded="false" aria-controls="multiCollapseExample4">Upload een foto</button>
+                        <button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">Selecteer een foto</button>
+                        <button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#multiCollapseExample4" aria-expanded="false" aria-controls="multiCollapseExample4">Upload een foto</button>
                         @if(count($images) > 0)
                             <div class="collapse" id="multiCollapseExample3" data-parent="#accordion">
                                 @foreach($images as $image)

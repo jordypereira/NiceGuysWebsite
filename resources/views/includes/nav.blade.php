@@ -23,13 +23,13 @@
                             <a class="dropdown-item" href="/admin/pages/create">Creëer een pagina</a>
                             <a class="dropdown-item" href="/admin/pages">Bekijk alle pagina's</a>
                             <hr class="my-2">
-                            <a class="dropdown-item" href="/admin/home/create">Creëer een home block</a>
-                            <a class="dropdown-item" href="/admin/home">Bekijk alle home blocks</a>
+                            <a class="dropdown-item" href="/admin/home/create">Creëer een homeblock</a>
+                            <a class="dropdown-item" href="/admin/home">Bekijk alle homeblocks</a>
                             <hr class="my-2">
                             <a class="dropdown-item" href="/admin/images/create">Upload een foto</a>
                             <hr class="my-2">
                             <div class="dropdown-item">
-                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Uitloggen</a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
                             </div>
                         </div>
