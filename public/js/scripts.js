@@ -14,15 +14,16 @@ function showOrders(e) {
 }
 
 function getElPos(e) {
-    let animEls = document.getElementsByClassName('animated');
+    let animEls = document.querySelectorAll('.animated');
 
     for (let i = 0, ilen = animEls.length; i < ilen; i++) {
         let elRect = animEls[i].getBoundingClientRect();
         if (elRect.top > 0 && elRect.top < window.innerHeight ||
             elRect.bottom > 0 && elRect.bottom < window.innerHeight) {
             animEls[i].classList.remove('invisible');
-            animEls[i].classList.add('visible');
-            animEls[i].classList.add('slideInUp');
+            animEls[i].classList.add('slideInLeft');
+            setTimeout(function(){ animEls[i].classList.add('visible'); }, 500);
+
         }
     }
 }
@@ -38,7 +39,9 @@ function bindEvents() {
     let footerBtn = document.getElementById("footer-button");
     footerBtn.addEventListener('click', scrollToTop);
 
-    // let orderBtn = document.getElementById("order-btn");
-    // orderBtn.addEventListener('click', showOrders);
+    let orderBtn = document.getElementById("order-btn");
+    if (orderBtn) {
+        orderBtn.addEventListener('click', showOrders);
+    }
 }
 bindEvents();
