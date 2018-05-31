@@ -67,7 +67,8 @@
                     @endforeach
                 </tbody>
             </table>
-            <button type="submit" class="invisible order btn btn-success">Aanpassen</button>
+            <button type="submit"  id="order-btn" class="invisible btn btn-success">Aanpassen</button>
+            <button type="button" id="order-decline-btn" class="invisible btn btn-danger">Annuleren</button>
         </form>
     </main>
 

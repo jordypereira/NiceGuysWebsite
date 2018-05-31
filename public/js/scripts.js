@@ -1,15 +1,22 @@
 
 function showOrders(e) {
-    let invisibleEls = document.querySelectorAll(".order");
+    let orderBtn = document.querySelector("#order-btn");
+    let orderDeclineBtn = document.querySelector("#order-decline-btn");
 
-    for (let i = 0, ilen = invisibleEls.length; i < ilen; i++) {
-        if (invisibleEls[i].classList.contains('invisible')) {
-            invisibleEls[i].classList.remove("invisible");
-            invisibleEls[i].classList.add("visible");
-        } else {
-            invisibleEls[i].classList.remove('visible')
-            invisibleEls[i].classList.add('invisible')
-        }
+    if(orderBtn.classList.contains('invisible')) {
+        orderBtn.classList.remove("invisible");
+        orderBtn.classList.add("visible");
+    } else {
+        orderBtn.classList.remove("visible");
+        orderBtn.classList.add("invisible");
+    }
+
+    if(orderDeclineBtn.classList.contains('invisible')) {
+        orderDeclineBtn.classList.remove("invisible");
+        orderDeclineBtn.classList.add("visible");
+    } else {
+        orderDeclineBtn.classList.remove("visible");
+        orderDeclineBtn.classList.add("invisible");
     }
 }
 
@@ -39,9 +46,15 @@ function bindEvents() {
     let footerBtn = document.getElementById("footer-button");
     footerBtn.addEventListener('click', scrollToTop);
 
-    let orderBtn = document.getElementById("order-btn");
-    if (orderBtn) {
-        orderBtn.addEventListener('click', showOrders);
+    let orderItems = document.querySelectorAll(".order-input");
+    if (orderItems.length > 0) {
+        for (let i = 0, len = orderItems.length; i < len; i++) {
+            orderItems[i].addEventListener('change', showOrders);
+        }
+    }
+    let orderDeclineBtn = document.getElementById("order-decline-btn");
+    if (orderDeclineBtn) {
+        orderDeclineBtn.addEventListener('click', showOrders);
     }
 }
 bindEvents();
