@@ -36,7 +36,7 @@
                 </button>
             </div>
             <div class="col-12">
-                <img src="{{ asset('images/'.$image['type'].'/'.$image["filename"]) }}" alt="Image">
+                <img class="w-100 h-auto" src="{{ asset('images/'.$image['type'].'/'.$image["filename"]) }}" alt="Image">
             </div>
         </div>
 
