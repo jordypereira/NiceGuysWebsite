@@ -78,6 +78,8 @@ class PageController extends Controller {
         $page->title = $request->get('title');
         $page->link = $request->get('link');
         $page->body = $request->get('body');
+        $page->color = $request->get('color');
+        $page->font_color = $request->get('font');
 
         $page->save();
         Session::flash('message', 'Page has been added.');
@@ -156,6 +158,8 @@ class PageController extends Controller {
         $page->title = $request->get('title');
         $page->link = $request->get('link');
         $page->body = $request->get('body');
+        $page->color = $request->get('color');
+        $page->font_color = $request->get('font');
         $page->save();
 
         Session::flash('message', 'Page has been updated.');

@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
       DB::table('pages')->insert([
         'title' => 'Wat is strafbaar?',
         'link' => 'Strafbaarheid',
+        'color' => '#d0003a',
+        'font_color' => 'white',
         'body' => '<p>In belgi&euml; deelt men de strafbare feiten op in verschillende gebieden. Als dit gedrag wordt gesteld ten opzichte van minderjarigen, geldt dat als verzwarende omstandigheid en zijn ook de straffen zwaarder.</p>
 
 <hr />
@@ -62,6 +64,8 @@ class DatabaseSeeder extends Seeder
 
       DB::table('pages')->insert([
          'title' => 'Wat kan je zelf doen?',
+         'color' => '#d0003a',
+         'font_color' => 'white',
          'link' => 'Zelf doen',
          'body' => '<p>Steeds meer en meer scholieren krijgen te maken met grensoverschrijdend gedrag. Inplaats van deze feiten te vedringen is het verstanding om zelf stappen te kunnen ondernemen.</p>
 

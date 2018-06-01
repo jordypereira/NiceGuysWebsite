@@ -14,6 +14,23 @@
                 <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}">
             </div>
             <div class="form-group mt-0 mb-4">
+                <label for="color">Titel achtergrond kleur:</label>
+                <input type="color" class="form-control color-input" name="color" id="color" value="#d0003a">
+            </div>
+            <div class="form-group mt-0 mb-4">
+                <label for="font">Titel (tekst) kleur:</label>
+                <div class="form-control p-2">
+                    <div class="d-block">
+                        <input class="gallery-radio" id="white" name="font" type="radio" value="white" checked>
+                        <label for="white" class="mb-0 ml-2">Wit</label>
+                    </div>
+                    <div class="d-block">
+                        <input class="gallery-radio" id="black" name="font" type="radio" value="black">
+                        <label for="black" class="mb-0 ml-2">Zwart</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group mt-0 mb-4">
                 <label for="link">Link naam:</label>
                 <input type="text" class="form-control" name="link" id="link" value="{{ old('link') }}">
             </div>
@@ -36,9 +53,11 @@
                             </div>
                         </div>
                     @else
-                        <div class="collapse" id="multiCollapseExample1" style="max-height: 46px" data-parent="#accordion">
-                            <div class="alert alert-danger">
-                                <p class="m-0">U moet eerst een foto uploaden voor u er een kunt selecteren!</p>
+                        <div class="collapse" id="multiCollapseExample1" data-parent="#accordion">
+                            <div class="pt-4">
+                                <div class="m-0 alert alert-danger">
+                                    <p class="m-0">U moet eerst een foto uploaden voor u er een kunt selecteren!</p>
+                                </div>
                             </div>
                         </div>
                     @endif

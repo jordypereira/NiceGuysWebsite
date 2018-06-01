@@ -2,8 +2,12 @@
 
 @section('content')
     <main class="wrapper position-relative">
-        <div class="container py-5">
-            <h1 class="mb-4 mt-0">{{ $page['title'] }}</h1>
+        <div style="background-color: {{ $page['color'] }}">
+            <div class="container py-5">
+                <h1 class="m-0" style="color: {{ $page['font_color'] }};">{{ $page['title'] }}</h1>
+            </div>
+        </div>
+        <div class="container pb-5">
             <p>{!! $page['body'] !!}</p>
         </div>
         @auth
