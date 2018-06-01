@@ -6,15 +6,23 @@ function showOrders(e) {
     if(orderBtn.classList.contains('invisible')) {
         orderBtn.classList.remove("invisible");
         orderBtn.classList.add("visible");
-    } else {
-        orderBtn.classList.remove("visible");
-        orderBtn.classList.add("invisible");
     }
 
     if(orderDeclineBtn.classList.contains('invisible')) {
         orderDeclineBtn.classList.remove("invisible");
         orderDeclineBtn.classList.add("visible");
-    } else {
+    }
+}
+function removeOrders(e) {
+    let orderBtn = document.querySelector("#order-btn");
+    let orderDeclineBtn = document.querySelector("#order-decline-btn");
+
+    if(orderBtn.classList.contains('visible')) {
+        orderBtn.classList.remove("visible");
+        orderBtn.classList.add("invisible");
+    }
+
+    if(orderDeclineBtn.classList.contains('visible')) {
         orderDeclineBtn.classList.remove("visible");
         orderDeclineBtn.classList.add("invisible");
     }
@@ -54,7 +62,7 @@ function bindEvents() {
     }
     let orderDeclineBtn = document.getElementById("order-decline-btn");
     if (orderDeclineBtn) {
-        orderDeclineBtn.addEventListener('click', showOrders);
+        orderDeclineBtn.addEventListener('click', removeOrders);
     }
 }
 bindEvents();
