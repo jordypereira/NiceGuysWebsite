@@ -30,6 +30,7 @@
                     </div>
                 </div>
             </div>
+            <hr>
             <div class="form-group mt-0 mb-4">
                 <label for="link">Link naam:</label>
                 <input type="text" class="form-control" name="link" id="link" value="{{ old('link') }}">
