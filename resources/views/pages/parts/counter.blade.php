@@ -5,11 +5,15 @@
                 <div class="p-4 border">
                     <h2 class="mb-3 text-center" style="color: {{ $block['font_color'] }}">{{ $block['title'] }}</h2>
                     <h2 class="mb-3 text-center count" style="color: {{ $block['font_color'] }}">{{ $block['counter_value'] }}</h2>
-                    <button class="btn d-block mx-auto" style="background-color: {{ $block['counter_color'] }}">
-                        <span style="color: {{ $block['counter_font'] }}">
+                    <form action="{{url('admin/counter', $block['id'] )}}" enctype="multipart/form-data">
+                        @method('PUT')
+                        @csrf
+                        <button type="submit" class="btn d-block mx-auto" style="background-color: {{ $block['counter_color'] }}">
+                        <span style="color: {{ $block['counter_font'] }}" class="count-btn">
                             {{ $block['counter_title'] }}
                         </span>
-                    </button>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
