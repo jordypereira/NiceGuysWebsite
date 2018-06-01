@@ -15,7 +15,7 @@
                             <div class="gallery-wrapper">
                                 <label class="gallery-label" for="image-{{$image["id"]}}"><img class="gallery-image img-thumbnail" src="{{ asset('images/home/'.$image["filename"]) }}" alt=""></label>
                                 <div class="text-center">
-                                    <input class="gallery-radio" type="radio" name="image" id="image-{{$image["id"]}}" value="{{ $image["filename"] }}">
+                                    <input class="gallery-radio" type="radio" name="image" id="image-{{$image["id"]}}" value="{{ $image["filename"] }}" {{ ($image["filename"] == $homeblock->image) ? 'checked' : "" }}>
                                 </div>
                             </div>
                         @endforeach

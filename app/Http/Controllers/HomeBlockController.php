@@ -22,21 +22,9 @@ class HomeBlockController extends Controller{
                 ->select('*', 'orders.id AS order_id')
                 ->orderBy('orders.id')
                 ->get();
-
             foreach($blocks as $key => $block) {
-                if ($block['title'] && $block['text'] && $block['image'] && !$block['video']) { // title-text-image
-                    $blocks[$key]['type'] = 1;
-                } elseif ($block['title'] && $block['text'] && !$block['image'] && !$block['video']) { // title-text
-                    $blocks[$key]['type'] = 2;
-                } elseif ($block['title'] && !$block['text'] && $block['image'] && !$block['video']) { // title-image
-                    $blocks[$key]['type'] = 3;
-                } elseif (!$block['title'] && !$block['text'] && $block['image'] && !$block['video']) { // image
-                    $blocks[$key]['type'] = 4;
-                } elseif (!$block['title'] && !$block['text'] && !$block['image'] && $block['video']) { // video
-                    $blocks[$key]['type'] = 5;
-                }
+                $blocks[$key]['type'] = $this->getType($block);
             }
-
             return view('admin/home/index', ['blocks' => $blocks, 'headerImage' => 'headerbw.jpg']);
         } else {
             return redirect()->route('login');
@@ -124,6 +112,33 @@ class HomeBlockController extends Controller{
                     'font' => 'required',
                 ]);
                 $homeBlock->font_color = $request->get('font');
+            }
+
+            if ($request->has('counter_title')) {
+                $request->validate([
+                    'counter_title' => 'required',
+                ]);
+                $homeBlock->counter_title = $request->get('counter_title');
+            }
+
+            if ($request->has('counter_color')) {
+                $request->validate([
+                    'counter_color' => 'required',
+                ]);
+                $homeBlock->counter_color = $request->get('counter_color');
+            }
+
+            if ($request->has('counter_font')) {
+                $request->validate([
+                    'counter_font' => 'required',
+                ]);
+                $homeBlock->counter_font = $request->get('counter_font');
+            }
+            if ($request->has('counter_value')) {
+                $request->validate([
+                    'counter_value' => 'required',
+                ]);
+                $homeBlock->counter_value = $request->get('counter_value');
             }
 
             $homeBlock->save();
@@ -241,6 +256,33 @@ class HomeBlockController extends Controller{
                 $homeBlock->font_color = $request->get('font');
             }
 
+            if ($request->has('counter_title')) {
+                $request->validate([
+                    'counter_title' => 'required',
+                ]);
+                $homeBlock->counter_title = $request->get('counter_title');
+            }
+
+            if ($request->has('counter_color')) {
+                $request->validate([
+                    'counter_color' => 'required',
+                ]);
+                $homeBlock->counter_color = $request->get('counter_color');
+            }
+
+            if ($request->has('counter_font')) {
+                $request->validate([
+                    'counter_font' => 'required',
+                ]);
+                $homeBlock->counter_font = $request->get('counter_font');
+            }
+            if ($request->has('counter_value')) {
+                $request->validate([
+                    'counter_value' => 'required',
+                ]);
+                $homeBlock->counter_value = $request->get('counter_value');
+            }
+
             $homeBlock->save();
             Session::flash('message', 'Block has been updated.');
             Session::flash('alert-class', 'alert-success');
@@ -262,5 +304,51 @@ class HomeBlockController extends Controller{
             Session::flash('alert-class', 'alert-success');
             return redirect()->back();
         }
+    }
+    public function getType($block) {
+        $count = 0;
+
+        // title-text-image 31
+        // title-text 11
+        // title-image 21
+        // image 20
+        // video 30
+        // counter 41
+
+        if (isset($block['title'])) {
+            $count += 1;
+        }
+        if (isset($block['text'])) {
+            $count += 10;
+        }
+        if (isset($block['image'])) {
+            $count += 20;
+        }
+        if (isset($block['video'])) {
+            $count += 30;
+        }
+        if (isset($block['counter_title'])) {
+            $count += 40;
+        }
+
+        if ($count == 31) {
+            return 1;
+        }
+        if ($count == 11) {
+            return 2;
+        }
+        if ($count == 21) {
+            return 3;
+        }
+        if ($count == 20) {
+            return 4;
+        }
+        if ($count == 30) {
+            return 5;
+        }
+        if ($count == 41) {
+            return 6;
+        }
+        return 0;
     }
 }

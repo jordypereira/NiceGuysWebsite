@@ -53,7 +53,7 @@
                                                 <img class="gallery-image img-thumbnail" src="{{ asset('images/header/'.$image["filename"]) }}" alt="Header Image Gallery">
                                             </label>
                                             <div class="text-center">
-                                                <input class="gallery-radio" type="radio" name="image" id="image{{$image["id"]}}" value="{{ $image["filename"] }}">
+                                                <input class="gallery-radio" type="radio" name="image" id="image{{$image["id"]}}" value="{{ $image["filename"] }}" {{ ($image["filename"] == $page->image) ? 'checked' : "" }}>
                                             </div>
                                         </div>
                                     @endforeach

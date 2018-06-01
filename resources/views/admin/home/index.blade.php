@@ -46,12 +46,18 @@
                         <tr>
                             <th scope="row">{{ $key + 1 }}</th>
                             <td>
-                                @if ($block['title'])
-                                    {{ ucfirst($block['title']) }}
-                                @elseif(!$block['title'] && $block['video'])
-                                    {{ $block['video'] }}
-                                @else
-                                    {{ $block['image'] }}
+                                @if ($block['type'] == 1)
+                                    Titel, tekstveld en foto.
+                                @elseif ($block['type'] == 2)
+                                    Titel en tekstveld.
+                                @elseif ($block['type'] == 3)
+                                    Titel en foto.
+                                @elseif ($block['type'] == 4)
+                                    Foto
+                                @elseif ($block['type'] == 5)
+                                    Video
+                                @elseif ($block['type'] == 6)
+                                    Teller
                                 @endif
                             </td>
                             <td>

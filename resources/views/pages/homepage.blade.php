@@ -24,6 +24,8 @@
                 </div>
             @endforeach
 
+
+
             @foreach($blocks as $key => $block)
                 @switch($block['type'])
 
@@ -45,6 +47,10 @@
 
                     @case(5)
                         @include('pages/parts/video')
+                    @break
+
+                    @case(6)
+                        @include('pages/parts/counter')
                     @break
 
                 @endswitch

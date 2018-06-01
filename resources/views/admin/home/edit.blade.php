@@ -28,6 +28,10 @@
                 @include('admin/home/edits/video')
             @break
 
+            @case(6)
+                @include('admin/home/edits/counter')
+            @break
+
         @endswitch
     </main>
 @endsection
