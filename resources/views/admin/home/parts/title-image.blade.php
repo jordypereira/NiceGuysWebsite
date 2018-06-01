@@ -43,7 +43,7 @@
     </div>
     <div class="form-group mt-0 mb-4">
         <label for="color">Achtergrond kleur:</label>
-        <input type="color" class="form-control color-input" name="color" id="color" value="#d0003a">
+        <input type="color" class="form-control color-input" name="color" id="color" value="{{ (old('color')) ? old('color') : "#d0003a" }}">
     </div>
     <div class="form-group mt-0 mb-4">
         <label for="font">Tekst kleur:</label>
