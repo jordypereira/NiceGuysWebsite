@@ -32,6 +32,7 @@
                 <div class="pt-4">
                     <div class="form-group">
                         <input type="file" class="form-control p-3" name="upload" id="upload">
+                        <input type="hidden" value="home" id="type" name="type">
                     </div>
                 </div>
             </div>

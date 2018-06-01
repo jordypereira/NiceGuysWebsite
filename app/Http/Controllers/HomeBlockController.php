@@ -75,6 +75,13 @@ class HomeBlockController extends Controller{
                 $homeBlock->title = $request->get('title');
             }
 
+            if ($request->has('text')) {
+                $request->validate([
+                    'text' => 'required',
+                ]);
+                $homeBlock->text = $request->get('text');
+            }
+
             if ($request->has('type')) {
                 if (request()->upload) {
                     $image = new Image;
@@ -104,13 +111,6 @@ class HomeBlockController extends Controller{
                         'video' => 'required',
                     ]);
                 $homeBlock->video = $request->get('video');
-            }
-
-            if ($request->has('text')) {
-                $request->validate([
-                        'text' => 'required',
-                    ]);
-                $homeBlock->text = $request->get('text');
             }
 
             if ($request->has('color')) {
@@ -244,7 +244,7 @@ class HomeBlockController extends Controller{
             $homeBlock->save();
             Session::flash('message', 'Block has been updated.');
             Session::flash('alert-class', 'alert-success');
-            return redirect()->back();
+            return redirect()->to('admin/home');
         }
     }
 
