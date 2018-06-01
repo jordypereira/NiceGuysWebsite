@@ -85,7 +85,7 @@ class PageController extends Controller {
         Session::flash('message', 'Page has been added.');
         Session::flash('alert-class', 'alert-success');
         $headerImage = (!empty($page['image'])) ? 'header/'.$page['image'] : NULL;
-        return view('pages/slugpag', ['page' => $page, 'headerImage' => $headerImage]);
+        return view('pages/slugpage', ['page' => $page, 'headerImage' => $headerImage]);
     }
   }
 
