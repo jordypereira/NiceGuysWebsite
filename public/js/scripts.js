@@ -14,18 +14,19 @@ function showOrders(e) {
     }
 }
 function removeOrders(e) {
-    let orderBtn = document.querySelector("#order-btn");
-    let orderDeclineBtn = document.querySelector("#order-decline-btn");
-
-    if(orderBtn.classList.contains('visible')) {
-        orderBtn.classList.remove("visible");
-        orderBtn.classList.add("invisible");
-    }
-
-    if(orderDeclineBtn.classList.contains('visible')) {
-        orderDeclineBtn.classList.remove("visible");
-        orderDeclineBtn.classList.add("invisible");
-    }
+    // let orderBtn = document.querySelector("#order-btn");
+    // let orderDeclineBtn = document.querySelector("#order-decline-btn");
+    //
+    // if(orderBtn.classList.contains('visible')) {
+    //     orderBtn.classList.remove("visible");
+    //     orderBtn.classList.add("invisible");
+    // }
+    //
+    // if(orderDeclineBtn.classList.contains('visible')) {
+    //     orderDeclineBtn.classList.remove("visible");
+    //     orderDeclineBtn.classList.add("invisible");
+    // }
+    location.reload();
 }
 
 function getElPos(e) {
