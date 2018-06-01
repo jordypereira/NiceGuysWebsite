@@ -70,8 +70,8 @@ class HomeBlockController extends Controller{
 
             if ($request->has('title')){
                 $request->validate([
-                'title' => 'required|max:255',
-            ]);
+                    'title' => 'required|max:255',
+                ]);
                 $homeBlock->title = $request->get('title');
             }
 
@@ -111,6 +111,19 @@ class HomeBlockController extends Controller{
                         'text' => 'required',
                     ]);
                 $homeBlock->text = $request->get('text');
+            }
+
+            if ($request->has('color')) {
+                $request->validate([
+                    'color' => 'required',
+                ]);
+                $homeBlock->color = $request->get('color');
+            }
+            if ($request->has('font')) {
+                $request->validate([
+                    'font' => 'required',
+                ]);
+                $homeBlock->font_color = $request->get('font');
             }
 
             $homeBlock->save();
@@ -165,48 +178,70 @@ class HomeBlockController extends Controller{
      */
     public function update(Request $request, $id) {
         if (Auth::check()) {
-//            $validatedData = $request->validate([
-//                'title' => 'required|max:255',
-//                'text' => 'required',
-//            ]);
+
+
 
             $homeBlock = HomeBlock::find($id);
 
-            if (request()->title) {
+            if ($request->has('title')){
+                $request->validate([
+                    'title' => 'required|max:255',
+                ]);
                 $homeBlock->title = $request->get('title');
             }
 
-            if (request()->upload) {
-                $image = new Image;
+            if ($request->has('type')) {
+                if (request()->upload) {
+                    $image = new Image;
 
-                $request->validate([
-                    'upload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                ]);
+                    $request->validate([
+                        'type' => 'required',
+                        'upload' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                    ]);
 
-                $imageName = time().'_'.request()->upload->getClientOriginalName();
-                request()->upload->move(public_path('images/home'), $imageName);
-                $image->filename = $imageName;
-                $image->type = 'home';
-                $image->save();
+                    $imageName = time().'_'.request()->upload->getClientOriginalName();
+                    request()->upload->move(public_path('images/home'), $imageName);
+                    $image->filename = $imageName;
+                    $image->type = $request->get('type');
+                    $image->save();
 
-                $homeBlock->image = $imageName;
-            } elseif(request()->image) {
-                $request->validate([
-                    'image' => 'required',
-                ]);
-                $homeBlock->image = $request->get('image');
+                    $homeBlock->image = $imageName;
+                } else {
+                    $request->validate([
+                        'image' => 'required',
+                    ]);
+                    $homeBlock->image = $request->get('image');
+                }
             }
 
-            if (request()->text) {
-                $homeBlock->text = $request->get('text');
-            }
-            if (request()->video) {
+            if ($request->has('video')) {
+                $request->validate([
+                    'video' => 'required',
+                ]);
                 $homeBlock->video = $request->get('video');
             }
 
-            if(!empty($request->get('image'))) $homeBlock->image = $request->get('image');
-            $homeBlock->save();
+            if ($request->has('text')) {
+                $request->validate([
+                    'text' => 'required',
+                ]);
+                $homeBlock->text = $request->get('text');
+            }
 
+            if ($request->has('color')) {
+                $request->validate([
+                    'color' => 'required',
+                ]);
+                $homeBlock->color = $request->get('color');
+            }
+            if ($request->has('font')) {
+                $request->validate([
+                    'font' => 'required',
+                ]);
+                $homeBlock->font_color = $request->get('font');
+            }
+
+            $homeBlock->save();
             Session::flash('message', 'Block has been updated.');
             Session::flash('alert-class', 'alert-success');
             return redirect()->back();

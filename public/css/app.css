@@ -10600,3 +10600,8 @@ main {
   background-color: #d0003a;
 }
 
+.color-input {
+  width: 60px;
+  height: 50px;
+}
+

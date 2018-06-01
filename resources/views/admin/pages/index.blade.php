@@ -41,7 +41,7 @@
             <tbody>
             @foreach ($pages as $key => $page)
                 <tr>
-                    <th scope="row">{{ $key }}</th>
+                    <th scope="row">{{ $key + 1 }}</th>
                     <td>{{ ucfirst($page['title']) }}</td>
                     <td>
                         <a href="/{{ str_replace(' ', '-', $page['link']) }}" target="_blank"><img src="{{ asset('images/eye.png') }}" alt="Eye icon" title="Bekijken"></a>

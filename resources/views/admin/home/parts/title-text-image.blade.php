@@ -27,9 +27,11 @@
                     </div>
                 </div>
             @else
-                <div class="collapse multi-collapse" id="multiCollapseExample1" style="max-height: 46px" data-parent="#accordion1">
-                    <div class="alert alert-danger pt-4">
-                        <p class="m-0">U moet eerst een foto uploaden voor u er een kunt selecteren!</p>
+                <div class="collapse multi-collapse" id="multiCollapseExample1" data-parent="#accordion1">
+                    <div class="pt-4">
+                        <div class="m-0 alert alert-danger">
+                            <p class="m-0">U moet eerst een foto uploaden voor u er een kunt selecteren!</p>
+                        </div>
                     </div>
                 </div>
             @endif
@@ -40,6 +42,23 @@
                         <input type="hidden" value="home" id="type" name="type">
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group mt-0 mb-4">
+        <label for="color">Achtergrond kleur:</label>
+        <input type="color" class="form-control color-input" name="color" id="color" value="#d0003a">
+    </div>
+    <div class="form-group mt-0 mb-4">
+        <label for="font">Tekst kleur:</label>
+        <div class="form-control p-2">
+            <div class="d-block">
+                <input class="gallery-radio" id="white" name="font" type="radio" value="white">
+                <label for="white" class="mb-0 ml-2">Wit</label>
+            </div>
+            <div class="d-block">
+                <input class="gallery-radio" id="black" name="font" type="radio" value="black" checked>
+                <label for="black" class="mb-0 ml-2">Zwart</label>
             </div>
         </div>
     </div>

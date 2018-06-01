@@ -19,6 +19,8 @@ class CreateHomeBlocksTable extends Migration
             $table->string('text')->nullable();
             $table->string('image')->nullable();
             $table->string('video')->nullable();
+            $table->string('color')->nullable();
+            $table->string('font_color')->nullable();
             $table->timestamps();
         });
     }

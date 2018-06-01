@@ -1,9 +1,9 @@
-<div class="home-block position-relative {{($key % 2 === 0) ? "u-bg" : "u-bg-light"}}">
+<div class="home-block position-relative" style="background-color: {{ $block->color }}">
     <div class="container py-5">
         <div class="row {{($key % 2 === 0) ? "flex-row-reverse" : ""}}">
             <div class="col-xs-12 col-md-12 col-lg-6">
-                <h2 class="animated invisible mb-3">{{ $block['title'] }}</h2>
-                <div class="animated invisible">
+                <h2 class="animated invisible mb-3" style="color: {{ $block['font_color'] }}">{{ $block['title'] }}</h2>
+                <div class="animated invisible" style="color: {{ $block['font_color'] }}">
                     {!! $block['text'] !!}
                 </div>
             </div>

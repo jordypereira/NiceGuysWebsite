@@ -1,4 +1,4 @@
-<div class="video-wrapper bg-dark py-5 position-relative">
+<div class="video-wrapper py-5 position-relative" style="background-color: {{ $block->color }}">
     <div class="container">
         <iframe
                 {{--width="1280"--}}
