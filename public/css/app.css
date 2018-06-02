@@ -10740,7 +10740,7 @@ main:hover .admin-actions,
 main {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  min-height: calc(100vh - 320px - 100px);
+  min-height: calc(100vh - 376px - 102px);
   overflow-y: hidden;
 }
 
