@@ -21,6 +21,12 @@ class CountController extends Controller
         $yHeight = $request->get("y-value");
         $url = URL::route('home') . '?y=' . $yHeight;
 
+        if($request->session()->has('counter_'.$id)) {
+            return redirect()->to('/' . '?y=' . $yHeight);
+        }
+
+        $request->session()->put('counter_'.$id, 'true');
+
         $homeBlock = HomeBlock::find($id);
         $homeBlock->counter_value += 1;
         $homeBlock->save();
