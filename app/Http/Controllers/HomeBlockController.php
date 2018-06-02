@@ -26,8 +26,7 @@ class HomeBlockController extends Controller{
             }
 
             $header = HomeHeader::find(1);
-            $headerImage = 'headerbw.jpg';
-            if($header) $headerImage = 'header/' . $header->image;
+            $headerImage = $header ? 'header/' . $header->image : NULL;
 
             return view('admin/home/index', ['blocks' => $blocks, 'headerImage' => $headerImage]);
         } else {
@@ -165,7 +164,10 @@ class HomeBlockController extends Controller{
      */
     public function show($id) {
         $homeblock = HomeBlock::find($id);
-        return view('home/show', ['homeblock' => $homeblock, 'headerImage' => 'headerbw.jpg']);
+
+        $header = HomeHeader::find(1);
+        $headerImage = $header ? 'header/' . $header->image : NULL;
+        return view('home/show', ['homeblock' => $homeblock, 'headerImage' => $headerImage]);
     }
 
     /**
@@ -183,8 +185,7 @@ class HomeBlockController extends Controller{
             $focus = $request->get('f');
 
             $header = HomeHeader::find(1);
-            $headerImage = 'headerbw.jpg';
-            if($header) $headerImage = 'header/' . $header->image;
+            $headerImage = $header ? 'header/' . $header->image : NULL;
 
             return view('admin/home/edit', ['homeblock' => $homeblock, 'headerImage' => $headerImage, 'images' => $images , 'focus' => $focus]);
         } else {
