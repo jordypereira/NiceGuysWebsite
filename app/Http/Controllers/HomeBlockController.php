@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\HomeBlock;
+use App\HomeHeader;
 use App\Image;
 use App\Order;
 use Illuminate\Http\Request;
@@ -23,7 +24,11 @@ class HomeBlockController extends Controller{
             foreach($blocks as $key => $block) {
                 $blocks[$key]['type'] = $this->getType($block);
             }
-            return view('admin/home/index', ['blocks' => $blocks, 'headerImage' => 'headerbw.jpg']);
+
+            $header = HomeHeader::find(1);
+            $headerImage = $header ? 'header/' . $header->image : NULL;
+
+            return view('admin/home/index', ['blocks' => $blocks, 'headerImage' => $headerImage]);
         } else {
             return redirect()->route('login');
         }
@@ -159,7 +164,10 @@ class HomeBlockController extends Controller{
      */
     public function show($id) {
         $homeblock = HomeBlock::find($id);
-        return view('home/show', ['homeblock' => $homeblock, 'headerImage' => 'headerbw.jpg']);
+
+        $header = HomeHeader::find(1);
+        $headerImage = $header ? 'header/' . $header->image : NULL;
+        return view('home/show', ['homeblock' => $homeblock, 'headerImage' => $headerImage]);
     }
 
     /**
@@ -175,7 +183,11 @@ class HomeBlockController extends Controller{
             $homeblock = HomeBlock::find($id);
             $images = Image::where('type', '=', 'home')->get();
             $focus = $request->get('f');
-            return view('admin/home/edit', ['homeblock' => $homeblock, 'headerImage' => 'headerbw.jpg', 'images' => $images , 'focus' => $focus]);
+
+            $header = HomeHeader::find(1);
+            $headerImage = $header ? 'header/' . $header->image : NULL;
+
+            return view('admin/home/edit', ['homeblock' => $homeblock, 'headerImage' => $headerImage, 'images' => $images , 'focus' => $focus]);
         } else {
             return redirect()->route('login');
         }
@@ -191,9 +203,6 @@ class HomeBlockController extends Controller{
      */
     public function update(Request $request, $id) {
         if (Auth::check()) {
-
-
-
             $homeBlock = HomeBlock::find($id);
 
             if ($request->has('title')){
