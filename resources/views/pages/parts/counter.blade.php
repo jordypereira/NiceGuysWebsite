@@ -4,7 +4,7 @@
             <div class="col-12">
                 <div class="p-4 border">
                     <h2 class="mb-3 text-center kiddishmedium" style="color: {{ $block['font_color'] }}">{{ $block['title'] }}</h2>
-                    <h2 class="mb-3 text-center count " style="color: {{ $block['font_color'] }}">{{ $block['counter_value'] }}</h2>
+                    <h2 class="mb-3 text-center count kiddishmedium " style="color: {{ $block['font_color'] }}">{{ $block['counter_value'] }}</h2>
                     <form action="{{url('admin/counter', $block['id'] )}}" enctype="multipart/form-data">
                         @method('PUT')
                         @csrf

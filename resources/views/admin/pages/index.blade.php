@@ -3,7 +3,9 @@
 @section('content')
     <main class="container py-5">
         <h1 class="mt-0 mb-4">
-            Alle pagina's
+            <span class="kiddishmedium">
+                Alle pagina's
+            </span>
             <a class="btn-link float-sm-right" href="{{ route('pages.create') }}">
                 <button class="btn btn-outline-dark">
                     Creëer een pagina

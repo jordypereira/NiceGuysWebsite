@@ -10582,7 +10582,7 @@ a.text-dark:focus {
 }
 
 body {
-  font-family: kids_cornerregular;
+  font-family: latomedium;
   position: relative;
   overflow-y: scroll;
 }
@@ -10794,9 +10794,10 @@ main {
 }
 
 .homeblock-text p,
-.homeblock-text h1 {
+.homeblock-text h1,
+.homeblock-text h2 {
   font-size: 1.3rem;
-  line-height: 1.3rem;
+  line-height: 1.5rem;
 }
 
 .homeblock-title {

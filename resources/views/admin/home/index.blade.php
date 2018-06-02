@@ -3,7 +3,9 @@
 @section('content')
     <main class="container py-5">
         <h1 class="mt-0 mb-4">
-            Alle homeblocks
+            <span class="kiddishmedium">
+                Alle homeblocks
+            </span>
             <a class="btn-link float-sm-right" href="{{ route('home.create') }}">
                 <button class="btn btn-outline-dark">
                     Creëer een homeblock
@@ -56,7 +58,7 @@
                                     Foto
                                 @elseif ($block['type'] == 5)
                                     Video
-                                @elseif ($block['type'] == 6)
+                                @elseif ($block['type'] == 6    )
                                     Teller
                                 @endif
                             </td>
