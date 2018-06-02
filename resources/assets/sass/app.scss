@@ -153,6 +153,10 @@ main {
 .count {
   font-size: 15rem;
   line-height: 15rem;
+  @include media-breakpoint-down(md) {
+    font-size: 12rem;
+    line-height: 12rem;
+  }
 }
 .count-btn {
   font-size: 2rem;
@@ -170,4 +174,33 @@ main {
 .homeblock-title {
   font-size: 3rem;
   line-height: 3rem;
+}
+footer {
+  background-color: black;
+  position: relative;
+  color: white;
+  text-align: center;
+  @include media-breakpoint-down(md) {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+  @include media-breakpoint-up(md) {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+}
+#footer-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100px;
+  background-color: #d0003a;
+  border: none;
+  @include media-breakpoint-down(md) {
+    width: 75px;
+  }
+}
+.footer-icon {
+  height: 45px;
 }

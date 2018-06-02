@@ -10781,6 +10781,13 @@ main {
   line-height: 15rem;
 }
 
+@media (max-width: 991.98px) {
+  .count {
+    font-size: 12rem;
+    line-height: 12rem;
+  }
+}
+
 .count-btn {
   font-size: 2rem;
 }
@@ -10803,5 +10810,46 @@ main {
 .homeblock-title {
   font-size: 3rem;
   line-height: 3rem;
+}
+
+footer {
+  background-color: black;
+  position: relative;
+  color: white;
+  text-align: center;
+}
+
+@media (max-width: 991.98px) {
+  footer {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  footer {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+}
+
+#footer-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100px;
+  background-color: #d0003a;
+  border: none;
+}
+
+@media (max-width: 991.98px) {
+  #footer-button {
+    width: 75px;
+  }
+}
+
+.footer-icon {
+  height: 45px;
 }
 
