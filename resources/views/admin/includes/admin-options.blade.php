@@ -1,4 +1,4 @@
-<div class="position-absolute admin-actions mt-1  ml-3 ml-md-1 kids-cornerregular">
+<div class="position-absolute admin-actions mt-1  ml-3 ml-md-1">
     <button class="btn btn-dark adminButton" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <img src="{{ asset('images/edit.png') }}" alt="">
     </button>

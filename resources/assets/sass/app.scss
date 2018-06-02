@@ -110,11 +110,14 @@ h1 {
   top: 0;
   left: 0;
 }
-.home-block .adminButton, .wrapper .adminButton, .video-wrapper .adminButton, .home-block .adminButton, .delete-image-btn, main .admin-actions {
+.home-block .adminButton, .wrapper .adminButton, .video-wrapper .adminButton, .home-block .adminButton, .delete-image-btn, main .admin-actions, .header .admin-actions {
   visibility: hidden;
 }
-.home-block:hover .adminButton, .wrapper:hover .adminButton, .video-wrapper:hover .adminButton, .home-block:hover .adminButton, .gallery-wrapper:hover .delete-image-btn, main:hover .admin-actions {
+.home-block:hover .adminButton, .wrapper:hover .adminButton, .video-wrapper:hover .adminButton, .home-block:hover .adminButton, .gallery-wrapper:hover .delete-image-btn, main:hover .admin-actions, .header:hover .admin-actions {
   visibility: visible;
+}
+.header:hover .a-logo-util {
+  visibility: hidden;
 }
 main {
   box-sizing: border-box;
