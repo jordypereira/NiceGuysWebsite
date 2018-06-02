@@ -2,11 +2,13 @@
 
 // Variables
 @import "variables";
+@import "fonts";
 
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
 
 body {
+  font-family: kiddishmedium;
   position: relative;
   overflow-y: scroll;
 }

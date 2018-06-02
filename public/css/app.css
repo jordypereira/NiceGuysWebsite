@@ -1,4 +1,12 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);/*!
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);@font-face {
+  font-family: 'kiddishmedium';
+  src: url(/fonts/kiddish-webfont.eot?cbb4fe15ed56822cf9b1893dfe3d9b01);
+  src: url(/fonts/kiddish-webfont.eot?cbb4fe15ed56822cf9b1893dfe3d9b01) format("embedded-opentype"), url(/fonts/kiddish-webfont.woff2?30fbd918dd88074b0e13ee21f13d3493) format("woff2"), url(/fonts/kiddish-webfont.woff?4d8e1c00a45183953b380b58ff324f69) format("woff"), url(/fonts/kiddish-webfont.ttf?308c91257eabcc50540a2c4837c80d6b) format("truetype"), url(/fonts/kiddish-webfont.svg?e6b01d08dd4e0086a46feeb752866603) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*!
  * Bootstrap v4.1.1 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
  * Copyright 2011-2018 Twitter, Inc.
@@ -10412,6 +10420,7 @@ a.text-dark:focus {
 }
 
 body {
+  font-family: kiddishmedium;
   position: relative;
   overflow-y: scroll;
 }
