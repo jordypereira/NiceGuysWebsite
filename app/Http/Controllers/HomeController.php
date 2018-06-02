@@ -21,8 +21,7 @@ class HomeController extends Controller
         }
 
         $header = HomeHeader::find(1);
-        $headerImage = 'headerbw.jpg';
-        if($header) $headerImage = 'header/' . $header->image;
+        $headerImage = $header ? 'header/' . $header->image : NULL;
 
         return view('pages/homepage', ['blocks' => $blocks, 'headerImage' => $headerImage]);
     }
@@ -35,8 +34,7 @@ class HomeController extends Controller
             $header = HomeHeader::find(1);
             $images = Image::where('type', '=', 'header')->get();
 
-            $headerImage = 'headerbw.jpg';
-            if($header) $headerImage = 'header/' . $header->image;
+            $headerImage = $header ? 'header/' . $header->image : NULL;
 
             return view('admin/home/header/edit', ['header' => $header, 'headerImage' => $headerImage, 'images' => $images]);
         } else {

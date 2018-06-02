@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\HomeHeader;
 use App\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -18,7 +19,11 @@ class ImageController extends Controller {
         if (Auth::check()) {
             $headerImages = Image::where('type','=','header')->get();
             $homeImages = Image::where('type','=','home')->get();
-            return view('admin/images/create', ["headerImages" => $headerImages, "homeImages" => $homeImages, 'headerImage' => 'headerbw.jpg']);
+
+            $header = HomeHeader::find(1);
+            $headerImage = $header ? 'header/' . $header->image : NULL;
+
+            return view('admin/images/create', ["headerImages" => $headerImages, "homeImages" => $homeImages, 'headerImage' => $headerImage]);
         }
     }
 
@@ -31,7 +36,11 @@ class ImageController extends Controller {
         if (Auth::check()) {
             $headerImages = Image::where('type','=','header')->get();
             $homeImages = Image::where('type','=','home')->get();
-            return view('admin/images/create', ["headerImages" => $headerImages, "homeImages" => $homeImages, 'headerImage' => 'headerbw.jpg']);
+
+            $header = HomeHeader::find(1);
+            $headerImage = $header ? 'header/' . $header->image : NULL;
+
+            return view('admin/images/create', ["headerImages" => $headerImages, "homeImages" => $homeImages, 'headerImage' => $headerImage]);
         }
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\HomeHeader;
 use App\Page;
 use App\Image;
 use Illuminate\Http\Request;
@@ -18,7 +19,11 @@ class PageController extends Controller {
   public function index() {
     if (Auth::check()) {
         $pages = Page::all();
-        return view('admin/pages/index', ['pages' => $pages, 'headerImage' => 'headerbw.jpg']);
+
+        $header = HomeHeader::find(1);
+        $headerImage = $header ? 'header/' . $header->image : NULL;
+
+        return view('admin/pages/index', ['pages' => $pages, 'headerImage' => $headerImage]);
     } else {
         return redirect()->route('login');
     }
@@ -32,7 +37,11 @@ class PageController extends Controller {
   public function create() {
     if (Auth::check()) {
         $images = Image::where('type','=','header')->get();
-        return view('admin/pages/create', ['images' => $images, 'headerImage' => 'headerbw.jpg']);
+
+        $header = HomeHeader::find(1);
+        $headerImage = $header ? 'header/' . $header->image : NULL;
+
+        return view('admin/pages/create', ['images' => $images, 'headerImage' => $headerImage]);
     } else {
         return redirect()->route('login');
     }
@@ -84,8 +93,8 @@ class PageController extends Controller {
         $page->save();
         Session::flash('message', 'De pagina is succesvol toegevoegd.');
         Session::flash('alert-class', 'alert-success');
-        $headerImage = (!empty($page['image'])) ? 'header/'.$page['image'] : NULL;
-        return view('pages/slugpage', ['page' => $page, 'headerImage' => $headerImage]);
+
+        return redirect()->route('pages.show', [$slug = str_replace(' ', '-', $page->link)]);
     }
   }
 
@@ -99,7 +108,9 @@ class PageController extends Controller {
   public function show($slug) {
       $link = str_replace('-', ' ', $slug);
       $page = Page::where('link', $link)->firstOrFail();
-      $headerImage = (!empty($page['image'])) ? 'header/'.$page['image'] : NULL;
+
+      $header = HomeHeader::find(1);
+      $headerImage = (!empty($page['image'])) ? 'header/'.$page['image'] : (($header) ? $headerImage = 'header/' . $header->image : NULL);
       return view('pages/slugpage', ['page' => $page, 'headerImage' => $headerImage]);
   }
 
@@ -114,7 +125,9 @@ class PageController extends Controller {
     if (Auth::check()) {
         $page = Page::find($id);
         $images = Image::where('type','=','header')->get();
-        $headerImage = (!empty($page->image)) ? 'header/'.$page->image : NULL;
+
+        $header = HomeHeader::find(1);
+        $headerImage = (!empty($page['image'])) ? 'header/'.$page['image'] : (($header) ? $headerImage = 'header/' . $header->image : NULL);
         return view('admin/pages/edit', ['page' => $page, 'headerImage' => $headerImage, 'images' => $images]);
     } else {
         return redirect()->route('login');
@@ -164,7 +177,7 @@ class PageController extends Controller {
 
         Session::flash('message', 'De pagina is succesvol gewijzigd.');
         Session::flash('alert-class', 'alert-success');
-        $headerImage = (!empty($page['image'])) ? 'header/'.$page['image'] : NULL;
+
         return redirect()->route('pages.show', [$slug = str_replace(' ', '-', $page->link)]);
     }
   }
