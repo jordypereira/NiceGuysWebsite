@@ -144,7 +144,7 @@ class HomeBlockController extends Controller{
 
             $homeBlock->save();
 
-            Session::flash('message', 'Home Block has been added.');
+            Session::flash('message', 'Block is succesvol toegevoegd.');
             Session::flash('alert-class', 'alert-success');
             return redirect()->to('admin/home');
         }
@@ -257,32 +257,19 @@ class HomeBlockController extends Controller{
             if ($request->has('counter_title')) {
                 $request->validate([
                     'counter_title' => 'required',
+                    'counter_color' => 'required',
+                    'counter_font' => 'required',
+                    'counter_value' => 'required',
+
                 ]);
                 $homeBlock->counter_title = $request->get('counter_title');
-            }
-
-            if ($request->has('counter_color')) {
-                $request->validate([
-                    'counter_color' => 'required',
-                ]);
                 $homeBlock->counter_color = $request->get('counter_color');
-            }
-
-            if ($request->has('counter_font')) {
-                $request->validate([
-                    'counter_font' => 'required',
-                ]);
                 $homeBlock->counter_font = $request->get('counter_font');
-            }
-            if ($request->has('counter_value')) {
-                $request->validate([
-                    'counter_value' => 'required',
-                ]);
                 $homeBlock->counter_value = $request->get('counter_value');
             }
 
             $homeBlock->save();
-            Session::flash('message', 'Block has been updated.');
+            Session::flash('message', 'Block is succesvol gewijzigd.');
             Session::flash('alert-class', 'alert-success');
             return redirect()->to('admin/home');
         }

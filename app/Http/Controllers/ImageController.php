@@ -63,7 +63,7 @@ class ImageController extends Controller {
             }
             $image->type = $request->get('type');
             $image->save();
-            Session::flash('message', 'Image has been uploaded.');
+            Session::flash('message', 'Afbeelding is succesvol geüpload.');
             Session::flash('alert-class', 'alert-success');
             return redirect('admin/images/create');
         }
@@ -117,7 +117,7 @@ class ImageController extends Controller {
             $image->delete();
             $image_path = public_path('images/').$image['type'].'/'.$image['filename'];
             unlink($image_path);
-            Session::flash('message', 'Foto is verwijderd.');
+            Session::flash('message', 'Afbeelding is succesvol verwijderd.');
             Session::flash('alert-class', 'alert-success');
             return redirect('admin/images/create');
         }
