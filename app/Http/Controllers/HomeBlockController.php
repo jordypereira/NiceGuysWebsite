@@ -42,7 +42,11 @@ class HomeBlockController extends Controller{
     public function create() {
         if (Auth::check()) {
             $images = Image::where('type','=','home')->get();
-            return view('admin/home/create', ['headerImage' => 'headerbw.jpg', 'images' => $images]);
+
+            $header = HomeHeader::find(1);
+            $headerImage = $header ? 'header/' . $header->image : NULL;
+
+            return view('admin/home/create', ['headerImage' => $headerImage, 'images' => $images]);
         } else {
             return redirect()->route('login');
         }
