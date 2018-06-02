@@ -3,7 +3,7 @@
 @section('content')
     <main class="container py-5">
         <h1 class="mt-0 mb-4">Home header foto aanpassen</h1>
-        <div class="form-text text-muted mb-4">Deze foto wordt gebruikt als header foto voor alle admin acties</div>
+        <div class="form-text text-muted mb-4">Deze foto wordt ook gebruikt als header foto voor alle admin acties</div>
         <form method="post" action="{{url('admin/home/header/update')}}" enctype="multipart/form-data">
             @method('PUT')
             @csrf
