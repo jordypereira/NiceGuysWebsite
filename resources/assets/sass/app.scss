@@ -200,6 +200,9 @@ footer {
   @include media-breakpoint-down(md) {
     width: 75px;
   }
+  &:hover{
+    cursor: pointer;
+  }
 }
 .footer-icon {
   height: 40px;
