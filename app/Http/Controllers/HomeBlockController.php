@@ -18,10 +18,8 @@ class HomeBlockController extends Controller{
      */
     public function index() {
         if (Auth::check()) {
-            $blocks = HomeBlock::join('orders', 'home_blocks.id', '=', 'orders.home_blocks_id')
-                ->select('*', 'orders.id AS order_id')
-                ->orderBy('orders.id')
-                ->get();
+            $blocks = HomeBlock::all()
+                ->sortBy('order');
             foreach($blocks as $key => $block) {
                 $blocks[$key]['type'] = $this->getType($block);
             }
@@ -141,11 +139,10 @@ class HomeBlockController extends Controller{
                 $homeBlock->counter_value = $request->get('counter_value');
             }
 
-            $homeBlock->save();
+            $order = count(HomeBlock::all());
+            $homeBlock->order = $order+1;
 
-            $order = new Order();
-            $order->home_blocks_id = $homeBlock->id;
-            $order->save();
+            $homeBlock->save();
 
             Session::flash('message', 'Home Block has been added.');
             Session::flash('alert-class', 'alert-success');
@@ -168,6 +165,7 @@ class HomeBlockController extends Controller{
     /**
      * Show the form for editing the specified resource.
      *
+     * @param \Illuminate\Http\Request $request
      * @param  int $id
      *
      * @return \Illuminate\Http\Response
@@ -303,6 +301,41 @@ class HomeBlockController extends Controller{
             Session::flash('message', 'Block has been deleted.');
             Session::flash('alert-class', 'alert-success');
             return redirect()->back();
+        }
+    }
+
+    /**
+     * Update the order of the home blocks.
+     *
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function updateOrder(Request $request){
+        if(Auth::check()) {
+            $orderCount = count(HomeBlock::all());
+            $orderIds = [];
+            for($i = 1; $i <= $orderCount; $i++){
+                if(!in_array($request->get($i), $orderIds)){
+                    $orderIds[] = $request->get($i);
+                }
+            }
+            $orderIdsCount = count($orderIds);
+            if($orderIdsCount === $orderCount){
+                for($i = 1; $i <= $orderCount; $i++){
+                    $homeblock = HomeBlock::find($i);
+                    $homeblock->order = $request->get($i);
+                    $homeblock->save();
+
+                }
+            }else{
+                Session::flash('message', 'Volgorde mag niet twee dezelfde waarden bevatten.');
+                Session::flash('alert-class', 'alert-danger');
+                return redirect('admin/home');
+            }
+            Session::flash('message', 'Volgorde is aangepast.');
+            Session::flash('alert-class', 'alert-success');
+            return redirect('admin/home');
         }
     }
     public function getType($block) {

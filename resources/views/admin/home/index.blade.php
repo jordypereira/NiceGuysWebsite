@@ -61,7 +61,7 @@
                                 @endif
                             </td>
                             <td>
-                                <input class="order-input form-control mr-0" type="number" min="1" value="{{ $block['order_id'] }}" name="{{ $block['id'] }}">
+                                <input class="order-input form-control mr-0" type="number" min="1" max="{{ count($blocks) }}" value="{{ $block['order'] }}" name="{{ $block['id'] }}">
                             </td>
                             <td>
                                 <a href="/admin/home/{{$block['id']}}/edit?type={{$block['type']}}" class="n-button"><img src="{{ asset('images/pencil.png') }}" alt="Edit icon" title="Aanpassen"></a>

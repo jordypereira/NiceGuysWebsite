@@ -21,7 +21,7 @@ Route::resource('admin/images', 'ImageController');
 
 Route::resource('admin/counter', 'CountController');
 
-Route::post('admin/order/update', 'OrderController@update')->name('admin.order.update');
+Route::post('admin/order/update', 'HomeBlockController@updateOrder')->name('admin.order.update');
 
 Route::get('/admin', 'PageController@admin_page');
 

@@ -9,10 +9,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $blocks = HomeBlock::join('orders', 'home_blocks.id', '=', 'orders.home_blocks_id')
-            ->select('*')
-            ->orderBy('orders.id')
-            ->get();
+        $blocks = HomeBlock::all()
+            ->sortBy('order');
 
         foreach($blocks as $key => $block) {
             $blocks[$key]['type'] = $this->getType($block);
