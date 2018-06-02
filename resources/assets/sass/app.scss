@@ -8,7 +8,7 @@
 @import "~bootstrap/scss/bootstrap";
 
 body {
-  font-family: kiddishmedium;
+  font-family: kids_cornerregular;
   position: relative;
   overflow-y: scroll;
 }
@@ -157,11 +157,11 @@ main {
 .count-btn {
   font-size: 2rem;
 }
-.ingat-regular {
+.ingatregular {
   font-family: ingatregular;
 }
-.kids-cornerregular {
-  font-family: kids_cornerregular;
+.kiddishmedium {
+  font-family: kiddishmedium;
 }
 .homeblock-text p, .homeblock-text h1, {
   font-size: 1.3rem;

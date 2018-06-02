@@ -10436,7 +10436,7 @@ a.text-dark:focus {
 }
 
 body {
-  font-family: kiddishmedium;
+  font-family: kids_cornerregular;
   position: relative;
   overflow-y: scroll;
 }
@@ -10639,12 +10639,12 @@ main {
   font-size: 2rem;
 }
 
-.ingat-regular {
+.ingatregular {
   font-family: ingatregular;
 }
 
-.kids-cornerregular {
-  font-family: kids_cornerregular;
+.kiddishmedium {
+  font-family: kiddishmedium;
 }
 
 .homeblock-text p,
