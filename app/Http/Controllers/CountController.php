@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\HomeBlock;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\URL;
 
 class CountController extends Controller
 {
@@ -14,9 +16,12 @@ class CountController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function show(Request $request, $id) {
+    public function update(Request $request, $id) {
+        $url = URL::route('home') . '#counter_' . $id;
+
         if($request->session()->has('counter_'.$id)){
-            return redirect()->to('/');
+            return redirect($url);
+
         }
 
         $request->session()->put('counter_'.$id, 'true');
@@ -24,6 +29,6 @@ class CountController extends Controller
         $homeBlock->counter_value += 1;
         $homeBlock->save();
 
-        return redirect()->to('/');
+        return redirect($url);
     }
 }
