@@ -25,6 +25,7 @@ class CreateHomeBlocksTable extends Migration
             $table->string('counter_title')->nullable();
             $table->string('counter_font')->nullable();
             $table->string('counter_color')->nullable();
+            $table->integer('order')->nullable();
             $table->timestamps();
         });
     }

@@ -24,8 +24,6 @@
                 </div>
             @endforeach
 
-
-
             @foreach($blocks as $key => $block)
                 @switch($block['type'])
 
