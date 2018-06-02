@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\HomeBlock;
-use Illuminate\Support\Facades\DB;
+use App\HomeHeader;
+use App\Image;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use Symfony\Component\HttpFoundation\Request;
 
 class HomeController extends Controller
 {
@@ -16,7 +20,71 @@ class HomeController extends Controller
             $blocks[$key]['type'] = $this->getType($block);
         }
 
-        return view('pages/homepage', ['blocks' => $blocks, 'headerImage' => 'headerbw.jpg']);
+        $header = HomeHeader::find(1);
+        $headerImage = 'headerbw.jpg';
+        if($header) $headerImage = 'header/' . $header->image;
+
+        return view('pages/homepage', ['blocks' => $blocks, 'headerImage' => $headerImage]);
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
+    public function editHeader(){
+        if (Auth::check()) {
+            $header = HomeHeader::find(1);
+            $images = Image::where('type', '=', 'header')->get();
+
+            $headerImage = 'headerbw.jpg';
+            if($header) $headerImage = 'header/' . $header->image;
+
+            return view('admin/home/header/edit', ['header' => $header, 'headerImage' => $headerImage, 'images' => $images]);
+        } else {
+            return redirect()->route('login');
+        }
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function updateHeader(Request $request) {
+        if (Auth::check()) {
+            $header = HomeHeader::find(1);
+            if(!$header){
+                $header = new HomeHeader;
+            }
+            if (request()->upload) {
+                $image = new Image;
+
+                $request->validate([
+                    'type' => 'required',
+                    'upload' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                ]);
+
+                $imageName = time().'_'.request()->upload->getClientOriginalName();
+                request()->upload->move(public_path('images/header'), $imageName);
+                $image->filename = $imageName;
+                $image->type = $request->get('type');
+                $image->save();
+
+                $header->image = $imageName;
+            } else {
+                $request->validate([
+                    'image' => 'required',
+                ]);
+                $header->image = $request->get('image');
+            }
+
+            $header->save();
+            Session::flash('message', 'Header Image is succesvol gewijzigd.');
+            Session::flash('alert-class', 'alert-success');
+            return redirect()->to('/');
+        }
     }
 
     public function getType($block) {

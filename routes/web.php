@@ -13,6 +13,8 @@
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::get('/admin/home/header/edit', 'HomeController@editHeader')->name('admin.home.header.edit');
+Route::put('/admin/home/header/update', 'HomeController@updateHeader')->name('admin.home.header.update');
 Route::resource('/admin/home', 'HomeBlockController');
 
 Route::resource('admin/pages', 'PageController');

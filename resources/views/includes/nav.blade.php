@@ -25,6 +25,7 @@
                             <hr class="my-2">
                             <a class="dropdown-item" href="/admin/home/create">Creëer een homeblock</a>
                             <a class="dropdown-item" href="/admin/home">Bekijk alle homeblocks</a>
+                            <a class="dropdown-item" href="/admin/home/header/edit">Pas de header op de home pagina aan</a>
                             <hr class="my-2">
                             <a class="dropdown-item" href="/admin/images/create">Upload een foto</a>
                             <hr class="my-2">

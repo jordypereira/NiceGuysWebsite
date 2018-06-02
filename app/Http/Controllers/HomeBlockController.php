@@ -191,9 +191,6 @@ class HomeBlockController extends Controller{
      */
     public function update(Request $request, $id) {
         if (Auth::check()) {
-
-
-
             $homeBlock = HomeBlock::find($id);
 
             if ($request->has('title')){
