@@ -26,9 +26,11 @@
                     </div>
                 </div>
             @else
-                <div class="collapse multi-collapse" id="multiCollapseExample1" style="max-height: 46px" data-parent="#accordion">
-                    <div class="alert alert-danger">
-                        <p class="m-0">U moet eerst een foto uploaden voor u er een kunt selecteren!</p>
+                <div class="collapse multi-collapse" id="multiCollapseExample1" data-parent="#accordion">
+                    <div class="pt-4">
+                        <div class="alert alert-danger">
+                            <p class="m-0">U moet eerst een foto uploaden voor u er een kunt selecteren!</p>
+                        </div>
                     </div>
                 </div>
             @endif

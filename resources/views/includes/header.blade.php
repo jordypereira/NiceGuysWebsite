@@ -5,7 +5,7 @@
         <img src="{{ asset('images/edit.png') }}" alt="">
     </button>
     <div class="dropdown-menu bg-dark adminButton" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item admin-dropdown-item" href="#" title="Homepage foto aanpassen">
+        <a class="dropdown-item admin-dropdown-item" href="admin/home/header/edit" title="Homepage foto aanpassen">
             Foto aanpassen
         </a>
     </div>

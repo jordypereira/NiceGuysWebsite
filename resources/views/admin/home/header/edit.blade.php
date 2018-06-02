@@ -2,13 +2,14 @@
 
 @section('content')
     <main class="container py-5">
-        <h1 class="mt-0 mb-4"> Pas de header op de home pagina aan</h1>
+        <h1 class="mt-0 mb-4">Home header foto aanpassen</h1>
+        <div class="form-text text-muted mb-4">Deze foto wordt gebruikt als header foto voor alle admin acties</div>
         <form method="post" action="{{url('admin/home/header/update')}}" enctype="multipart/form-data">
             @method('PUT')
             @csrf
             <div class="form-group mt-0 mb-4">
                 <div class="collapse show multi-collapse">
-                    <label>Foto:</label>
+                    <label><a href="{{ asset('images/header/'.$header->image) }}" target="_blank">Foto:</a></label>
                 </div>
                 <div id="accordion">
                     <button class="btn btn-outline-dark" type="button" data-toggle="collapse" href="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">Selecteer een foto</button>
@@ -27,9 +28,11 @@
                             </div>
                         </div>
                     @else
-                        <div class="collapse multi-collapse" id="multiCollapseExample1" style="max-height: 46px" data-parent="#accordion">
-                            <div class="alert alert-danger">
-                                <p class="m-0">U moet eerst een foto uploaden voor u er een kunt selecteren!</p>
+                        <div class="collapse multi-collapse" id="multiCollapseExample1" data-parent="#accordion">
+                            <div class="pt-4">
+                                <div class="m-0 alert alert-danger">
+                                    <p class="m-0">U moet eerst een foto uploaden voor u er een kunt selecteren!</p>
+                                </div>
                             </div>
                         </div>
                     @endif
