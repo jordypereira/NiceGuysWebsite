@@ -82,7 +82,7 @@ class PageController extends Controller {
         $page->font_color = $request->get('font');
 
         $page->save();
-        Session::flash('message', 'Page has been added.');
+        Session::flash('message', 'De pagina is succesvol toegevoegd.');
         Session::flash('alert-class', 'alert-success');
         $headerImage = (!empty($page['image'])) ? 'header/'.$page['image'] : NULL;
         return view('pages/slugpage', ['page' => $page, 'headerImage' => $headerImage]);
@@ -162,7 +162,7 @@ class PageController extends Controller {
         $page->font_color = $request->get('font');
         $page->save();
 
-        Session::flash('message', 'Page has been updated.');
+        Session::flash('message', 'De pagina is succesvol gewijzigd.');
         Session::flash('alert-class', 'alert-success');
         $headerImage = (!empty($page['image'])) ? 'header/'.$page['image'] : NULL;
         return redirect()->route('pages.show', [$slug = str_replace(' ', '-', $page->link)]);
@@ -179,7 +179,7 @@ class PageController extends Controller {
   public function destroy($id) {
     if (Auth::check()) {
         Page::destroy($id);
-        Session::flash('message', 'Page has been deleted.');
+        Session::flash('message', 'De pagina is succesvol verwijderd.');
         Session::flash('alert-class', 'alert-success');
         return redirect('admin/pages');
     }
