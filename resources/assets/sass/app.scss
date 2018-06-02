@@ -202,5 +202,8 @@ footer {
   }
 }
 .footer-icon {
-  height: 45px;
+  height: 40px;
+  @include media-breakpoint-down(sm) {
+    height: 30px;
+  }
 }

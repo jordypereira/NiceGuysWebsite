@@ -10850,6 +10850,12 @@ footer {
 }
 
 .footer-icon {
-  height: 45px;
+  height: 40px;
+}
+
+@media (max-width: 767.98px) {
+  .footer-icon {
+    height: 30px;
+  }
 }
 
