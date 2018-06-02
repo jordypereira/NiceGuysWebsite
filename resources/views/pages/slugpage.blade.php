@@ -4,10 +4,10 @@
     <main class="wrapper position-relative">
         <div style="background-color: {{ $page['color'] }}">
             <div class="container py-5">
-                <h1 class="m-0" style="color: {{ $page['font_color'] }};">{{ $page['title'] }}</h1>
+                <h1 class="m-0 homeblock-title" style="color: {{ $page['font_color'] }};">{{ $page['title'] }}</h1>
             </div>
         </div>
-        <div class="container pb-5">
+        <div class="container pb-5 kids-cornerregular homeblock-text">
             <p>{!! $page['body'] !!}</p>
         </div>
         @auth

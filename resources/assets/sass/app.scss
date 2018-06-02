@@ -2,9 +2,9 @@
 
 // Variables
 @import "variables";
-@import "fonts";
 
 // Bootstrap
+@import "fonts";
 @import "~bootstrap/scss/bootstrap";
 
 body {
@@ -151,8 +151,23 @@ main {
   height: 50px;
 }
 .count {
-  font-size: 6rem;
+  font-size: 15rem;
+  line-height: 15rem;
 }
 .count-btn {
   font-size: 2rem;
+}
+.ingat-regular {
+  font-family: ingatregular;
+}
+.kids-cornerregular {
+  font-family: kids_cornerregular;
+}
+.homeblock-text p, .homeblock-text h1, {
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+}
+.homeblock-title {
+  font-size: 3rem;
+  line-height: 3rem;
 }

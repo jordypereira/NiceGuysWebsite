@@ -10,3 +10,29 @@
   font-style: normal;
 
 }
+
+@font-face {
+  font-family: 'ingatregular';
+  src: url('../fonts/ingat.regular-webfont.eot');
+  src: url('../fonts/ingat.regular-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/ingat.regular-webfont.woff2') format('woff2'),
+  url('../fonts/ingat.regular-webfont.woff') format('woff'),
+  url('../fonts/ingat.regular-webfont.ttf') format('truetype'),
+  url('../fonts/ingat.regular-webfont.svg#ingatregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'kids_cornerregular';
+  src: url('../fonts/kids-corner.regular-webfont.eot');
+  src: url('../fonts/kids-corner.regular-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/kids-corner.regular-webfont.woff2') format('woff2'),
+  url('../fonts/kids-corner.regular-webfont.woff') format('woff'),
+  url('../fonts/kids-corner.regular-webfont.ttf') format('truetype'),
+  url('../fonts/kids-corner.regular-webfont.svg#kids_cornerregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}

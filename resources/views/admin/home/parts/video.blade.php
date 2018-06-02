@@ -1,4 +1,4 @@
-<form method="post" action="{{url('admin/home')}}" enctype="multipart/form-data">
+<form method="post" action="{{url('admin/home')}}" enctype="multipart/form-data" class="kids-cornerregular">
     @csrf
     <div class="form-group mt-0 mb-4">
         <label for="video">Video (embed link):</label>

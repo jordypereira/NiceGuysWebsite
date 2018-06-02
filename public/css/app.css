@@ -6,6 +6,22 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'ingatregular';
+  src: url(/fonts/ingat.regular-webfont.eot?f9281b10dc37cd5a294720834dcc2642);
+  src: url(/fonts/ingat.regular-webfont.eot?f9281b10dc37cd5a294720834dcc2642) format("embedded-opentype"), url(/fonts/ingat.regular-webfont.woff2?14e49cb38ff3071871aa82dbda783ba8) format("woff2"), url(/fonts/ingat.regular-webfont.woff?09bb69ca6f60f5e29ad5a9a706feb812) format("woff"), url(/fonts/ingat.regular-webfont.ttf?29260b0d87dc5adfb8da457b3544530d) format("truetype"), url(/fonts/ingat.regular-webfont.svg?f68e26e526bbe7675424c4a44f745169) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'kids_cornerregular';
+  src: url(/fonts/kids-corner.regular-webfont.eot?49eb2aad1524920ebcefaaae2fd23b2b);
+  src: url(/fonts/kids-corner.regular-webfont.eot?49eb2aad1524920ebcefaaae2fd23b2b) format("embedded-opentype"), url(/fonts/kids-corner.regular-webfont.woff2?f985972112b5583b6d031e806ffca0ec) format("woff2"), url(/fonts/kids-corner.regular-webfont.woff?a00623b0ddf1970c264ee05b2b2c9808) format("woff"), url(/fonts/kids-corner.regular-webfont.ttf?ce49ef662bfa9716d2f3f19138b0bf0d) format("truetype"), url(/fonts/kids-corner.regular-webfont.svg?b4385f1214cea7aa643b85eeabacd6c4) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
 /*!
  * Bootstrap v4.1.1 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
@@ -10615,10 +10631,30 @@ main {
 }
 
 .count {
-  font-size: 6rem;
+  font-size: 15rem;
+  line-height: 15rem;
 }
 
 .count-btn {
   font-size: 2rem;
+}
+
+.ingat-regular {
+  font-family: ingatregular;
+}
+
+.kids-cornerregular {
+  font-family: kids_cornerregular;
+}
+
+.homeblock-text p,
+.homeblock-text h1 {
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+}
+
+.homeblock-title {
+  font-size: 3rem;
+  line-height: 3rem;
 }
 

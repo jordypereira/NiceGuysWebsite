@@ -7,7 +7,7 @@
 @section('content')
     <main class="container py-5">
         <h1 class="mt-0 mb-4"> Bewerk home block</h1>
-        <form method="post" action="{{url('admin/home', $homeblock['id'] )}}" enctype="multipart/form-data">
+        <form method="post" action="{{url('admin/home', $homeblock['id'] )}}" enctype="multipart/form-data" class="kids-cornerregular">
             @method('PUT')
             @csrf
             <div class="form-group mt-0 mb-4">
