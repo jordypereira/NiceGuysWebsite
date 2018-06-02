@@ -48,9 +48,35 @@ function scrollToTop(e) {
     window.scrollTo(0,0);
 }
 
+function scrollToY(e) {
+    let yHeight = get('y');
+    if (yHeight) {
+        window.scrollTo(0,yHeight);
+    }
+}
+
+function setYValue(e) {
+    e.preventDefault();
+
+    let yInput = e.path[2][2];
+    let yHeight = window.scrollY;
+    let form = e.path[2];
+    yInput.setAttribute('value', yHeight);
+    form.submit();
+
+
+}
+
+function get(name){
+    if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+        return decodeURIComponent(name[1]);
+}
+
 function bindEvents() {
     window.addEventListener('load', getElPos);
     window.addEventListener('scroll', getElPos);
+
+    window.addEventListener('load', scrollToY);
 
     let footerBtn = document.getElementById("footer-button");
     footerBtn.addEventListener('click', scrollToTop);
@@ -64,6 +90,12 @@ function bindEvents() {
     let orderDeclineBtn = document.getElementById("order-decline-btn");
     if (orderDeclineBtn) {
         orderDeclineBtn.addEventListener('click', removeOrders);
+    }
+    let counterBtns = document.querySelectorAll('.counter-btn');
+    if (counterBtns.length > 0) {
+        for (let b = 0, blen = counterBtns.length; b < blen; b++) {
+            counterBtns[b].addEventListener('click', setYValue);
+        }
     }
 }
 bindEvents();

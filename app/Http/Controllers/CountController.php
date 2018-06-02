@@ -17,14 +17,10 @@ class CountController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, $id) {
-        $url = URL::route('home') . '#counter_' . $id;
 
-        if($request->session()->has('counter_'.$id)){
-            return redirect($url);
+        $yHeight = $request->get("y-value");
+        $url = URL::route('home') . '?y=' . $yHeight;
 
-        }
-
-        $request->session()->put('counter_'.$id, 'true');
         $homeBlock = HomeBlock::find($id);
         $homeBlock->counter_value += 1;
         $homeBlock->save();

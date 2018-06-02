@@ -12,12 +12,12 @@
         <label for="font">Titel (tekst) kleur:</label>
         <div class="form-control p-2">
             <div class="d-block">
-                <input class="gallery-radio" id="white2" name="font" type="radio" value="white">
-                <label for="white2" class="mb-0 ml-2">Wit</label>
+                <input class="gallery-radio" id="white6" name="font" type="radio" value="white">
+                <label for="white6" class="mb-0 ml-2">Wit</label>
             </div>
             <div class="d-block">
-                <input class="gallery-radio" id="black2" name="font" type="radio" value="black" checked>
-                <label for="black2" class="mb-0 ml-2">Zwart</label>
+                <input class="gallery-radio" id="black6" name="font" type="radio" value="black" checked>
+                <label for="black6" class="mb-0 ml-2">Zwart</label>
             </div>
         </div>
     </div>

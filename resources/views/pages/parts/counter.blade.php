@@ -8,10 +8,11 @@
                     <form method="POST" action="{{url('admin/counter', $block['id'] )}}" enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
-                        <button type="submit" class="btn d-block mx-auto" style="background-color: {{ $block['counter_color'] }}">
-                        <span style="color: {{ $block['counter_font'] }}" class="count-btn">
-                            {{ $block['counter_title'] }}
-                        </span>
+                        <input type="hidden" value="0" name="y-value">
+                        <button type="submit" class="btn d-block mx-auto counter-btn" style="background-color: {{ $block['counter_color'] }}">
+                            <span style="color: {{ $block['counter_font'] }}" class="count-btn">
+                                {{ $block['counter_title'] }}
+                            </span>
                         </button>
                     </form>
                 </div>
