@@ -9,6 +9,7 @@ use App\Image;
 use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class HomeBlockController extends Controller{
@@ -313,18 +314,18 @@ class HomeBlockController extends Controller{
      */
     public function updateOrder(Request $request){
         if(Auth::check()) {
-            $orderCount = count(HomeBlock::all());
+            $homeblockIds = DB::table('home_blocks')->pluck('id');
             $orderIds = [];
-            for($i = 1; $i <= $orderCount; $i++){
-                if(!in_array($request->get($i), $orderIds)){
-                    $orderIds[] = $request->get($i);
+            foreach($homeblockIds as $id){
+                if(!in_array($request->get($id), $orderIds)){
+                    $orderIds[] = $request->get($id);
                 }
             }
-            $orderIdsCount = count($orderIds);
-            if($orderIdsCount === $orderCount){
-                for($i = 1; $i <= $orderCount; $i++){
-                    $homeblock = HomeBlock::find($i);
-                    $homeblock->order = $request->get($i);
+
+            if(count($orderIds) === count($homeblockIds)){
+                foreach($homeblockIds as $id){
+                    $homeblock = HomeBlock::find($id);
+                    $homeblock->order = $request->get($id);
                     $homeblock->save();
 
                 }
