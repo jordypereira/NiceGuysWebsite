@@ -76,9 +76,8 @@ function animateCounter(e) {
     if (counterEl) {
         let range = counterEl.innerHTML;
         let count = 0;
-        console.log(range / 133.4);
         let timer = setInterval(function() {
-            count++;
+            count ++;
             counterEl.innerHTML = count;
             if (count == range) {
                 clearInterval(timer);

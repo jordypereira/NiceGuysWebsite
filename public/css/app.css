@@ -10891,3 +10891,7 @@ footer {
   background: #343a40;
 }
 
+.border-black {
+  border: 1px solid black;
+}
+

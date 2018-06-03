@@ -2,7 +2,7 @@
     <div class="container py-5" id="counter_{{ $block->id }}">
         <div class="row">
             <div class="col-12">
-                <div class="p-4 border">
+                <div class="p-4 {{ ($block['font_color'] === "black") ? "border-black" : "border" }}">
                     <h2 class="mb-3 text-center kiddishmedium animated" style="color: {{ $block['font_color'] }}">{{ $block['title'] }}</h2>
                     <h2 class="mb-3 text-center count kiddishmedium animated" style="color: {{ $block['font_color'] }}" id="count-value">{{ $block['counter_value'] }}</h2>
                     <form method="POST" action="{{url('admin/counter', $block['id'] )}}" enctype="multipart/form-data">
