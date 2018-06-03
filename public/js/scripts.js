@@ -73,16 +73,18 @@ function setYValue(e) {
 
 function animateCounter(e) {
     let counterEl = document.getElementById("count-value");
-    let range = counterEl.innerHTML;
-    let count = 0;
-    console.log(range / 133.4);
-    let timer = setInterval(function() {
-        count++;
-        counterEl.innerHTML = count;
-        if (count == range) {
-            clearInterval(timer);
-        }
-    }, 1);
+    if (counterEl) {
+        let range = counterEl.innerHTML;
+        let count = 0;
+        console.log(range / 133.4);
+        let timer = setInterval(function() {
+            count++;
+            counterEl.innerHTML = count;
+            if (count == range) {
+                clearInterval(timer);
+            }
+        }, 1);
+    }
 }
 
 function get(name){
