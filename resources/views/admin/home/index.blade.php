@@ -24,8 +24,8 @@
                             <form action="{{ route('home.destroy', $block['id']) }}" method="POST">
                                 @method('DELETE')
                                 @csrf
-                                <button type="button" class="btn btn-success" data-dismiss="modal">Annuleren</button>
-                                <button type="submit" class="btn btn-danger">Verwijderen</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Annuleren</button>
+                                <button type="submit" class="btn btn-success">Verwijderen</button>
                             </form>
                         </div>
                     </div>

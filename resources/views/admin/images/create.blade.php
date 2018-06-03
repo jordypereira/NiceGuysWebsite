@@ -33,12 +33,12 @@
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
-                            <p>Bent u zeker dat u foto {{$image['id']}} wilt verwijderen?</p>
-                            <button type="button" class="btn btn-success" data-dismiss="modal">Annuleren</button>
+                            <p>Bent u zeker dat u foto {{$image['filename']}} wilt verwijderen?</p>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Annuleren</button>
                             <form action="{{ route('images.destroy', $image['id']) }}" method="POST" class="d-inline-block adminButton">
                                 @method('DELETE')
                                 @csrf
-                                <button class="btn btn-danger"
+                                <button class="btn btn-success"
                                         title="Delete foto #{{$image['id']}}">
                                     Verwijderen
                                 </button>
@@ -56,12 +56,12 @@
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
-                            <p>Bent u zeker dat u foto {{$image['id']}} wilt verwijderen?</p>
-                            <button type="button" class="btn btn-success" data-dismiss="modal">Annuleren</button>
+                            <p>Bent u zeker dat u foto {{$image['filename']}} wilt verwijderen?</p>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Annuleren</button>
                             <form action="{{ route('images.destroy', $image['id']) }}" method="POST" class="d-inline-block adminButton">
                                 @method('DELETE')
                                 @csrf
-                                <button class="btn btn-danger"
+                                <button class="btn btn-success"
                                         title="Delete foto #{{$image['id']}}">
                                     Verwijderen
                                 </button>
@@ -79,7 +79,7 @@
                     @if(count($headerImages))
                         @foreach($headerImages as $image)
                             <div class="gallery-wrapper position-relative">
-                                <button type="button" class="position-absolute delete-image-btn btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$image['id']}}">
+                                <button type="button" class="position-absolute delete-image-btn btn btn-danger m-2" data-toggle="modal" data-target="#exampleModal{{$image['id']}}">
                                     X
                                 </button>
                                 <a href="{{ url('admin/images/'.$image["id"]) }}"><img class="gallery-image img-thumbnail" src="{{ asset('images/header/'.$image["filename"]) }}" alt="" title="{{$image["filename"]}}"></a>
@@ -96,7 +96,7 @@
                     @if(count($homeImages))
                         @foreach($homeImages as $image)
                             <div class="gallery-wrapper position-relative">
-                                <button type="button" class="position-absolute delete-image-btn btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$image['id']}}">
+                                <button type="button" class="position-absolute delete-image-btn btn btn-danger m-2" data-toggle="modal" data-target="#exampleModal{{$image['id']}}">
                                     X
                                 </button>
                                 <a href="{{ url('admin/images/'.$image["id"]) }}"><img class="gallery-image img-thumbnail" src="{{ asset('images/home/'.$image["filename"]) }}" alt="" title="{{$image["filename"]}}"></a>

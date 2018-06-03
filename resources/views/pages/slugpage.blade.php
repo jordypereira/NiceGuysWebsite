@@ -7,7 +7,7 @@
                 <h1 class="m-0 homeblock-title kiddishmedium" style="color: {{ $page['font_color'] }};">{{ $page['title'] }}</h1>
             </div>
         </div>
-        <div class="container pb-5 homeblock-text">
+        <div class="container py-5 homeblock-text">
             <p>{!! $page['body'] !!}</p>
         </div>
         @auth
