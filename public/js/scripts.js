@@ -37,7 +37,11 @@ function getElPos(e) {
         if (elRect.top > 0 && elRect.top < window.innerHeight ||
             elRect.bottom > 0 && elRect.bottom < window.innerHeight) {
             animEls[i].classList.remove('invisible');
-            animEls[i].classList.add('slideInLeft');
+            if (i % 2 == 1) {
+                animEls[i].classList.add('slideInLeft');
+            } else {
+                animEls[i].classList.add('slideInRight');
+            }
             setTimeout(function(){ animEls[i].classList.add('visible'); }, 500);
 
         }

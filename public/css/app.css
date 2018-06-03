@@ -10745,7 +10745,7 @@ main {
 }
 
 .home-block {
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 .home-block a {
