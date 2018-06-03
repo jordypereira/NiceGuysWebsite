@@ -224,10 +224,10 @@ footer {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: $gray-700;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: $gray-800;
 }
