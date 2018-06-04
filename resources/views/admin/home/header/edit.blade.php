@@ -9,7 +9,7 @@
             @csrf
             <div class="form-group mt-0 mb-4">
                 <div class="collapse show multi-collapse">
-                    <label><a href="{{ asset('images/header/'.$header->image) }}" target="_blank">Foto:</a></label>
+                    <label><a href="{{ ($header) ? asset('images/header/'.$header->image) : '' }}" target="_blank">Foto:</a></label>
                 </div>
                 <div id="accordion">
                     <button class="btn btn-outline-dark" type="button" data-toggle="collapse" href="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">Selecteer een foto</button>
