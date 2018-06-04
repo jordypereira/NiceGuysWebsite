@@ -1,3 +1,4 @@
+let counterAnimated = false;
 
 function showOrders(e) {
     let orderBtn = document.querySelector("#order-btn");
@@ -31,24 +32,32 @@ function removeOrders(e) {
 
 function getElPos(e) {
     let animEls = document.querySelectorAll('.animated');
-
     for (let i = 0, ilen = animEls.length; i < ilen; i++) {
         let elRect = animEls[i].getBoundingClientRect();
         if (elRect.top > 0 && elRect.top < window.innerHeight ||
             elRect.bottom > 0 && elRect.bottom < window.innerHeight) {
             animEls[i].classList.remove('invisible');
-            if (i % 2 == 1) {
+            if (i % 2 == 0) {
                 if (animEls[i].tagName == 'IMG') {
                     animEls[i].classList.add('bounceIn');
                 } else {
                     animEls[i].classList.add('slideInLeft');
+                    if (animEls[i].id == "count-value" && !counterAnimated) {
+                        counterAnimated = true;
+                        animateCounter();
+                    }
                 }
             } else {
                 if (animEls[i].tagName == 'IMG') {
                     animEls[i].classList.add('bounceIn');
                 } else {
                     animEls[i].classList.add('slideInRight');
+                    if (animEls[i].id == "count-value" && !counterAnimated) {
+                        counterAnimated = true;
+                        animateCounter();
+                    }
                 }
+
             }
             setTimeout(function(){ animEls[i].classList.add('visible'); }, 500);
 
@@ -100,10 +109,10 @@ function get(name){
 }
 
 function bindEvents() {
+
     window.addEventListener('scroll', getElPos);
     window.addEventListener('load', getElPos);
     window.addEventListener('load', scrollToY);
-    window.addEventListener('load', animateCounter);
 
     let footerBtn = document.getElementById("footer-button");
     footerBtn.addEventListener('click', scrollToTop);
