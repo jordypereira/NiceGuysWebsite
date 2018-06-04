@@ -38,9 +38,17 @@ function getElPos(e) {
             elRect.bottom > 0 && elRect.bottom < window.innerHeight) {
             animEls[i].classList.remove('invisible');
             if (i % 2 == 1) {
-                animEls[i].classList.add('slideInLeft');
+                if (animEls[i].tagName == 'IMG') {
+                    animEls[i].classList.add('bounceIn');
+                } else {
+                    animEls[i].classList.add('slideInLeft');
+                }
             } else {
-                animEls[i].classList.add('slideInRight');
+                if (animEls[i].tagName == 'IMG') {
+                    animEls[i].classList.add('bounceIn');
+                } else {
+                    animEls[i].classList.add('slideInRight');
+                }
             }
             setTimeout(function(){ animEls[i].classList.add('visible'); }, 500);
 
