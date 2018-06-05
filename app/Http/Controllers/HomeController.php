@@ -26,6 +26,13 @@ class HomeController extends Controller
         return view('pages/homepage', ['blocks' => $blocks, 'headerImage' => $headerImage]);
     }
 
+    public function game()
+    {
+        $header = HomeHeader::find(1);
+        $headerImage = $header ? 'header/' . $header->image : NULL;
+        return view('pages/game', ['headerImage' => $headerImage]);
+    }
+
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
      */

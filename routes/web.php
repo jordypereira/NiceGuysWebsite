@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/game', 'HomeController@game')->name('game');
 
 Route::get('/admin/home/header/edit', 'HomeController@editHeader')->name('admin.home.header.edit');
 Route::put('/admin/home/header/update', 'HomeController@updateHeader')->name('admin.home.header.update');
