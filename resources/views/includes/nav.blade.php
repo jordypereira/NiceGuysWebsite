@@ -10,7 +10,7 @@
                     <a class="nav-link pl-sm-0 {{(Request::is('/')) ? "active" : ""}}" href="{{ route('home') }}">Home</a>
                 </li>
                 <li class="nav-item d-md-block d-lg-inline-block">
-                    <a class="nav-link pl-sm-0 {{(Request::is('/game')) ? "active" : ""}}" href="{{ route('game') }}">Game</a>
+                    <a class="nav-link {{(Request::is('/game')) ? "active" : ""}}" href="{{ route('game') }}">Game</a>
                 </li>
                 @foreach($pages as $page)
                     <li class="nav-item d-md-block d-lg-inline-block">
