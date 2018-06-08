@@ -108,6 +108,15 @@ function get(name){
         return decodeURIComponent(name[1]);
 }
 
+function setAdminNavLeft() {
+    let dropDown = document.querySelector("#dropdown");
+    if (window.innerWidth <= 992) {
+        if (dropDown.classList.contains("dropdown-menu-right")) { dropDown.classList.remove("dropdown-menu-right") }
+    } else {
+        if (!dropDown.classList.contains("dropdown-menu-right")) { dropDown.classList.add("dropdown-menu-right") }
+    }
+}
+
 function bindEvents() {
 
     window.addEventListener('scroll', getElPos);
@@ -123,15 +132,20 @@ function bindEvents() {
             orderItems[i].addEventListener('change', showOrders);
         }
     }
+
     let orderDeclineBtn = document.getElementById("order-decline-btn");
     if (orderDeclineBtn) {
         orderDeclineBtn.addEventListener('click', removeOrders);
     }
+
     let counterBtns = document.querySelectorAll('.counter-btn');
     if (counterBtns.length > 0) {
         for (let b = 0, blen = counterBtns.length; b < blen; b++) {
             counterBtns[b].addEventListener('click', setYValue);
         }
     }
+
+    window.addEventListener('load', setAdminNavLeft);
+    window.addEventListener('resize', setAdminNavLeft);
 }
 bindEvents();

@@ -10825,10 +10825,10 @@ footer {
   text-align: center;
 }
 
-@media (max-width: 991.98px) {
+@media (min-width: 576px) {
   footer {
-    font-size: 2rem;
-    line-height: 2rem;
+    font-size: 1.7rem;
+    line-height: 1.7rem;
   }
 }
 
@@ -10893,5 +10893,11 @@ footer {
 
 .border-black {
   border: 1px solid black;
+}
+
+@media (max-width: 991.98px) {
+  #dropdown {
+    position: absolute;
+  }
 }
 

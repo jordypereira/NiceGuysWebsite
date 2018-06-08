@@ -183,9 +183,9 @@ footer {
   position: relative;
   color: white;
   text-align: center;
-  @include media-breakpoint-down(md) {
-    font-size: 2rem;
-    line-height: 2rem;
+  @include media-breakpoint-up(sm) {
+    font-size: 1.7rem;
+    line-height: 1.7rem;
   }
   @include media-breakpoint-up(md) {
     font-size: 3rem;
@@ -234,4 +234,9 @@ footer {
 
 .border-black {
   border: 1px solid black;
+}
+#dropdown {
+  @include media-breakpoint-down(md) {
+    position: absolute;
+  }
 }

@@ -5,7 +5,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-0 neg-p-15 w-100 d-block">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-0 neg-p-15 w-100 d-block position-relative">
                 <li class="nav-item d-md-block d-lg-inline-block">
                     <a class="nav-link pl-sm-0 {{(Request::is('/')) ? "active" : ""}}" href="{{ route('home') }}">Home</a>
                 </li>
@@ -22,17 +22,17 @@
                         <a class="nav-link dropdown-toggle {{(Request::is('admin/*')) ? "active" : ""}}" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Admin acties
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="/admin/pages/create">Creëer een pagina</a>
-                            <a class="dropdown-item" href="/admin/pages">Bekijk alle pagina's</a>
+                        <div class="dropdown-menu dropdown-menu-right bg-dark" id="dropdown" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item admin-dropdown-item" href="/admin/pages/create">Creëer een pagina</a>
+                            <a class="dropdown-item admin-dropdown-item" href="/admin/pages">Bekijk alle pagina's</a>
                             <hr class="my-2">
-                            <a class="dropdown-item" href="/admin/home/create">Creëer een homeblock</a>
-                            <a class="dropdown-item" href="/admin/home">Bekijk alle homeblocks</a>
+                            <a class="dropdown-item admin-dropdown-item" href="/admin/home/create">Creëer een homeblock</a>
+                            <a class="dropdown-item admin-dropdown-item" href="/admin/home">Bekijk alle homeblocks</a>
                             <hr class="my-2">
-                            <a class="dropdown-item" href="/admin/home/header/edit">Home header foto aanpassen</a>
-                            <a class="dropdown-item" href="/admin/images/create">Upload een foto</a>
+                            <a class="dropdown-item admin-dropdown-item" href="/admin/home/header/edit">Home header foto aanpassen</a>
+                            <a class="dropdown-item admin-dropdown-item" href="/admin/images/create">Upload een foto</a>
                             <hr class="my-2">
-                            <div class="dropdown-item">
+                            <div class="dropdown-item admin-dropdown-item">
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Uitloggen</a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
                             </div>
