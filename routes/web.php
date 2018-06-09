@@ -26,6 +26,8 @@ Route::resource('admin/counter', 'CountController');
 
 Route::post('admin/order/update', 'HomeBlockController@updateOrder')->name('admin.order.update');
 
+Route::post('admin/pages/update', 'PageController@updateOrder')->name('admin.pages.order.update');
+
 Route::get('/admin', 'PageController@admin_page');
 
 

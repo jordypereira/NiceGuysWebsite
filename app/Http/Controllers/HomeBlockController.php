@@ -154,7 +154,7 @@ class HomeBlockController extends Controller{
 
             $homeBlock->save();
 
-            Session::flash('message', 'Block is succesvol toegevoegd.');
+            Session::flash('message', 'Block is succesvol aangemaakt.');
             Session::flash('alert-class', 'alert-success');
             return redirect()->to('admin/home');
         }
@@ -339,6 +339,7 @@ class HomeBlockController extends Controller{
             return redirect('admin/home');
         }
     }
+
     public function getType($block) {
         $count = 0;
 
