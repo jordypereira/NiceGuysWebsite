@@ -21,6 +21,7 @@ class CreatePagesTable extends Migration
             $table->string('image')->nullable();
             $table->string('color')->nullable();
             $table->string('font_color')->nullable();
+            $table->integer('order')->nullable();
             $table->timestamps();
         });
     }

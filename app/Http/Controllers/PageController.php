@@ -18,7 +18,7 @@ class PageController extends Controller {
    */
   public function index() {
     if (Auth::check()) {
-        $pages = Page::all();
+        $pages = Page::all()->sortBy('order');
 
         $header = HomeHeader::find(1);
         $headerImage = $header ? 'header/' . $header->image : NULL;
@@ -89,9 +89,11 @@ class PageController extends Controller {
         $page->body = $request->get('body');
         $page->color = $request->get('color');
         $page->font_color = $request->get('font');
+        $order = count(Page::all());
+        $page->order = $order+1;
 
         $page->save();
-        Session::flash('message', 'De pagina is succesvol toegevoegd.');
+        Session::flash('message', 'De pagina is succesvol aangemaakt.');
         Session::flash('alert-class', 'alert-success');
 
         return redirect()->route('pages.show', [$slug = str_replace(' ', '-', $page->link)]);
@@ -197,6 +199,42 @@ class PageController extends Controller {
         return redirect('admin/pages');
     }
   }
+
+    /**
+     * Update the order of the pages.
+     *
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function updateOrder(Request $request){
+        if(Auth::check()) {
+            $pageIds = DB::table('pages')->pluck('id');
+            $orderIds = [];
+            foreach($pageIds as $id){
+                if(!in_array($request->get($id), $orderIds)){
+                    $orderIds[] = $request->get($id);
+                }
+            }
+
+            if(count($orderIds) === count($pageIds)){
+                foreach($pageIds as $id){
+                    $page = Page::find($id);
+                    $page->order = $request->get($id);
+                    $page->save();
+
+                }
+            }else{
+                Session::flash('message', 'Volgorde mag niet twee dezelfde waarden bevatten.');
+                Session::flash('alert-class', 'alert-danger');
+                return redirect('admin/pages');
+            }
+            Session::flash('message', 'Volgorde is aangepast.');
+            Session::flash('alert-class', 'alert-success');
+            return redirect('admin/pages');
+        }
+    }
+
   public function admin_page() {
       if (Auth::check()) {
           return redirect()->route('home');
