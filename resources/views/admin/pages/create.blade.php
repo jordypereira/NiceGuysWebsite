@@ -6,7 +6,10 @@
 
 @section('content')
     <main class="container py-5">
-        <h1 class="mt-0 mb-4 kiddishmedium">Nieuwe pagina</h1>
+        <h1 class="mt-0 mb-4">
+            <span class="kiddishmedium">Nieuwe pagina</span>
+            <a class="btn btn-danger float-right" href="/admin/pages">Terug naar overzicht</a>
+        </h1>
         <form method="post" action="{{url('admin/pages')}}" enctype="multipart/form-data">
             @csrf
             <div class="form-group mt-0 mb-4">
@@ -78,7 +81,6 @@
             </div>
             <div class="form-group mt-0 mb-4">
                 <button type="submit" class="btn btn-success">Bevestigen</button>
-                <a class="btn btn-danger" href="{{ URL::previous() }}">Annuleren</a>
             </div>
             <script>
                 CKEDITOR.replace('body');

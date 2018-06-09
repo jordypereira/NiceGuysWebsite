@@ -35,7 +35,7 @@
         <table class="table">
             <thead>
             <tr>
-                <th scope="col">#</th>
+                <th scope="col">Pagina id</th>
                 <th scope="col">Titel</th>
                 <th scope="col">Acties</th>
             </tr>

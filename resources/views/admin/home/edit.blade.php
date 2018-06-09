@@ -6,7 +6,10 @@
 
 @section('content')
     <main class="container py-5">
-        <h1 class="mt-0 mb-4"> Bewerk home block</h1>
+        <h1 class="mt-0 mb-4">
+            <span class="kiddishmedium">Bewerk home block</span>
+            <a class="btn btn-danger float-md-right" href="/admin/home">Terug naar overzicht</a>
+        </h1>
         @switch(request()->get('type'))
             @case(1)
                 @include('admin/home/edits/title-text-image')

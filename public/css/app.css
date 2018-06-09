@@ -10617,6 +10617,7 @@ h1 {
 
 .btn-link {
   color: black;
+  line-height: 0;
 }
 
 .btn-link:hover {
@@ -10740,8 +10741,19 @@ main:hover .admin-actions,
 main {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  min-height: calc(100vh - 376px - 102px);
   overflow-y: hidden;
+}
+
+@media (min-width: 768px) {
+  main {
+    min-height: calc(100vh - 376px - 102px);
+  }
+}
+
+@media (max-width: 991.98px) {
+  main {
+    min-height: calc(100vh - 376px - 78px);
+  }
 }
 
 .home-block {

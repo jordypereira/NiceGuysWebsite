@@ -38,6 +38,7 @@ h1 {
 }
 .btn-link {
   color:black;
+  line-height: 0;
 }
 .btn-link:hover {
   text-decoration: none;
@@ -121,8 +122,13 @@ h1 {
 }
 main {
   box-sizing: border-box;
-  min-height: calc(100vh - 376px - 102px);
   overflow-y: hidden;
+  @include media-breakpoint-up(md) {
+    min-height: calc(100vh - 376px - 102px);
+  }
+  @include media-breakpoint-down(md) {
+    min-height: calc(100vh - 376px - 78px);
+  }
 }
 .home-block {
   overflow: hidden;

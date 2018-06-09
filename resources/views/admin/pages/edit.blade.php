@@ -6,7 +6,10 @@
 
 @section('content')
     <main class="container py-5">
-        <h1 class="mt-0 mb-4">Bewerk pagina</h1>
+        <h1 class="mt-0 mb-4">
+            <span class="kiddishmedium">Bewerk pagina</span>
+            <a class="btn btn-danger float-md-right" href="/admin/pages">Terug naar overzicht</a>
+        </h1>
         <form method="post" action="{{url('admin/pages', $page['id'] )}}" enctype="multipart/form-data">
             @method('PUT')
             @csrf
@@ -84,7 +87,6 @@
             </div>
             <div class="form-group mt-0 mb-4" style="margin-top:60px">
                 <button type="submit" class="btn btn-success">Bevestigen</button>
-                <a class="btn btn-danger" role="button" href="{{ URL::previous() }}">Annuleren</a>
             </div>
             <script>
                 CKEDITOR.replace('body');

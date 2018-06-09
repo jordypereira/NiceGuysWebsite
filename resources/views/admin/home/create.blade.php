@@ -7,7 +7,7 @@
 @section('content')
     <main class="container py-5">
         <h1 class="mt-0 mb-4"><span class="kiddishmedium">Nieuw homeblock</span>
-            <a class="btn btn-danger float-md-right" href="{{ URL::previous() }}">Annuleren</a>
+            <a class="btn btn-danger float-md-right" href="/admin/home">Terug naar overzicht</a>
         </h1>
         <div id="accordion">
             <div class="card">

@@ -6,10 +6,6 @@
         <input type="text" class="form-control" name="title" id="title" value="{{ $homeblock['title'] }}">
     </div>
     <div class="form-group mt-0 mb-4">
-        <label for="color">Achtergrond kleur:</label>
-        <input type="color" class="form-control color-input" name="color" id="color" value="{{ $homeblock['color'] }}">
-    </div>
-    <div class="form-group mt-0 mb-4">
         <label for="font">Titel (tekst) kleur:</label>
         <div class="form-control p-2">
             <div class="d-block">
@@ -48,7 +44,10 @@
         <label for="counter_value">Standaardwaarde:</label>
         <input type="text" class="form-control" name="counter_value" id="counter_value" value="{{ $homeblock['counter_value'] }}">
     </div>
-
+    <div class="form-group mt-0 mb-4">
+        <label for="color">Achtergrond kleur:</label>
+        <input type="color" class="form-control color-input" name="color" id="color" value="{{ $homeblock['color'] }}">
+    </div>
     <div class="form-group mt-0 mb-0">
         <button type="submit" class="btn btn-success">Bevestigen</button>
         {{--<a class="btn btn-danger" href="{{ URL::previous() }}">Annuleren</a>--}}
