@@ -8,7 +8,7 @@
     <main class="container py-5">
         <h1 class="mt-0 mb-4">
             <span class="kiddishmedium">Nieuwe pagina</span>
-            <a class="btn btn-danger float-right" href="/admin/pages">Terug naar overzicht</a>
+            <a class="btn btn-danger float-md-right" href="/admin/pages">Terug naar overzicht</a>
         </h1>
         <form method="post" action="{{url('admin/pages')}}" enctype="multipart/form-data">
             @csrf
