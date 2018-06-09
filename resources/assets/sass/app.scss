@@ -160,6 +160,10 @@ main {
     font-size: 12rem;
     line-height: 12rem;
   }
+  @include media-breakpoint-down(sm) {
+    font-size: 10rem;
+    line-height: 10rem;
+  }
 }
 .count-btn {
   font-size: 2rem;
@@ -183,14 +187,15 @@ footer {
   position: relative;
   color: white;
   text-align: center;
-  @include media-breakpoint-up(sm) {
-    font-size: 1.7rem;
-    line-height: 1.7rem;
-  }
   @include media-breakpoint-up(md) {
     font-size: 3rem;
     line-height: 3rem;
   }
+  @include media-breakpoint-down(md) {
+    font-size: 1.7rem;
+    line-height: 1.7rem;
+  }
+
 }
 #footer-button {
   position: absolute;

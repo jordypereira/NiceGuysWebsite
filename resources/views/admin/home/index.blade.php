@@ -37,7 +37,7 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">Block id</th>
                     <th scope="col">Soort</th>
                     <th scope="col">Volgorde</th>
                     <th scope="col">Acties</th>
@@ -58,7 +58,7 @@
                                     Foto
                                 @elseif ($block['type'] == 5)
                                     Video
-                                @elseif ($block['type'] == 6    )
+                                @elseif ($block['type'] == 6)
                                     Teller
                                 @endif
                             </td>
