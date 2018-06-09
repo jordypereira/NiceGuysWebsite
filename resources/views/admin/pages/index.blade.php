@@ -47,7 +47,7 @@
                 @foreach ($pages as $key => $page)
                     <tr>
                         <th scope="row">{{ $key + 1 }}</th>
-                        <td>{{ ucfirst($page['title']) }}</td>
+                        <td>{{ ucfirst($page['link']) }} - {{ ucfirst($page['title']) }}</td>
                         <td>
                             <input class="order-input form-control mr-0" type="number" min="1" max="{{ count($pages) }}" value="{{ $page->order }}" name="{{ $page['id'] }}">
                         </td>

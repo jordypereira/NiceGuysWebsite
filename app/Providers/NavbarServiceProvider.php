@@ -15,7 +15,7 @@ class NavbarServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('*', function ($view) {
-          $pages = Page::all();
+          $pages = Page::all()->sortBy('order');
           $view->pages = $pages;
         });
     }
