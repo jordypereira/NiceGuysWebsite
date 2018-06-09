@@ -32,7 +32,7 @@
                 </div>
             </div>
         @endforeach
-        <form action="" method="post">
+        <form action="{{route('admin.pages.order.update')}}" method="post">
             @csrf
             <table class="table">
                 <thead>
@@ -49,7 +49,7 @@
                         <th scope="row">{{ $key + 1 }}</th>
                         <td>{{ ucfirst($page['title']) }}</td>
                         <td>
-                            <input class="order-input form-control mr-0" type="number" min="1" max="" value="" name="">
+                            <input class="order-input form-control mr-0" type="number" min="1" max="{{ count($pages) }}" value="{{ $page->order }}" name="{{ $page['id'] }}">
                         </td>
                         <td>
                             <a href="/{{ str_replace(' ', '-', $page['link']) }}" target="_blank"><img src="{{ asset('images/eye.png') }}" alt="Eye icon" title="Bekijken"></a>
