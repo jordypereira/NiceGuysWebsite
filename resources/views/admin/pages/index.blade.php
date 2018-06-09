@@ -32,30 +32,39 @@
                 </div>
             </div>
         @endforeach
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">Pagina id</th>
-                <th scope="col">Titel</th>
-                <th scope="col">Acties</th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach ($pages as $key => $page)
+        <form action="" method="post">
+            @csrf
+            <table class="table">
+                <thead>
                 <tr>
-                    <th scope="row">{{ $key + 1 }}</th>
-                    <td>{{ ucfirst($page['title']) }}</td>
-                    <td>
-                        <a href="/{{ str_replace(' ', '-', $page['link']) }}" target="_blank"><img src="{{ asset('images/eye.png') }}" alt="Eye icon" title="Bekijken"></a>
-                        <a href="{{ route('pages.edit', $page['id']) }}" class="n-button"><img src="{{ asset('images/pencil.png') }}" alt="Edit icon" title="Aanpassen"></a>
-                        <button type="button" class="delete-btn" data-toggle="modal" data-target="#exampleModal{{ $page['id'] }}" title="Verwijderen">
-                            <img src="{{ asset('images/cancel-button.png') }}" alt="">
-                        </button>
-                    </td>
+                    <th scope="col">Pagina id</th>
+                    <th scope="col">Titel</th>
+                    <th scope="col">Volgorde</th>
+                    <th scope="col">Acties</th>
                 </tr>
-            @endforeach
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                @foreach ($pages as $key => $page)
+                    <tr>
+                        <th scope="row">{{ $key + 1 }}</th>
+                        <td>{{ ucfirst($page['title']) }}</td>
+                        <td>
+                            <input class="order-input form-control mr-0" type="number" min="1" max="" value="" name="">
+                        </td>
+                        <td>
+                            <a href="/{{ str_replace(' ', '-', $page['link']) }}" target="_blank"><img src="{{ asset('images/eye.png') }}" alt="Eye icon" title="Bekijken"></a>
+                            <a href="{{ route('pages.edit', $page['id']) }}" class="n-button"><img src="{{ asset('images/pencil.png') }}" alt="Edit icon" title="Aanpassen"></a>
+                            <button type="button" class="delete-btn" data-toggle="modal" data-target="#exampleModal{{ $page['id'] }}" title="Verwijderen">
+                                <img src="{{ asset('images/cancel-button.png') }}" alt="">
+                            </button>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+            <button type="submit"  id="order-btn" class="invisible btn btn-success">Aanpassen</button>
+            <button type="button" id="order-decline-btn" class="invisible btn btn-danger">Annuleren</button>
+        </form>
     </main>
 
 @endsection
