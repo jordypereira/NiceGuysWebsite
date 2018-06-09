@@ -144,8 +144,10 @@ function bindEvents() {
             counterBtns[b].addEventListener('click', setYValue);
         }
     }
-
-    window.addEventListener('load', setAdminNavLeft);
-    window.addEventListener('resize', setAdminNavLeft);
+    let dropDown = document.querySelector("#dropdown");
+    if (dropDown) {
+        window.addEventListener('load', setAdminNavLeft);
+        window.addEventListener('resize', setAdminNavLeft);
+    }
 }
 bindEvents();

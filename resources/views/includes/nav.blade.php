@@ -9,14 +9,14 @@
                 <li class="nav-item d-md-block d-lg-inline-block">
                     <a class="nav-link pl-sm-0 {{(Request::is('/')) ? "active" : ""}}" href="{{ route('home') }}">Home</a>
                 </li>
-                <li class="nav-item d-md-block d-lg-inline-block">
-                    <a class="nav-link {{(Request::is('/game')) ? "active" : ""}}" href="{{ route('game') }}">Game</a>
-                </li>
                 @foreach($pages as $page)
                     <li class="nav-item d-md-block d-lg-inline-block">
                         <a class="nav-link {{(Request::is(str_replace(' ', '-', $page['link']))) ? "active" : ""}}" href="/{{ str_replace(' ', '-', $page['link']) }}">{{ ucfirst($page['link']) }}</a>
                     </li>
                 @endforeach
+                <li class="nav-item d-md-block d-lg-inline-block">
+                    <a class="nav-link {{(Request::is('/game')) ? "active" : ""}}" href="{{ route('game') }}">Game</a>
+                </li>
                 @auth
                     <li class="nav-item dropdown d-md-inline-block float-md-none float-lg-right">
                         <a class="nav-link dropdown-toggle {{(Request::is('admin/*')) ? "active" : ""}}" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -33,7 +33,7 @@
                             <a class="dropdown-item admin-dropdown-item" href="/admin/images/create">Upload een foto</a>
                             <hr class="my-2">
                             <div class="dropdown-item admin-dropdown-item">
-                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Uitloggen</a>
+                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="color-white">Uitloggen</a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
                             </div>
                         </div>

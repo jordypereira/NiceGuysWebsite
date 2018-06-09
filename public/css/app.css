@@ -10901,3 +10901,11 @@ footer {
   }
 }
 
+.color-white {
+  color: white;
+}
+
+.color-white:hover {
+  color: white;
+}
+

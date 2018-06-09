@@ -38,7 +38,7 @@
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Titel</th>
+                    <th scope="col">Soort</th>
                     <th scope="col">Volgorde</th>
                     <th scope="col">Acties</th>
                 </tr>
