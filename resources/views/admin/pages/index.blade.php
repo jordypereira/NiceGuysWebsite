@@ -20,7 +20,7 @@
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
-                            <p>Bent u zeker dat u deze pagina wilt verwijderen?</p>
+                            <p>Bent u zeker dat u de pagina met id: {{ $page['id'] }} wilt verwijderen?</p>
                             <form action="{{ route('pages.destroy', $page['id']) }}" method="POST">
                                 @method('DELETE')
                                 @csrf

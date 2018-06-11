@@ -13,12 +13,12 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <p>Bent u zeker dat u foto {{$image['filename']}} wilt verwijderen?</p>
+                        <p>Bent u zeker dat u foto <span style="word-break: break-all;">{{$image['filename']}}</span> wilt verwijderen?</p>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Annuleren</button>
                         <form action="{{ route('images.destroy', $image['id']) }}" method="POST" class="d-inline-block adminButton">
                             @method('DELETE')
                             @csrf
-                            <button class="btn btn-sucess"
+                            <button class="btn btn-success"
                                     title="Delete foto #{{$image['id']}}">
                                 Verwijderen
                             </button>

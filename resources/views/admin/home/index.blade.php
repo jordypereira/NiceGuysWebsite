@@ -20,7 +20,7 @@
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
-                            <p>Bent u zeker dat u dit block wilt verwijderen?</p>
+                            <p>Bent u zeker dat u het block met id:{{ $block['id'] }} wilt verwijderen?</p>
                             <form action="{{ route('home.destroy', $block['id']) }}" method="POST">
                                 @method('DELETE')
                                 @csrf
