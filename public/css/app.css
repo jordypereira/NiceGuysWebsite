@@ -10928,3 +10928,8 @@ footer {
   color: white;
 }
 
+.carousel-inner {
+  border-left: 3px solid #d0003a;
+  padding: 0 0 0 20px;
+}
+
