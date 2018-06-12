@@ -75,8 +75,6 @@ class ImageController extends Controller {
                 Session::flash('alert-class', 'alert-success');
                 return redirect('admin/images/create');
             }
-            $image->type = $request->get('type');
-            $image->save();
             Session::flash('message', 'Er ging iets mis.');
             Session::flash('alert-class', 'alert-danger');
             return redirect('admin/images/create');
