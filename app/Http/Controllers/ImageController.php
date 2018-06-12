@@ -57,7 +57,7 @@ class ImageController extends Controller {
 
             $validatedData = $request->validate([
                 'type' => 'required',
-                'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
 
             if(request()->image){
@@ -69,14 +69,11 @@ class ImageController extends Controller {
                     request()->image->move(public_path('images/header'), $imageName);
                 }
                 $image->filename = $imageName;
-                $image->type = $request->get('type');
-                $image->save();
-                Session::flash('message', 'Afbeelding is succesvol geüpload.');
-                Session::flash('alert-class', 'alert-success');
-                return redirect('admin/images/create');
             }
-            Session::flash('message', 'Er ging iets mis.');
-            Session::flash('alert-class', 'alert-danger');
+            $image->type = $request->get('type');
+            $image->save();
+            Session::flash('message', 'Afbeelding is succesvol geüpload.');
+            Session::flash('alert-class', 'alert-success');
             return redirect('admin/images/create');
         }
     }
